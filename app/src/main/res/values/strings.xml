@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">We_help_you_book</string>
+    <string name="tv_app_name">WE HELP YOU BOOK</string>
+    <string name="tv_input_phone_number">Nhập số điện thoại của bạn để tiếp tục</string>
+    <string name="button_phone_number">Số điện thoại</string>
+    <string name="tv_phone_number">Nhập số điện thoại</string>
+    <string name="hint_phone_number">Số điện thoại</string>
+    <string name="button_continue_phone">Tiếp tục</string>
 </resources>
