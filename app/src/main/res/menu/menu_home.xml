@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/menu_home_item"
+        android:icon="@drawable/ic_baseline_person_pin_24"
+        android:title=""
+        app:showAsAction="always">
+        <!-- "file" submenu -->
+        <menu>
+            <item android:id="@+id/menu_home_login_item"
+                android:title="Đăng nhập" />
+            <item android:id="@+id/menu_home_userinfo_item"
+                android:title="Thông tin người dùng" />
+            <item android:id="@+id/menu_home_voucher_item"
+                android:title="Voucher" />
+        </menu>
+    </item>
+</menu>
