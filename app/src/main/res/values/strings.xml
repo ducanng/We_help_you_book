@@ -7,4 +7,9 @@
     <string name="user_information">Thông tin người dùng</string>
     <string name="feed_back">Phản hồi ứng dụng</string>
     <string name="restaurant_near_you">Nhà hàng gần bạn</string>
+    <string name="tv_app_name">WE HELP YOU BOOK</string>
+    <string name="tv_input_phone_number">Nhập số điện thoại của bạn</string>
+    <string name="button_phone_number">Số điện thoại</string>
+    <string name="hint_phone_number">Số điện thoại</string>
+    <string name="button_continue">Tiếp tục</string>
 </resources>
