@@ -6,7 +6,7 @@
     android:background="@color/colorWhite"
     android:fitsSystemWindows="true">
 
-    <include layout="@layout/toolbar_main" />
+    <include layout="@layout/activity_detail_resto" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -45,7 +45,7 @@
                     android:layout_gravity="center"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
-                    android:text="Suggestions For You
+                    android:text="Suggestions For You"
                     android:textColor="@android:color/white"
                     android:textSize="16sp"
                     android:textStyle="bold" />
