@@ -6,12 +6,12 @@ import java.sql.*
 
 
 class Database {
-    private var ip = "192.168.100.9"
-    private val port = "1433"
+    private var ip = "172.17.0.2"
+    private val port = "135"
     private val classes = "net.sourceforge.jtds.jdbc.Driver"
     private val database = "test"
     private val username = "sa"
-    private val password = "svcntt"
+    private val password = "Valuetech@123"
     private val url = "jdbc:jtds:sqlserver://$ip:$port/$database"
     private var connection: Connection? = null
     private fun connectDB(): Connection? {

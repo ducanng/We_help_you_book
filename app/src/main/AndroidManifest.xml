@@ -24,14 +24,9 @@
         <activity
             android:name=".Feedback"
             android:exported="true">
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN"/> -->
-            <!-- <category android:name="android.intent.category.LAUNCHER"/> -->
-            <!-- </intent-filter> -->
         </activity>
         <activity
-            android:name=".HomeActivity"
+            android:name=".homescreen.HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,10 +37,10 @@
         <activity android:name=".TestActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".HomeActivity" />
+                android:value=".homescreen.HomeActivity" />
         </activity>
         <activity
-            android:name=".SearchableHomeActivity"
+            android:name=".homescreen.SearchableHomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />

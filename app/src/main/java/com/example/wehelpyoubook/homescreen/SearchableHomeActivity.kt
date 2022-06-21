@@ -1,10 +1,11 @@
-package com.example.wehelpyoubook
+package com.example.wehelpyoubook.homescreen
 
 import android.app.SearchManager
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.example.wehelpyoubook.R
 
 
 class SearchableHomeActivity : AppCompatActivity() {
