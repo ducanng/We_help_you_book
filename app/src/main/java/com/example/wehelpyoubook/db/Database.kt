@@ -4,6 +4,7 @@ import android.os.StrictMode
 import android.util.Log
 import java.sql.*
 
+
 class Database {
     private var ip = "192.168.100.9"
     private val port = "1433"
@@ -13,7 +14,7 @@ class Database {
     private val password = "svcntt"
     private val url = "jdbc:jtds:sqlserver://$ip:$port/$database"
     private var connection: Connection? = null
-    fun connectDB(): Connection? {
+    private fun connectDB(): Connection? {
         val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()
         StrictMode.setThreadPolicy(policy)
         try {
@@ -31,31 +32,55 @@ class Database {
         }
         return connection
     }
-    fun isCheckExistPhoneNumber(phone : String, connection : Connection):Boolean {
-        var statement: Statement? = null
+    fun isCheckExist(table: String, column: String ,value: String):Boolean {
         try {
-            statement = connection.createStatement()
-            val resultSet = statement.executeQuery("SELECT so_dien_thoai FROM test WHERE so_dien_thoai = $phone;")
-            if (resultSet.next()) {
-                return true
+            val con: Connection? = this.connectDB()
+            if (con == null) {
+                Log.e("Error", "Can't connect database")
+            } else {
+                val query = "SELECT * FROM $table WHERE $column='$value'"
+                val ps: Statement = con.createStatement()
+                val rs: ResultSet = ps.executeQuery(query)
+                if (rs.next()) {
+                    if (value == rs.getString(column)) {
+                        return true
+                    }
+                }
+                con.close()
             }
         } catch (e: SQLException) {
             e.printStackTrace()
         }
         return false
     }
-    //0 : table
-    //
-//    fun Insert( column: List<String> = listOf<String>(), values: List<String> = listOf<String>(), connection: Connection){
-//        try {
-//            for (i in column.indices) {
-//
-//            }
-//            val query = "INSERT INTO account(so_dien_thoai) VALUES ('$phone')"
-//            val stmt: Statement = connection.createStatement()
-//            stmt.executeUpdate(query)
-//        } catch (se: SQLException) {
-//            Log.e("Error from SQLException", se.message!!)
-//        }
-//    }
+    fun insert(table: String, column: List<String> = listOf(), values: List<String> = listOf()):Boolean{
+        try {
+            val connection: Connection? = this.connectDB()
+            var query = "INSERT INTO $table(" //account(so_dien_thoai) VALUES ('$phone')"
+            for (i in column.indices) {
+                if (i == column.size - 1) {
+                    query += column[i] + ")"
+                    break
+                }
+                query += column[i] + ","
+            }
+            query += "VALUES ("
+            for (i in values.indices) {
+                if (i == values.size - 1) {
+                    query += "'" + values[i] + "')"
+                    break
+                }
+                query += "'" + values[i] + "',"
+            }
+            if (connection == null) {
+                return false
+            } else  {
+                val stmt: Statement = connection.createStatement()
+                stmt.executeUpdate(query)
+            }
+        } catch (se: SQLException) {
+            Log.e("Error from SQLException", se.message!!)
+        }
+        return true
+    }
 }

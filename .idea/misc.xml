@@ -3,10 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/HP/AndroidStudioProjects/We_help_you_book/app/src/main/res/layout/activity_home.xml" value="0.2" />
-        <entry key="..\:/Users/HP/AndroidStudioProjects/We_help_you_book/app/src/main/res/layout/activity_home_sign_in.xml" value="0.264" />
-        <entry key="..\:/Users/HP/AndroidStudioProjects/We_help_you_book/app/src/main/res/layout/activity_phone_number.xml" value="0.264" />
-        <entry key="..\:/Users/HP/AndroidStudioProjects/We_help_you_book/app/src/main/res/layout/near_restaurant_gird_list.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/HP/Desktop/An_vs_code/We_help_you_book/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.231" />
+        <entry key="..\:/Users/HP/Desktop/An_vs_code/We_help_you_book/app/src/main/res/drawable/ic_baseline_person_pin_24.xml" value="0.231" />
+        <entry key="..\:/Users/HP/Desktop/An_vs_code/We_help_you_book/app/src/main/res/drawable/ic_launcher_background.xml" value="0.231" />
+        <entry key="..\:/Users/HP/Desktop/An_vs_code/We_help_you_book/app/src/main/res/layout/activity_home.xml" value="0.264" />
+        <entry key="..\:/Users/HP/Desktop/An_vs_code/We_help_you_book/app/src/main/res/layout/activity_home_sign_in.xml" value="0.264" />
+        <entry key="..\:/Users/HP/Desktop/An_vs_code/We_help_you_book/app/src/main/res/layout/activity_login.xml" value="0.25833333333333336" />
+        <entry key="..\:/Users/HP/Desktop/An_vs_code/We_help_you_book/app/src/main/res/layout/activity_phone_number.xml" value="0.264" />
+        <entry key="..\:/Users/HP/Desktop/An_vs_code/We_help_you_book/app/src/main/res/layout/activity_register.xml" value="0.25833333333333336" />
+        <entry key="..\:/Users/HP/Desktop/An_vs_code/We_help_you_book/app/src/main/res/layout/activity_searchable_home.xml" value="0.25833333333333336" />
+        <entry key="..\:/Users/HP/Desktop/An_vs_code/We_help_you_book/app/src/main/res/layout/activity_test.xml" value="0.25833333333333336" />
+        <entry key="..\:/Users/HP/Desktop/An_vs_code/We_help_you_book/app/src/main/res/layout/near_restaurant_gird_list.xml" value="0.25833333333333336" />
+        <entry key="..\:/Users/HP/Desktop/An_vs_code/We_help_you_book/app/src/main/res/menu/menu_home.xml" value="0.25833333333333336" />
       </map>
     </option>
   </component>

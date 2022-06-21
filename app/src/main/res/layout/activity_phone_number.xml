@@ -14,27 +14,27 @@
         tools:ignore="UselessParent">
 
         <TextView
-            android:id="@+id/input_phone_number"
+            android:id="@+id/input_phone_number_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="80dp"
             android:layout_marginBottom="20dp"
-            android:text="@string/tv_input_phone_number"
+            android:text="@string/input_phone_number"
             android:textColor="#0B0A0A"
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/edit_phone_number"
+            android:id="@+id/phone_number_edittext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="20dp"
             android:completionThreshold="1"
-            android:drawableStart="@drawable/incon"
+            android:drawableStart="@drawable/icon_vn"
             android:ems="20"
-            android:hint="@string/hint_phone_number"
+            android:hint="@string/phone_number"
             android:importantForAutofill="no"
             android:inputType="phone"
             android:maxLength="10"
@@ -53,7 +53,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="360dp"
                 android:layout_marginRight="10dp"
-                android:text="@string/button_continue" />
+                android:text="@string/next" />
 
         </LinearLayout>
 

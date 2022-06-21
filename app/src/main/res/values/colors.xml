@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="blue">#e3f2fd</color>
-    <color name="white">#ffffff</color>
-    <color name="gray" >#b1bfca</color>
+    <color name="Primary">#a5d6a7</color>  <!-- Theme-->
+    <color name="PrimaryVariant">#d7ffd9</color>
+    <color name="OnPrimary" >#FFFFFF</color> <!-- Text,button -->
 
-    <color name="cyan" >#18ffff</color>
-    <color name="cyan_light">#6effff</color>
-    <color name="cyan_dark">#00b2cc</color>
+    <color name="Secondary" >#ffe57f</color> <!-- Widget -->
+    <color name="SecondaryVariant">#FFFFFF</color> <!-- BK -->
+    <color name="OnSecondary">#FFFFFF</color>
 </resources>

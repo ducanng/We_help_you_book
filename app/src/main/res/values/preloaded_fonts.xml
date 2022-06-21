@@ -2,6 +2,5 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/black_and_white_picture</item>
-        <item>@font/black_ops_one</item>
     </array>
 </resources>

@@ -29,23 +29,23 @@
             tools:ignore="ContentDescription" />
 
         <TextView
-            android:id="@+id/app_name"
+            android:id="@+id/app_name_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="-70dp"
             android:layout_marginBottom="10dp"
             android:fontFamily="@font/black_and_white_picture"
-            android:text="@string/tv_app_name"
+            android:text="@string/full_app_name"
             android:textAlignment="center"
             android:textColor="#D739BD3E"
             android:textSize="30sp" />
 
         <TextView
-            android:id="@+id/input_phone_number"
+            android:id="@+id/input_phone_number_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:text="@string/tv_input_phone_number"
+            android:text="@string/input_phone_number"
             android:textAlignment="center"
             android:textColor="#0B0A0A"
             android:textSize="18sp" />
@@ -57,8 +57,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="25dp"
-            android:drawableStart="@drawable/incon"
-            android:text="@string/button_phone_number" />
+            android:text="@string/phone_number" />
 
     </LinearLayout>
 </RelativeLayout>

@@ -16,7 +16,7 @@ class HomeSignInActivity : AppCompatActivity() {
 
         btnCallInputPhoneActivity = findViewById<View>(R.id.phone_number_button) as Button
         btnCallInputPhoneActivity!!.setOnClickListener {
-            val intent = Intent(this@HomeSignInActivity, com.example.wehelpyoubook.account.PhoneNumberActivity::class.java)
+            val intent = Intent(this@HomeSignInActivity, PhoneNumberActivity::class.java)
             startActivity(intent)
         }
     }
