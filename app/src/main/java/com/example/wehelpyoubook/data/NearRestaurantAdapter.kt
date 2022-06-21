@@ -5,7 +5,7 @@ import com.example.wehelpyoubook.model.Restaurant
 
 class NearRestaurantData {
     fun loadNearRestaurant() : List<Restaurant> {
-        return listOf<Restaurant>(
+        return listOf(
             Restaurant(
                 R.drawable.khoai,
                 "Nhà Hàng Khoái - Món Ngon Nha Trang",

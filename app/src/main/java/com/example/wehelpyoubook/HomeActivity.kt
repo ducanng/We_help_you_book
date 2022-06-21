@@ -2,14 +2,12 @@ package com.example.wehelpyoubook
 
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
-import android.view.MenuItem
-
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.example.wehelpyoubook.accountcontrol.HomeSignInActivity
 import com.example.wehelpyoubook.adapter.NearRestaurantAdapter
 import com.example.wehelpyoubook.data.NearRestaurantData
 import com.example.wehelpyoubook.databinding.ActivityHomeBinding
@@ -29,6 +27,9 @@ class HomeActivity : AppCompatActivity() {
 
         binding.restaurantListButton.setOnClickListener {
             startActivity(Intent(this,TestActivity::class.java))
+        }
+        binding.userInformationButton.setOnClickListener {
+            startActivity(Intent(this,HomeSignInActivity::class.java))
         }
     }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

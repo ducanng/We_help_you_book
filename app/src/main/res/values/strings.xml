@@ -1,4 +1,5 @@
 <resources>
+    <!-- Hoang -->
     <string name="app_name">WhyBook?</string>
     <string name="rate">Rate: %1$s</string>
     <string name="restaurant_list">Danh sách nhà hàng</string>
@@ -8,8 +9,20 @@
     <string name="feed_back">Phản hồi ứng dụng</string>
     <string name="restaurant_near_you">Nhà hàng gần bạn</string>
 
+    <!-- Duong -->
     <string name="primary_color">Primary color</string>
     <string name="button">Button</string>
     <string name="secondary_color">Secondary color</string>
     <string name="email_icon">email icon</string>
+
+    <!-- An -->
+    <string name="full_app_name">WE HELP YOU BOOK</string>
+    <string name="input_phone_number">Nhập số điện thoại của bạn</string>
+    <string name="phone_number">Số điện thoại</string>
+    <string name="next">Tiếp tục</string>
+    <string name="input_password">Nhập mật khẩu</string>
+    <string name="password">Mật khẩu</string>
+    <string name="login">Đăng nhập</string>
+    <string name="register">Đăng ký</string>
+    <string name="settv">settv</string>
 </resources>

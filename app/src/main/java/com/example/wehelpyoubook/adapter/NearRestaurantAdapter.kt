@@ -14,7 +14,7 @@ class NearRestaurantAdapter (
     private val context: Context,
     private val dataset: List<Restaurant>
 ) : RecyclerView.Adapter<NearRestaurantAdapter.NearRestaurantViewHolder>(){
-    class NearRestaurantViewHolder(private  val view: View) : RecyclerView.ViewHolder(view) {
+    class NearRestaurantViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val imageView: ImageView = view.findViewById(R.id.restaurant_image)
         val nameTextView: TextView = view.findViewById(R.id.restaurant_name)
         val rateTextView: TextView = view.findViewById((R.id.restaurant_rate))
