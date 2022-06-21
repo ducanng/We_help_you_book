@@ -7,4 +7,9 @@
     <string name="user_information">Thông tin người dùng</string>
     <string name="feed_back">Phản hồi ứng dụng</string>
     <string name="restaurant_near_you">Nhà hàng gần bạn</string>
+
+    <string name="primary_color">Primary color</string>
+    <string name="button">Button</string>
+    <string name="secondary_color">Secondary color</string>
+    <string name="email_icon">email icon</string>
 </resources>
