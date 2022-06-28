@@ -6,11 +6,10 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.RecyclerView
+import com.example.wehelpyoubook.Feedback
 import com.example.wehelpyoubook.R
 import com.example.wehelpyoubook.TestActivity
 import com.example.wehelpyoubook.accountcontrol.HomeSignInActivity
-import com.example.wehelpyoubook.accountcontrol.LoginActivity
 import com.example.wehelpyoubook.adapter.NearRestaurantAdapter
 import com.example.wehelpyoubook.data.NearRestaurantData
 import com.example.wehelpyoubook.databinding.ActivityHomeBinding
@@ -23,16 +22,18 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val myDataset = NearRestaurantData().loadNearRestaurant()
-        val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
+        val myDataset = NearRestaurantData().loadNearRestaurant().toList()
 
-        recyclerView.adapter = NearRestaurantAdapter(this,myDataset)
-        recyclerView.setHasFixedSize(true)
+        binding.recyclerView.adapter = NearRestaurantAdapter(this,myDataset)
+        binding.recyclerView.setHasFixedSize(true)
         binding.restaurantListButton.setOnClickListener {
             startActivity(Intent(this, TestActivity::class.java))
         }
         binding.userInformationButton.setOnClickListener {
             startActivity(Intent(this,HomeSignInActivity::class.java))
+        }
+        binding.feedbackButton.setOnClickListener {
+            startActivity(Intent(this, Feedback::class.java))
         }
     }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

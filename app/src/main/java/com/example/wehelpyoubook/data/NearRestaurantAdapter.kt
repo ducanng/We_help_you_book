@@ -4,8 +4,9 @@ import com.example.wehelpyoubook.R
 import com.example.wehelpyoubook.model.Restaurant
 
 class NearRestaurantData {
-    fun loadNearRestaurant() : List<Restaurant> {
-        return listOf(
+    private var listRestaurant = mutableSetOf<Restaurant>()
+    fun loadNearRestaurant() : MutableSet<Restaurant> {
+        listRestaurant = mutableSetOf(
             Restaurant(
                 R.drawable.khoai,
                 "Nhà Hàng Khoái - Món Ngon Nha Trang",
@@ -37,5 +38,16 @@ class NearRestaurantData {
                 "8.3"
             ),
         )
+        return listRestaurant
     }
+    fun addRestaurant(restaurant: Restaurant) : Boolean{
+        return listRestaurant.add(restaurant)
+    }
+    fun removeRestaurant(restaurant: Restaurant) : Boolean{
+        return listRestaurant.remove(restaurant)
+    }
+    fun getRestaurant(restaurant: Restaurant) : Restaurant? {
+        return listRestaurant.find { (it == restaurant) }
+    }
+
 }
