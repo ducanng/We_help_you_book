@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wehelpyoubook.R
+import com.example.wehelpyoubook.interfacecontrol.DataCenter
 import com.example.wehelpyoubook.model.Restaurant
 
 class NearRestaurantAdapter (

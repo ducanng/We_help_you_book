@@ -13,6 +13,9 @@ import com.example.wehelpyoubook.accountcontrol.HomeSignInActivity
 import com.example.wehelpyoubook.adapter.NearRestaurantAdapter
 import com.example.wehelpyoubook.data.NearRestaurantData
 import com.example.wehelpyoubook.databinding.ActivityHomeBinding
+import com.example.wehelpyoubook.interfacecontrol.DataCenter
+import com.example.wehelpyoubook.model.Food
+import java.util.*
 
 
 class HomeActivity : AppCompatActivity() {
@@ -45,6 +48,9 @@ class HomeActivity : AppCompatActivity() {
             startActivity(Intent(this, HomeSignInActivity::class.java))
             return@setOnMenuItemClickListener true
         }
+//        val da  = DataCenter(Food("2","2",1,"2"))
+//        val food = Food("2","2",1,"2")
+//        food.Name
         return true
     }
 

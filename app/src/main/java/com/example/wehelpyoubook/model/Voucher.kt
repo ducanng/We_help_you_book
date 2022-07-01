@@ -1,17 +1,13 @@
 package com.example.wehelpyoubook.model
 
-import androidx.annotation.DrawableRes
 import com.example.wehelpyoubook.interfacecontrol.DataCenter
 
-class Restaurant (
-    @DrawableRes val imageResourceId: Int,
-    val name: String,
-    val rate: String,
-//    val address: String,
-//    val phoneNumber: String
+class Voucher(
+    val userId : String,
+    val description : String
 ) : DataCenter{
     @Override
-    override fun getData() : Restaurant {
+    override fun getData() : Voucher {
         return this
     }
     override fun insertData() : Boolean{
@@ -24,4 +20,3 @@ class Restaurant (
         return true
     }
 }
-

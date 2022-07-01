@@ -1,9 +1,11 @@
 package com.example.wehelpyoubook.data
 
 import com.example.wehelpyoubook.R
+import com.example.wehelpyoubook.interfacecontrol.DataCenter
+import com.example.wehelpyoubook.model.Food
 import com.example.wehelpyoubook.model.Restaurant
 
-class NearRestaurantData {
+class NearRestaurantData : DataCenter {
     private var listRestaurant = mutableSetOf<Restaurant>()
     fun loadNearRestaurant() : MutableSet<Restaurant> {
         listRestaurant = mutableSetOf(
@@ -40,14 +42,26 @@ class NearRestaurantData {
         )
         return listRestaurant
     }
-    fun addRestaurant(restaurant: Restaurant) : Boolean{
-        return listRestaurant.add(restaurant)
+//    fun addRestaurant(restaurant: Restaurant) : Boolean{
+//        return listRestaurant.add(restaurant)
+//    }
+//    fun removeRestaurant(restaurant: Restaurant) : Boolean{
+//        return listRestaurant.remove(restaurant)
+//    }
+//    fun getRestaurant(restaurant: Restaurant) : Restaurant? {
+//        return listRestaurant.find { (it == restaurant) }
+//    }
+    override fun getData() : NearRestaurantData {
+    return this
+}
+    override fun insertData() : Boolean{
+        return true
     }
-    fun removeRestaurant(restaurant: Restaurant) : Boolean{
-        return listRestaurant.remove(restaurant)
+    override fun deleteData() : Boolean{
+        return true
     }
-    fun getRestaurant(restaurant: Restaurant) : Restaurant? {
-        return listRestaurant.find { (it == restaurant) }
+    override fun updateData() : Boolean{
+        return true
     }
 
 }
