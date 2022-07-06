@@ -3,21 +3,20 @@ package com.example.wehelpyoubook.accountcontrol
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.example.wehelpyoubook.R
 
-class HomeSignInActivity : AppCompatActivity() {
-    private var btnCallInputPhoneActivity: Button? = null
+
+open class HomeSignInActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_sign_in)
-
-        btnCallInputPhoneActivity = findViewById<View>(R.id.phone_number_button) as Button
-        btnCallInputPhoneActivity!!.setOnClickListener {
-            val intent = Intent(this@HomeSignInActivity, PhoneNumberActivity::class.java)
-            startActivity(intent)
+        //Email SignIn
+        findViewById<View>(R.id.email_signin_button).setOnClickListener {
+            startActivity(Intent(this@HomeSignInActivity, EmailActivity::class.java))
         }
+//        findViewById<View>(R.id.google).setOnClickListener {
+//        }
     }
 }

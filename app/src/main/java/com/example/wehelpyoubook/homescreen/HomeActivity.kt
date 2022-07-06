@@ -10,12 +10,8 @@ import com.example.wehelpyoubook.Feedback
 import com.example.wehelpyoubook.R
 import com.example.wehelpyoubook.TestActivity
 import com.example.wehelpyoubook.accountcontrol.HomeSignInActivity
-
 import com.example.wehelpyoubook.databinding.ActivityHomeBinding
-import com.example.wehelpyoubook.interfacecontrol.DataCenter
-import com.example.wehelpyoubook.model.Food
 import com.example.wehelpyoubook.scrapingdata.ScrapingData
-import java.util.*
 
 
 class HomeActivity : AppCompatActivity() {
@@ -30,7 +26,7 @@ class HomeActivity : AppCompatActivity() {
 //        binding.recyclerView.adapter = NearRestaurantAdapter(this,myDataset)
 
         // Scraping data from foody.vn
-        var listRes = ScrapingData().restaurantScraping("https://www.foody.vn/ho-chi-minh/food/dia-diem?q=nha+hang&ss=header_search_form&page=")
+        val listRes = ScrapingData().restaurantScraping("https://www.foody.vn/ho-chi-minh/food/dia-diem?q=nha+hang&ss=header_search_form&page=")
         println( listRes.size)
 
 

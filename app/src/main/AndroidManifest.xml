@@ -21,7 +21,7 @@
             android:name=".accountcontrol.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".accountcontrol.PhoneNumberActivity"
+            android:name=".accountcontrol.EmailActivity"
             android:exported="false" />
         <activity
             android:name=".Feedback"

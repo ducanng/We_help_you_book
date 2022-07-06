@@ -3,11 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".accountcontrol.LoginActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center"
         android:orientation="vertical"
         tools:ignore="UselessParent">
 
@@ -15,29 +17,54 @@
             android:id="@+id/input_password_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
             android:layout_marginBottom="30dp"
             android:text="@string/input_password"
             android:textColor="#0B0A0A"
             android:textSize="25sp"
             android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/login_password_edittext"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/password"
-            android:inputType="textPassword"
-            android:minHeight="48dp"
-            android:autofillHints="" />
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/login_password_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:hint="@string/password"
+                android:importantForAutofill="no"
+                android:inputType="textPassword"
+                android:textColorHint="#757575" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="411dp"
+            android:layout_height="40dp"
+            android:gravity="end"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/forgot_password_textview"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:text="@string/forgot_password"
+                android:textSize="15sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="30dp"/>
+        </LinearLayout>
 
         <Button
             android:id="@+id/login_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="345dp"
+            android:layout_height="61dp"
             android:layout_marginTop="300dp"
-            android:text="@string/login" />
+            android:text="@string/login"
+            android:textColor="#6D4C41"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

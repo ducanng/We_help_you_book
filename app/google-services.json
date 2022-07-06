@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "641931478982",
+    "project_id": "we-help-you-book",
+    "storage_bucket": "we-help-you-book.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:641931478982:android:52cd4c2e1500230f8154c7",
+        "android_client_info": {
+          "package_name": "com.example.wehelpyoubook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "641931478982-33tc677ru0p6ft0jcc74bfi2l26tm16l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.wehelpyoubook",
+            "certificate_hash": "e838c7d5b835a76f6905cc12fde82a7a833c7a0d"
+          }
+        },
+        {
+          "client_id": "641931478982-0sougug1mcjicgfhcm37ii3qkpup4toe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOdXfjQLYhUtuj3tTZLmG0-ALNp87bv1Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "641931478982-0sougug1mcjicgfhcm37ii3qkpup4toe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

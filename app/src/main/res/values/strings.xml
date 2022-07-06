@@ -17,12 +17,17 @@
 
     <!-- An -->
     <string name="full_app_name">WE HELP YOU BOOK</string>
-    <string name="input_phone_number">Nhập số điện thoại của bạn</string>
-    <string name="phone_number">Số điện thoại</string>
+    <string name="sign_in_by">Đăng nhập bằng</string>
+    <string name="email">Email</string>
     <string name="next">Tiếp tục</string>
     <string name="input_password">Nhập mật khẩu</string>
     <string name="password">Mật khẩu</string>
     <string name="login">Đăng nhập</string>
     <string name="register">Đăng ký</string>
     <string name="settv">settv</string>
+    <string name="fullname">Nhập họ tên</string>
+    <string name="fullname_hint">Họ tên</string>
+    <string name="input_repass_textview">Nhập lại mật khẩu</string>
+    <string name="forgot_password">Quên mật khẩu?</string>
+
 </resources>
