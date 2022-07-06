@@ -10,11 +10,11 @@ import com.example.wehelpyoubook.Feedback
 import com.example.wehelpyoubook.R
 import com.example.wehelpyoubook.TestActivity
 import com.example.wehelpyoubook.accountcontrol.HomeSignInActivity
-import com.example.wehelpyoubook.adapter.NearRestaurantAdapter
-import com.example.wehelpyoubook.data.NearRestaurantData
+
 import com.example.wehelpyoubook.databinding.ActivityHomeBinding
 import com.example.wehelpyoubook.interfacecontrol.DataCenter
 import com.example.wehelpyoubook.model.Food
+import com.example.wehelpyoubook.scrapingdata.ScrapingData
 import java.util.*
 
 
@@ -25,10 +25,16 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val myDataset = NearRestaurantData().loadNearRestaurant().toList()
+//        val myDataset = NearRestaurantData().loadNearRestaurant().toList()
+//
+//        binding.recyclerView.adapter = NearRestaurantAdapter(this,myDataset)
 
-        binding.recyclerView.adapter = NearRestaurantAdapter(this,myDataset)
-        binding.recyclerView.setHasFixedSize(true)
+        // Scraping data from foody.vn
+        var listRes = ScrapingData().restaurantScraping("https://www.foody.vn/ho-chi-minh/food/dia-diem?q=nha+hang&ss=header_search_form&page=")
+        println( listRes.size)
+
+
+            binding.recyclerView.setHasFixedSize(true)
         binding.restaurantListButton.setOnClickListener {
             startActivity(Intent(this, TestActivity::class.java))
         }

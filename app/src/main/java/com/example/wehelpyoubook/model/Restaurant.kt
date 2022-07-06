@@ -4,11 +4,11 @@ import androidx.annotation.DrawableRes
 import com.example.wehelpyoubook.interfacecontrol.DataCenter
 
 class Restaurant (
-    @DrawableRes val imageResourceId: Int,
+    val resID: String,
     val name: String,
     val rate: String,
-//    val address: String,
-//    val phoneNumber: String
+    val address: String,
+    val imageUrl: String
 ) : DataCenter{
     @Override
     override fun getData() : Restaurant {
