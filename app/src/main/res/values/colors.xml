@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="Primary">#a5d6a7</color>  <!-- Theme-->
+    <color name="PrimaryVariant">#d7ffd9</color>
+    <color name="OnPrimary" >#FFFFFF</color> <!-- Text,button -->
+
+    <color name="Secondary" >#ffe57f</color> <!-- Widget -->
+    <color name="SecondaryVariant">#FFFFFF</color> <!-- BK -->
+    <color name="OnSecondary">#FFFFFF</color>
+
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>

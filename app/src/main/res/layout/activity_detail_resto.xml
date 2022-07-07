@@ -122,7 +122,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvHighlights"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
                 android:layout_marginTop="10dp"
                 android:nestedScrollingEnabled="false" />
 
@@ -229,7 +229,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
 
-                        android:text="Telepon"
+                        android:text="@string/telephone"
                         android:textAllCaps="true"
                         android:textColor="@color/colorPrimary"
                         android:textSize="12sp" />
@@ -237,7 +237,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/llWebsite"
+                    android:id="@+id/Website"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -280,9 +280,30 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvReviewRestaurant"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="10dp"
                 android:nestedScrollingEnabled="false" />
+
+            <EditText
+                android:id="@+id/phone_number_edittext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="20dp"
+                android:completionThreshold="1"
+                android:background="@drawable/input_comment_bg"
+                android:drawableEnd="@drawable/ic_baseline_send_24"
+                android:ems="20"
+                android:hint="@string/Enter_your_comment"
+                android:importantForAutofill="no"
+                android:inputType="phone"
+                android:maxLength="10"
+                android:minHeight="48dp"
+                android:textSize="18sp"
+                app:counterMaxLength="10" />
+
+
 
         </LinearLayout>
 
