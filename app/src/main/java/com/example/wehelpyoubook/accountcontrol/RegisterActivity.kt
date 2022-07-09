@@ -10,15 +10,15 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.wehelpyoubook.R
-import com.example.wehelpyoubook.homescreen.HomeActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.UserProfileChangeRequest
+
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private var btnCallRegister: Button? = null
     private var editName: EditText? = null
-    private var editPhone: EditText? = null
     private var editPass: TextInputEditText? = null
     private var editRepass: TextInputEditText? = null
     @SuppressLint("SetTextI18n")
@@ -32,7 +32,6 @@ class RegisterActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.set_textview).text = "Đăng kí tài khoản với $email"
 
         editName = findViewById(R.id.fullname_edittext)
-        editPhone = findViewById(R.id.phone_edittext)
 
         editPass = findViewById(R.id.register_password_edittext)
         editRepass = findViewById(R.id.register_repassword_edittext)
@@ -48,17 +47,28 @@ class RegisterActivity : AppCompatActivity() {
             }
         }
     }
+    @Suppress("NAME_SHADOWING")
     private fun createAccount(email: String, password: String) {
         // [START create_user_with_email]
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
-                    startActivity(Intent(this@RegisterActivity, HomeActivity::class.java))
+                    val user = auth.currentUser
+                    val profileUpdates = UserProfileChangeRequest.Builder()
+                        .setDisplayName(editName.toString()).build()
+                    user!!.updateProfile(profileUpdates)
+                        .addOnCompleteListener { task ->
+                            if (task.isSuccessful) {
+                                Toast.makeText(this@RegisterActivity, "Đã cập nhật tên", Toast.LENGTH_SHORT)
+                                    .show()
+                            }
+                        }
+                    val intent = Intent(this@RegisterActivity, EmailVerificationActivity::class.java)
+                    startActivity(intent)
                     finishAffinity()
                 } else {
                     // If sign in fails, display a message to the user.
-                    Toast.makeText(this, "Authentication failed.",
+                    Toast.makeText(this, "Đăng kí thất bại",
                         Toast.LENGTH_SHORT).show()
                 }
             }

@@ -4,13 +4,16 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/HP/Desktop/Learninggit/We_help_you_book/app/src/main/res/layout/activity_detail_resto.xml" value="0.25833333333333336" />
+        <entry key="..\:/Users/HP/Desktop/Learninggit/We_help_you_book/app/src/main/res/layout/activity_email_verification.xml" value="0.25833333333333336" />
         <entry key="..\:/Users/HP/Desktop/Learninggit/We_help_you_book/app/src/main/res/layout/activity_feedback.xml" value="0.25833333333333336" />
         <entry key="..\:/Users/HP/Desktop/Learninggit/We_help_you_book/app/src/main/res/layout/activity_home.xml" value="0.25833333333333336" />
         <entry key="..\:/Users/HP/Desktop/Learninggit/We_help_you_book/app/src/main/res/layout/activity_home_sign_in.xml" value="0.2" />
         <entry key="..\:/Users/HP/Desktop/Learninggit/We_help_you_book/app/src/main/res/layout/activity_input_email.xml" value="0.25833333333333336" />
         <entry key="..\:/Users/HP/Desktop/Learninggit/We_help_you_book/app/src/main/res/layout/activity_login.xml" value="0.25833333333333336" />
+        <entry key="..\:/Users/HP/Desktop/Learninggit/We_help_you_book/app/src/main/res/layout/activity_main.xml" value="0.25833333333333336" />
         <entry key="..\:/Users/HP/Desktop/Learninggit/We_help_you_book/app/src/main/res/layout/activity_phone_number.xml" value="0.25833333333333336" />
         <entry key="..\:/Users/HP/Desktop/Learninggit/We_help_you_book/app/src/main/res/layout/activity_register.xml" value="0.25833333333333336" />
+        <entry key="..\:/Users/HP/Desktop/Learninggit/We_help_you_book/app/src/main/res/menu/menu_home.xml" value="0.115625" />
       </map>
     </option>
   </component>

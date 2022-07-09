@@ -43,7 +43,7 @@
             android:fontFamily="@font/black_and_white_picture"
             android:text="@string/full_app_name"
             android:textAlignment="center"
-            android:textColor="#D739BD3E"
+            android:textColor="#43A047"
             android:textSize="30sp" />
 
         <TextView
@@ -65,14 +65,15 @@
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
             android:drawableLeft="@drawable/mail_icon"
-            android:text="@string/email" />
+            android:text="@string/email"
+            tools:ignore="RtlHardcoded" />
 
         <TextView
             android:layout_width="151dp"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginBottom="10dp"
             android:layout_weight="1"
-            android:text="hoặc tiếp tục bằng"
+            android:text="@string/continue_with"
             android:textAlignment="center"
             android:textColor="#0B0A0A" />
 
@@ -85,16 +86,18 @@
                 android:id="@+id/google"
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="120dp"
-                android:layout_marginRight="10dp"
-                app:srcCompat="@drawable/google_icon" />
+                android:layout_marginStart="120dp"
+                android:layout_marginEnd="10dp"
+                app:srcCompat="@drawable/google_icon"
+                android:contentDescription="@string/todo" />
 
             <ImageView
                 android:id="@+id/facebook"
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="0dp"
-                app:srcCompat="@drawable/facebook_icon" />
+                android:layout_marginStart="0dp"
+                app:srcCompat="@drawable/facebook_icon"
+                android:contentDescription="@string/todo" />
 
         </LinearLayout>
 

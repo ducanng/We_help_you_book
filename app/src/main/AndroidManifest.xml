@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.wehelpyoubook">
+
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/avatar_whybook"
@@ -11,6 +13,9 @@
         android:roundIcon="@drawable/avatar_whybook"
         android:supportsRtl="true"
         android:theme="@style/Theme.Wehelpyoubook">
+        <activity
+            android:name=".accountcontrol.EmailVerificationActivity"
+            android:exported="false" />
         <activity
             android:name=".accountcontrol.RegisterActivity"
             android:exported="false" />
@@ -25,8 +30,7 @@
             android:exported="false" />
         <activity
             android:name=".Feedback"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".homescreen.HomeActivity"
             android:exported="true">
@@ -57,4 +61,5 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
+
 </manifest>

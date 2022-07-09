@@ -11,6 +11,8 @@ import com.example.wehelpyoubook.R
 import com.example.wehelpyoubook.homescreen.HomeActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class LoginActivity : AppCompatActivity() {
     private var editPass: TextInputEditText? = null
@@ -40,12 +42,14 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun forgotPassword(email: String?) {
-        auth.sendPasswordResetEmail(email.toString())
+        Firebase.auth.sendPasswordResetEmail(email.toString())
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     Toast.makeText(this@LoginActivity, "Đã gửi email đặt lại mật khẩu " +
                             "hãy kiểm tra thùng thư của $email", Toast.LENGTH_SHORT)
                         .show()
+                } else {
+                    Toast.makeText(this@LoginActivity, "Gửi email thất bại!", Toast.LENGTH_SHORT).show()
                 }
             }
     }
@@ -56,11 +60,15 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
-                    Toast.makeText(this@LoginActivity, "Đăng nhập thành công", Toast.LENGTH_SHORT)
-                        .show()
                     val user = auth.currentUser
                     if (user != null) {
-                        startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
+                        if (user.isEmailVerified) {
+                            startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
+                        } else {
+                            startActivity(Intent(this@LoginActivity, EmailVerificationActivity::class.java))
+                            Toast.makeText(this@LoginActivity, "email chưa xác nhận", Toast.LENGTH_SHORT)
+                                .show()
+                        }
                     }
                 } else {
                     // If sign in fails, display a message to the user.

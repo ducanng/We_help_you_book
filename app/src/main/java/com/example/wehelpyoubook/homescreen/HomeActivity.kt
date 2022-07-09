@@ -1,6 +1,7 @@
 package com.example.wehelpyoubook.homescreen
 
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -12,6 +13,8 @@ import com.example.wehelpyoubook.TestActivity
 import com.example.wehelpyoubook.accountcontrol.HomeSignInActivity
 import com.example.wehelpyoubook.databinding.ActivityHomeBinding
 import com.example.wehelpyoubook.scrapingdata.ScrapingData
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 
 class HomeActivity : AppCompatActivity() {
@@ -41,15 +44,29 @@ class HomeActivity : AppCompatActivity() {
             startActivity(Intent(this, Feedback::class.java))
         }
     }
+    @SuppressLint("NewApi")
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.menu_home, menu)
         val homeLoginItem = menu.findItem(R.id.menu_home_login_item)
+        val homeLogoutItem = menu.findItem(R.id.menu_home_logout_item)
 
+        val user = Firebase.auth.currentUser
+        if (user != null) {
+            homeLoginItem.isVisible = false
+            homeLogoutItem.setOnMenuItemClickListener {
+                Firebase.auth.signOut()
+                this.recreate()
+                return@setOnMenuItemClickListener true
+            }
+        } else  {
+            homeLogoutItem.isVisible = false
+        }
         homeLoginItem.setOnMenuItemClickListener {
             startActivity(Intent(this, HomeSignInActivity::class.java))
             return@setOnMenuItemClickListener true
         }
+
 //        val da  = DataCenter(Food("2","2",1,"2"))
 //        val food = Food("2","2",1,"2")
 //        food.Name

@@ -29,5 +29,8 @@
     <string name="fullname_hint">Họ tên</string>
     <string name="input_repass_textview">Nhập lại mật khẩu</string>
     <string name="forgot_password">Quên mật khẩu?</string>
+    <string name="continue_with">hoặc tiếp tục bằng</string>
+    <string name="todo">TODO</string>
+    <string name="check">check</string>
 
 </resources>
