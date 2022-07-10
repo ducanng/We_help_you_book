@@ -4,6 +4,7 @@ import com.example.wehelpyoubook.interfacecontrol.DataCenter
 
 class User (
     private val Id : String,
+    val avatarUrl: String,
     val name : String,
     val role : String,
     val email : String,

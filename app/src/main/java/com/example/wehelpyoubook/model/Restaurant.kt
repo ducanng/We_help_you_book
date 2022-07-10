@@ -8,7 +8,8 @@ class Restaurant (
     val name: String,
     val rate: String,
     val address: String,
-    val imageUrl: String
+    val imageUrl: String,
+    val listReview : MutableSet<Review> = mutableSetOf<Review>()
 ) : DataCenter{
     @Override
     override fun getData() : Restaurant {
