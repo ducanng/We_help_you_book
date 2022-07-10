@@ -17,7 +17,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
 
-
+private const val linkServer = "https://www.foody.vn/ho-chi-minh/food/dia-diem?q=nha+hang&ss=header_search_form&page="
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
 
@@ -29,7 +29,9 @@ class HomeActivity : AppCompatActivity() {
 //      // Scraping data from foody.vn
         CoroutineScope(IO).launch {
             val listRes = ScrapingData()
-                .restaurantScraping("https://www.foody.vn/ho-chi-minh/food/dia-diem?q=nha+hang&ss=header_search_form&page=")
+                .restaurantScraping(linkServer)
+            ScrapingData().foodScraping(linkServer)
+            ScrapingData().reviewScraping(linkServer)
             runOnUiThread {
                 binding.recyclerView.adapter = NearRestaurantAdapter(this@HomeActivity, listRes)
             }
@@ -57,11 +59,5 @@ class HomeActivity : AppCompatActivity() {
         }
         return true
     }
-
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        return true when (item.itemId){
-//            R.id.menu_home_item ->{}
-//        }
-//        return super.onOptionsItemSelected(item)
-//    }
+    
 }

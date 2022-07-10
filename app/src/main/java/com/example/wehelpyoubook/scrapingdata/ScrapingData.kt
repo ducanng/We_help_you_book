@@ -1,11 +1,14 @@
 package com.example.wehelpyoubook.scrapingdata
 
+import android.util.Log
 import com.example.wehelpyoubook.model.*
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.async
 import kotlinx.coroutines.runBlocking
 import org.jsoup.Jsoup
 import java.io.IOException
-
+val db = Firebase.firestore
 private  const val mainUrl : String = "https://www.foody.vn/"
 private const val TAG = "MyActivity"
 class ScrapingData {
@@ -38,13 +41,25 @@ class ScrapingData {
                             val resTitle = i.getElementsByTag("img").attr("alt")
                             val resRate = i.getElementsByClass("point highlight-text").text()
                             val resAddress = i.getElementsByClass("address").text()
-                            resList.add(
-                                Restaurant(resId,
+                            val tmpRes = Restaurant(
+                                resId,
                                 resTitle,
                                 resRate,
                                 resAddress,
-                                resImage)
+                                resImage
                             )
+                            resList.add(tmpRes)
+
+                            db.collection("Restaurants")
+                                .add(
+                                    tmpRes
+                                )
+                                .addOnSuccessListener { documentReference ->
+                                    Log.d(TAG, "Restaurant added with ID: ${documentReference.id}")
+                                }
+                                .addOnFailureListener { e ->
+                                    Log.w(TAG, "Error adding restaurant", e)
+                                }
                         }
                     } catch (e: IOException) {
                         e.printStackTrace()
@@ -79,23 +94,35 @@ class ScrapingData {
                                     val resId = getID(
                                         i.getElementsByTag("img").attr("src")
                                     )
-                                    userList.add(User(
-                                        userID,
-                                        userImage,
-                                        name,
-                                        "customer",
-                                        "",
-                                        account,
-                                        account,
-                                        "",
-                                        mutableSetOf<Restaurant>()
+                                    db.collection("Users").add(
+                                        User(
+                                            userID,
+                                            userImage,
+                                            name,
+                                            "customer",
+                                            "",
+                                            account,
+                                            account,
+                                            ""
                                         )
                                     )
-                                    reviewList.add(
+                                        .addOnSuccessListener { documentReference ->
+                                            Log.d(TAG, "User added with ID: ${documentReference.id}")
+                                        }
+                                        .addOnFailureListener { e ->
+                                            Log.w(TAG, "Error adding user", e)
+                                        }
+                                    db.collection("Reviews").add(
                                         Review(resId,
-                                        userID,
-                                        comment)
+                                            userID,
+                                            comment)
                                     )
+                                        .addOnSuccessListener { documentReference ->
+                                            Log.d(TAG, "Review added with ID: ${documentReference.id}")
+                                        }
+                                        .addOnFailureListener { e ->
+                                            Log.w(TAG, "Error adding review", e)
+                                        }
                                 }
                             }
                         }
@@ -103,7 +130,6 @@ class ScrapingData {
                         e.printStackTrace()
                     }
                 }
-                resList
             }
         }.await()
     suspend fun foodScraping(url: String) =
@@ -131,7 +157,7 @@ class ScrapingData {
                                 val imageUrl = food.getElementsByTag("a").attr("href")
                                 val name = ""
                                 val price = 0
-                                foodList.add(
+                                db.collection("Foods").add(
                                     Food(
                                         resId,
                                         name,
@@ -139,13 +165,18 @@ class ScrapingData {
                                         imageUrl
                                     )
                                 )
+                                    .addOnSuccessListener { documentReference ->
+                                        Log.d(TAG, "Food added with ID: ${documentReference.id}")
+                                    }
+                                    .addOnFailureListener { e ->
+                                        Log.w(TAG, "Error adding food", e)
+                                    }
                             }
                         }
                     } catch (e: IOException) {
                         e.printStackTrace()
                     }
                 }
-                resList
             }
         }.await()
 }

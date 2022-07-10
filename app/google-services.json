@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "406200163640",
+    "project_id": "we-help-you-book-d57d9",
+    "storage_bucket": "we-help-you-book-d57d9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:406200163640:android:13b5cfabfd5a7ad19175cd",
+        "android_client_info": {
+          "package_name": "com.example.scrapingdatakotlin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "406200163640-h46cs6coiuibes9qta5hs4cu5rsq6j77.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgFraKEtJRkosOmK68zQe3zAuF39480zw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "406200163640-h46cs6coiuibes9qta5hs4cu5rsq6j77.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:406200163640:android:398c5f826f077f809175cd",
+        "android_client_info": {
+          "package_name": "com.example.wehelpyoubook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "406200163640-h46cs6coiuibes9qta5hs4cu5rsq6j77.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgFraKEtJRkosOmK68zQe3zAuF39480zw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "406200163640-h46cs6coiuibes9qta5hs4cu5rsq6j77.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
