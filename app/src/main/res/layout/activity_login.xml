@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".accountcontrol.LoginActivity">
+    tools:context=".accountcontrol.user.LoginActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,20 +13,11 @@
         android:orientation="vertical"
         tools:ignore="UselessParent">
 
-        <TextView
-            android:id="@+id/input_password_textview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
-            android:text="@string/input_password"
-            android:textColor="#0B0A0A"
-            android:textSize="25sp"
-            android:textStyle="bold" />
-
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:passwordToggleEnabled="true">
+            app:passwordToggleEnabled="true"
+            android:layout_marginTop="30dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/login_password_edittext"
@@ -36,8 +27,8 @@
                 android:hint="@string/password"
                 android:importantForAutofill="no"
                 android:inputType="textPassword"
-                android:textColorHint="#616161" />
-
+                android:textColorHint="#616161"
+                tools:ignore="TextContrastCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
@@ -45,25 +36,26 @@
             android:layout_height="40dp"
             android:gravity="end"
             android:orientation="vertical">
+
             <TextView
                 android:id="@+id/forgot_password_textview"
                 android:layout_width="125dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="30dp"
                 android:gravity="end"
                 android:text="@string/forgot_password"
-                android:textSize="15sp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="30dp"/>
+                android:textSize="15sp" />
         </LinearLayout>
 
         <Button
             android:id="@+id/login_button"
-            android:layout_width="345dp"
-            android:layout_height="61dp"
+            android:layout_width="275dp"
+            android:layout_height="58dp"
             android:layout_marginTop="300dp"
             android:text="@string/login"
             android:textColor="#6D4C41"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
     </LinearLayout>

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".accountcontrol.RegisterActivity">
+    tools:context=".accountcontrol.user.RegisterActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,98 +23,69 @@
             android:textSize="25sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/fullname_textview"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/fullname"
-            android:textColor="#0B0A0A"
-            android:textSize="25sp"
-            android:textStyle="bold" />
+            android:layout_marginTop="30dp">
 
-        <EditText
-            android:id="@+id/fullname_edittext"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fullname_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:hint="@string/fullname_hint"
+                android:importantForAutofill="no"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                android:textColorHint="#757575"
+                tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:autofillHints=""
-            android:ems="10"
-            android:hint="@string/fullname_hint"
-            android:inputType="textPersonName"
-            android:minHeight="48dp" />
+            android:layout_marginTop="40dp"
+            app:passwordToggleEnabled="true">
 
-        <LinearLayout
-            android:layout_width="353dp"
-            android:layout_height="237dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/input_password_textview"
-                android:layout_width="353dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="@string/input_password"
-                android:textColor="#0B0A0A"
-                android:textSize="25sp"
-                android:textStyle="bold" />
-
-            <com.google.android.material.textfield.TextInputLayout
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/register_password_edittext"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:passwordToggleEnabled="true">
+                android:layout_height="50dp"
+                android:ems="10"
+                android:hint="@string/password"
+                android:importantForAutofill="no"
+                android:inputType="textPassword"
+                android:minHeight="48dp"
+                android:textColorHint="#757575"
+                tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/register_password_edittext"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:ems="10"
-                    android:hint="@string/password"
-                    android:importantForAutofill="no"
-                    android:inputType="textPassword"
-                    android:minHeight="48dp"
-                    android:textColorHint="#757575"
-                    tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
-            </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            app:passwordToggleEnabled="true">
 
-            <TextView
-                android:id="@+id/input_repassword_textview"
-                android:layout_width="353dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="@string/input_repass_textview"
-                android:textColor="#0B0A0A"
-                android:textSize="25sp"
-                android:textStyle="bold" />
-
-            <com.google.android.material.textfield.TextInputLayout
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/register_repassword_edittext"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:passwordToggleEnabled="true">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/register_repassword_edittext"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:ems="10"
-                    android:hint="@string/password"
-                    android:importantForAutofill="no"
-                    android:inputType="textPassword"
-                    android:textColorHint="#616161" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-        </LinearLayout>
+                android:layout_height="50dp"
+                android:ems="10"
+                android:hint="@string/input_repassword"
+                android:importantForAutofill="no"
+                android:inputType="textPassword"
+                android:textColorHint="#616161" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/register_button"
-            android:layout_width="345dp"
+            android:layout_width="275dp"
             android:layout_height="58dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="130dp"
             android:layout_marginBottom="200dp"
             android:text="@string/register"
             android:textColor="#6D4C41"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
     </LinearLayout>

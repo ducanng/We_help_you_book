@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.wehelpyoubook.R
+import com.example.wehelpyoubook.accountcontrol.user.EmailActivity
 
 
 open class HomeSignInActivity : AppCompatActivity() {
@@ -14,7 +15,7 @@ open class HomeSignInActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home_sign_in)
         //Email SignIn
         findViewById<View>(R.id.email_signin_button).setOnClickListener {
-            startActivity(Intent(this@HomeSignInActivity, EmailActivity::class.java))
+            startActivity(Intent(this, EmailActivity::class.java))
         }
 //        findViewById<View>(R.id.google).setOnClickListener {
 //        }

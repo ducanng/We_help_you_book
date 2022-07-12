@@ -1,24 +1,23 @@
-package com.example.wehelpyoubook.accountcontrol
+package com.example.wehelpyoubook.accountcontrol.user
 
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.wehelpyoubook.R
+import com.example.wehelpyoubook.accountcontrol.auth.EmailVerificationActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.UserProfileChangeRequest
+import com.google.firebase.auth.ktx.userProfileChangeRequest
 
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private var btnCallRegister: Button? = null
-    private var editName: EditText? = null
+    private var editName: TextInputEditText? = null
     private var editPass: TextInputEditText? = null
     private var editRepass: TextInputEditText? = null
     @SuppressLint("SetTextI18n")
@@ -32,20 +31,53 @@ class RegisterActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.set_textview).text = "Đăng kí tài khoản với $email"
 
         editName = findViewById(R.id.fullname_edittext)
-
         editPass = findViewById(R.id.register_password_edittext)
         editRepass = findViewById(R.id.register_repassword_edittext)
-        btnCallRegister = findViewById<View>(R.id.register_button) as Button
+        btnCallRegister = findViewById(R.id.register_button)
         btnCallRegister!!.setOnClickListener {
-            val pass = this@RegisterActivity.editPass!!.text.toString()
-            val repass = this@RegisterActivity.editRepass!!.text.toString()
-            if (pass != repass) {
-                Toast.makeText(this@RegisterActivity, "Mật khẩu không giống nhau", Toast.LENGTH_SHORT)
-                    .show()
-            } else {
-                createAccount(email, pass)
+            val name = this.editName!!.text.toString()
+            val pass = this.editPass!!.text.toString()
+            val repass = this.editRepass!!.text.toString()
+            if (isValidateName(name) && isValidatePassword(pass, editPass!!)) {
+                if (repass.isEmpty()) {
+                    editRepass!!.error = "Không thể để trống"
+                } else {
+                    if (pass != repass) {
+                        editRepass!!.error = "Mật khẩu không khớp"
+                        Toast.makeText(this, "Mật khẩu không khớp", Toast.LENGTH_SHORT)
+                            .show()
+                    } else {
+                        createAccount(email, pass)
+                    }
+                }
             }
         }
+    }
+
+    private fun isValidatePassword(passwordInput: String, notification: TextInputEditText): Boolean {
+        // if password field is empty
+        // it will display error message "Field can not be empty"
+        return if (passwordInput.isEmpty()) {
+            notification.error = "Không thể để trống"
+            false
+        } else if (passwordInput.length < 6) {
+            notification.error = "Mật khẩu yếu"
+            false
+        } else {
+            notification.error = null
+            true
+        }
+    }
+    private fun isValidateName(name: String): Boolean {
+        if (name == "") {
+            editName!!.error = "Không thể để trống"
+            return false
+        }
+        if (name.length < 4) {
+            editName!!.error = "Đặt đầy đủ họ tên"
+            return false
+        }
+        return true
     }
     @Suppress("NAME_SHADOWING")
     private fun createAccount(email: String, password: String) {
@@ -54,16 +86,17 @@ class RegisterActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     val user = auth.currentUser
-                    val profileUpdates = UserProfileChangeRequest.Builder()
-                        .setDisplayName(editName.toString()).build()
+                    val profileUpdates = userProfileChangeRequest {
+                        displayName = editName!!.text.toString()
+                    }
                     user!!.updateProfile(profileUpdates)
                         .addOnCompleteListener { task ->
                             if (task.isSuccessful) {
-                                Toast.makeText(this@RegisterActivity, "Đã cập nhật tên", Toast.LENGTH_SHORT)
+                                Toast.makeText(this, "Đã cập nhật tên", Toast.LENGTH_SHORT)
                                     .show()
                             }
                         }
-                    val intent = Intent(this@RegisterActivity, EmailVerificationActivity::class.java)
+                    val intent = Intent(this, EmailVerificationActivity::class.java)
                     startActivity(intent)
                     finishAffinity()
                 } else {

@@ -14,19 +14,31 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Wehelpyoubook">
         <activity
-            android:name=".accountcontrol.EmailVerificationActivity"
+            android:name=".accountcontrol.info.ChangeEmailActivity"
             android:exported="false" />
         <activity
-            android:name=".accountcontrol.RegisterActivity"
+            android:name=".accountcontrol.info.ChangePasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accountcontrol.info.ChangeNameActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accountcontrol.info.UserInformationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accountcontrol.auth.EmailVerificationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accountcontrol.user.RegisterActivity"
             android:exported="false" />
         <activity
             android:name=".accountcontrol.HomeSignInActivity"
             android:exported="false" />
         <activity
-            android:name=".accountcontrol.LoginActivity"
+            android:name=".accountcontrol.user.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".accountcontrol.EmailActivity"
+            android:name=".accountcontrol.user.EmailActivity"
             android:exported="false" />
         <activity
             android:name=".Feedback"

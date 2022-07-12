@@ -1,4 +1,4 @@
-package com.example.wehelpyoubook.accountcontrol
+package com.example.wehelpyoubook.accountcontrol.user
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,6 +8,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.wehelpyoubook.R
+import com.example.wehelpyoubook.accountcontrol.auth.EmailVerificationActivity
 import com.example.wehelpyoubook.homescreen.HomeActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
@@ -72,6 +73,7 @@ class LoginActivity : AppCompatActivity() {
                     }
                 } else {
                     // If sign in fails, display a message to the user.
+                    editPass!!.error = "Mật khẩu chưa chính xác"
                     Toast.makeText(this@LoginActivity, "Đăng nhập thất bại", Toast.LENGTH_SHORT)
                         .show()
                 }

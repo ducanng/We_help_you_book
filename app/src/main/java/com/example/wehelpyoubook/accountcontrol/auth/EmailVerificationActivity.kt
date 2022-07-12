@@ -1,4 +1,4 @@
-package com.example.wehelpyoubook.accountcontrol
+package com.example.wehelpyoubook.accountcontrol.auth
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -26,7 +26,7 @@ class EmailVerificationActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         val user = auth.currentUser
         val email = user?.email
-        emailVerifyTv!!.text = "Vui lòng xác nhận email $email"
+        emailVerifyTv!!.text = "Vui lòng xác nhận email\n$email"
 
         verifyBtn!!.setOnClickListener {
             sendEmailVerification(user)
