@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">WHYBOOK</string>
+    <string name="primary_color">Primary color</string>
+    <string name="button">Button</string>
+    <string name="secondary_color">Secondary color</string>
+    <string name="email_icon">email icon</string>
+    <string name="telephone">Telepon</string>
+    <string name="Enter_your_comment">Enter your comment</string>
+    <string name="phi_duong">phi duong</string>
+</resources>
