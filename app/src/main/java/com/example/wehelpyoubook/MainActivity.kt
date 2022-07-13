@@ -42,13 +42,13 @@ class MainActivity : AppCompatActivity() {
                 }
                 for (dc : DocumentChange in value?.documentChanges!!){
                     if (dc.type == DocumentChange.Type.ADDED){
+
                         reviewArrayList.add(dc.document.toObject(Review::class.java))
 
                     }
                 }
                 adapter.notifyDataSetChanged()
             }
-
         })
     }
 }
