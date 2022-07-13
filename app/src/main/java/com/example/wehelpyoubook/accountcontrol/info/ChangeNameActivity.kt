@@ -10,7 +10,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.auth.ktx.userProfileChangeRequest
 import com.google.firebase.ktx.Firebase
 
-abstract class ChangeNameActivity : AppCompatActivity() {
+class ChangeNameActivity : AppCompatActivity() {
     private var nameEdit: EditText? = null
     private var save: Button? = null
     override fun onCreate(savedInstanceState: Bundle?) {
