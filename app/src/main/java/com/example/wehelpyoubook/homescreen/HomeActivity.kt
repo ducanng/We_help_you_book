@@ -12,29 +12,63 @@ import com.example.wehelpyoubook.TestActivity
 import com.example.wehelpyoubook.accountcontrol.HomeSignInActivity
 import com.example.wehelpyoubook.adapter.NearRestaurantAdapter
 import com.example.wehelpyoubook.databinding.ActivityHomeBinding
-import com.example.wehelpyoubook.scrapingdata.ScrapingData
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers.IO
-import kotlinx.coroutines.launch
+import com.example.wehelpyoubook.model.Restaurant
+import com.example.wehelpyoubook.scrapingdata.db
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.toObjects
+import com.google.firebase.ktx.Firebase
 
+val db = Firebase.firestore
 private const val linkServer = "https://www.foody.vn/ho-chi-minh/food/dia-diem?q=nha+hang&ss=header_search_form&page="
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
 
+//    fun eventChangeListener() =
+//        runBlocking {
+//
+//            async {
+//                val resList = ArrayList<Restaurant>()
+//                db = FirebaseFirestore.getInstance()
+//                db.collection("Restaurants")
+//                    .addSnapshotListener(object : EventListener<QuerySnapshot> {
+//                        override fun onEvent(
+//                            value: QuerySnapshot?,
+//                            error: FirebaseFirestoreException?
+//                        ) {
+//                            if (error != null) {
+//                                Log.e("FireStore error", error.message.toString())
+//                                return
+//                            }
+//                            for (dc: DocumentChange in value?.documentChanges!!) {
+//                                if (dc.type == DocumentChange.Type.ADDED) {
+//                                    resList.add(dc.document.toObject(Restaurant::class.java))
+//                                }
+//                            }
+//                        }
+//
+//                    })
+//                resList
+//            }.await()
+//        }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//      // Scraping data from foody.vn
-        CoroutineScope(IO).launch {
-            val listRes = ScrapingData()
-                .restaurantScraping(linkServer)
-            ScrapingData().foodScraping(linkServer)
-            ScrapingData().reviewScraping(linkServer)
-            runOnUiThread {
-                binding.recyclerView.adapter = NearRestaurantAdapter(this@HomeActivity, listRes)
-            }
+      // Scraping data from foody.vn
+//        CoroutineScope(IO).launch {
+//            val listRes = ScrapingData().restaurantScraping(linkServer)
+//            ScrapingData().foodScraping(linkServer)
+//            ScrapingData().reviewScraping(linkServer)
+////            runOnUiThread {
+////                binding.recyclerView.adapter = NearRestaurantAdapter(this@HomeActivity, eventChangeListener())
+////            }
+//        }
+        var resDoc = db.collection("Restaurants")
+        resDoc.get().addOnSuccessListener { documentSnapshot ->
+            val res = documentSnapshot.toObjects<Restaurant>()
+            binding.recyclerView.adapter =
+                NearRestaurantAdapter(this@HomeActivity, res)
         }
 
         binding.recyclerView.setHasFixedSize(true)
@@ -59,5 +93,5 @@ class HomeActivity : AppCompatActivity() {
         }
         return true
     }
-    
+
 }
