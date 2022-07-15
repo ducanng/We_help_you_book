@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.wehelpyoubook.R
+import com.example.wehelpyoubook.accountcontrol.auth.ReAuthenticateActivity
 import com.example.wehelpyoubook.homescreen.HomeActivity
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -40,6 +41,7 @@ class UserInformationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_information)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         initUIUserInfo()
         setInfoUser()
         checkEmailVerification()
@@ -48,7 +50,9 @@ class UserInformationActivity : AppCompatActivity() {
             startActivity(intent)
         }
         changeEmailImg!!.setOnClickListener {
-            //set
+            val intent = Intent(this, ReAuthenticateActivity::class.java)
+            intent.putExtra("change_email", "email")
+            startActivity(intent)
         }
         changePassword!!.setOnClickListener {
             val intent = Intent(this, ChangePasswordActivity::class.java)
