@@ -18,7 +18,13 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:orientation="horizontal">
-
+            <ImageView
+                android:id="@+id/user_imageView"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:importantForAccessibility="no"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

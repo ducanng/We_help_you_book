@@ -1,21 +1,24 @@
 package com.example.wehelpyoubook.adapter
 
 import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.wehelpyoubook.R
-import com.example.wehelpyoubook.interfacecontrol.DataCenter
+import com.example.wehelpyoubook.RestaurantInterfaceControl
 import com.example.wehelpyoubook.model.Restaurant
 
 class NearRestaurantAdapter (
     private val context: Context,
     private val dataset: List<Restaurant>
-) : RecyclerView.Adapter<NearRestaurantAdapter.NearRestaurantViewHolder>(){
+    ) : RecyclerView.Adapter<NearRestaurantAdapter.NearRestaurantViewHolder>(){
     class NearRestaurantViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val imageView: ImageView = view.findViewById(R.id.restaurant_image)
         val nameTextView: TextView = view.findViewById(R.id.restaurant_name)
@@ -31,10 +34,16 @@ class NearRestaurantAdapter (
         val res = dataset[position]
         val resources = context?.resources
         Glide.with(context).load(res.imageUrl).into(holder.imageView)
+        holder.imageView.setOnClickListener(){
+            val myIntent = Intent(context, RestaurantInterfaceControl::class.java)
+            val bundle = Bundle()
+            bundle.putString("resKey",res.resID)
+            println(bundle)
+            context.startActivity(myIntent,bundle)
+        }
         holder.nameTextView.text = res.name
         holder.rateTextView.text = resources?.getString(R.string.rate,res.rate)
     }
-
     override fun getItemCount(): Int {
         return dataset.size
     }

@@ -81,6 +81,9 @@ class ScrapingData {
 
                         for(r in resEvents) {
                             val items = r.getElementsByClass("row-view-reviews")
+                            val resId = getID(
+                                r.getElementsByTag("img").attr("src")
+                            )
                             for (i in items) {
                                 val reviews = i.getElementsByClass("items")
                                 for (review in reviews) {
@@ -91,9 +94,6 @@ class ScrapingData {
                                     val name = review.getElementsByTag("b")
                                         .tagName("data-bind").text()
                                     val userID = getID(userImage)
-                                    val resId = getID(
-                                        i.getElementsByTag("img").attr("src")
-                                    )
                                     db.collection("Users").add(
                                         User(
                                             userID,

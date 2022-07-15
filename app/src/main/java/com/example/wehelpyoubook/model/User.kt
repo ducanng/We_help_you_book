@@ -3,14 +3,14 @@ package com.example.wehelpyoubook.model
 import com.example.wehelpyoubook.interfacecontrol.DataCenter
 
 data class User (
-    private val Id : String,
-    val avatarUrl: String,
-    val name : String,
-    val role : String,
-    val email : String,
-    val account : String,
-    val password : String,
-    val dayOfBirth : String,
+    val Id : String? = null,
+    val avatarUrl: String? = null,
+    val name : String? = null,
+    val role : String? = null,
+    val email : String? = null,
+    val account : String? = null,
+    val password : String? = null,
+    val dayOfBirth : String? = null,
 //    val listBookedRestaurant : MutableSet<Restaurant> = mutableSetOf<Restaurant>(),
 //    val listVoucher: MutableSet<Voucher> = mutableSetOf<Voucher>()
 )

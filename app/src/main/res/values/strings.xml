@@ -18,6 +18,15 @@
     <string name="telephone">Telepon</string>
     <string name="Enter_your_comment">Enter your comment</string>
     <string name="phi_duong">phi duong</string>
+    <string name="review_terbaru">Review Terbaru :</string>
+    <string name="locality_verbose">Locality Verbose</string>
+    <string name="average_cost_for_two">Average Cost For Two</string>
+    <string name="time_active">Time active</string>
+    <string name="alamat">alamat</string>
+    <string name="time_open">Time open</string>
+    <string name="jam">jam</string>
+    <string name="rute">Rute</string>
+    <string name="website">Website</string>
 
 
     <!-- An -->

@@ -3,8 +3,8 @@ package com.example.wehelpyoubook.model
 import com.example.wehelpyoubook.interfacecontrol.DataCenter
 
 data class Review(
-    val resId : String,
-    val useId : String,
+    val resId : String? = null,
+    val useId : String? = null,
     val description : String? = null
 )
 //    : DataCenter {

@@ -3,15 +3,10 @@ package com.example.wehelpyoubook.homescreen
 
 import android.content.Intent
 import android.os.Bundle
-import android.provider.SyncStateContract.Helpers.update
 import android.view.Menu
 import android.view.MenuInflater
-import androidx.appcompat.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.wehelpyoubook.Feedback
-import com.example.wehelpyoubook.ListRestaurantActivity
-import com.example.wehelpyoubook.R
-import com.example.wehelpyoubook.TestActivity
+import com.example.wehelpyoubook.*
 import com.example.wehelpyoubook.accountcontrol.HomeSignInActivity
 import com.example.wehelpyoubook.adapter.NearRestaurantAdapter
 import com.example.wehelpyoubook.databinding.ActivityHomeBinding
@@ -31,14 +26,11 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-      // Scraping data from foody.vn
+       //Scraping data from foody.vn
 //        CoroutineScope(IO).launch {
-//            val listRes = ScrapingData().restaurantScraping(linkServer)
-//            ScrapingData().foodScraping(linkServer)
+////            val listRes = ScrapingData().restaurantScraping(linkServer)
+////            ScrapingData().foodScraping(linkServer)
 //            ScrapingData().reviewScraping(linkServer)
-////            runOnUiThread {
-////                binding.recyclerView.adapter = NearRestaurantAdapter(this@HomeActivity, eventChangeListener())
-////            }
 //        }
         // Show near restaurant
         var resDoc = db.collection("Restaurants")
@@ -53,21 +45,9 @@ class HomeActivity : AppCompatActivity() {
         binding.restaurantSearchboxSearchview.setOnSearchClickListener() {
             startActivity(Intent(this,ListRestaurantActivity::class.java))
         }
-//        val searchView = binding.restaurantSearchboxSearchview
-//        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-//            override fun onQueryTextSubmit(query: String): Boolean {
-//                return false
-//            }
-//
-//            override fun onQueryTextChange(newText: String): Boolean {
-//                val results: ArrayList<Restaurant> = ArrayList<Restaurant>()
-//                for (x in resList) {
-//                    if (x.name!!.contains(newText)) results.add(x)
-//                }
-//                binding.recyclerView.adapter = NearRestaurantAdapter(this@HomeActivity, results)
-//                return false
-//            }
-//        })
+        binding.voucherButton.setOnClickListener() {
+            startActivity(Intent(this,RestaurantInterfaceControl::class.java))
+        }
 
         binding.restaurantListButton.setOnClickListener {
             startActivity(Intent(this, TestActivity::class.java))

@@ -3,7 +3,7 @@ package com.example.wehelpyoubook.model
 import com.example.wehelpyoubook.interfacecontrol.DataCenter
 
 data class Voucher(
-    val userId : String,
+    val userId : String? = null,
     val description : String? = null,
 )
 //    : DataCenter{

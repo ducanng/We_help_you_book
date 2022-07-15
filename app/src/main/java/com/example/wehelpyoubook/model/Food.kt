@@ -3,7 +3,7 @@ package com.example.wehelpyoubook.model
 import com.example.wehelpyoubook.interfacecontrol.DataCenter
 
 data class Food (
-    val resId : String,
+    val resId : String? = null,
     val name : String? = null,
     val price : Int? = null,
     val urlImage : String? = null,
