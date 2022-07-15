@@ -14,18 +14,6 @@
         android:theme="@style/AppTheme.AppBarOverlay"
         app:navigationIcon="@drawable/ic_back">
 
-        <TextView
-            android:id="@+id/tvTitle"
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ellipsize="marquee"
-            android:marqueeRepeatLimit="marquee_forever"
-            android:singleLine="true"
-            android:text="@string/app_name"
-            android:textColor="@color/colorWhite"
-            android:textSize="18sp"
-            android:textStyle="bold" />
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -128,7 +116,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
 
-                    android:text="@string/alamat"
+                    android:text=""
                     android:textColor="@color/colorBlack"
                     android:textSize="12sp" />
 
@@ -148,7 +136,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
 
-                    android:text="@string/jam"
+                    android:text=""
                     android:textColor="@color/colorBlack"
                     android:textSize="12sp" />
 
@@ -171,9 +159,10 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                    <ImageButton
+                        android:id="@+id/bookingButton"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
                         android:background="@drawable/bg_rounded"
                         android:contentDescription="TODO"
                         android:padding="10dp"
@@ -183,8 +172,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-
-                        android:text="@string/rute"
+                        android:text="Booking"
                         android:textAllCaps="true"
                         android:textColor="@color/colorPrimary"
                         android:textSize="12sp" />
@@ -213,7 +201,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
 
-                        android:text="@string/telephone"
+                        android:text="Telephone"
                         android:textAllCaps="true"
                         android:textColor="@color/colorPrimary"
                         android:textSize="12sp" />
@@ -282,15 +270,15 @@
                     android:minHeight="48dp"
                     android:textSize="18sp"
                     app:counterMaxLength="50" />
+
                 <ImageButton
                     android:id="@+id/sendButton"
-                    android:src="@drawable/ic_baseline_send_24"
-                    android:layout_alignParentEnd="true"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/ic_baseline_send_24" />
 
             </RelativeLayout>
-
 
 
             <ScrollView

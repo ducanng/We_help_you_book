@@ -22,26 +22,38 @@ class MainActivity : AppCompatActivity() {
     private lateinit var reviewArrayList: ArrayList<Review>
     private lateinit var adapter: Adapter
     private lateinit var db: FirebaseFirestore
-    private lateinit var button: ImageButton
+    private lateinit var sbutton: ImageButton
+    private lateinit var bookButton: ImageButton
     private lateinit var comment: EditText
 
     private lateinit var pd: ProgressBar
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_resto)
-        button = findViewById(R.id.sendButton)
+        sbutton = findViewById(R.id.sendButton)
         comment = findViewById(R.id.comment)
         recyclerView = findViewById(R.id.rvReviewRestaurant)
         pd = ProgressBar(this)
         db = FirebaseFirestore.getInstance()
+        bookButton = findViewById(R.id.bookingButton)
 
-        button.setOnClickListener(object: View.OnClickListener {
+
+        //Review
+        sbutton.setOnClickListener(object: View.OnClickListener {
            override fun onClick(view: View?) {
                val review = comment.text.toString().trim()
                uploadComment(review)
             }
         })
 
+        //BOOKING
+
+
+        bookButton.setOnClickListener(object: View.OnClickListener {
+            override fun onClick(view: View?) {
+                Booking()
+            }
+        })
 
 
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -66,6 +78,31 @@ class MainActivity : AppCompatActivity() {
         }
             .addOnFailureListener { e ->
                 Toast.makeText(this@MainActivity, "Can't upload review", Toast.LENGTH_SHORT).show()
+            }
+    }
+//val urlImage : String? = null,
+//    var name: String? = null,
+//    var timeBooking: String? = null,
+//    var timeEnd: String? = null,
+//    var order: String? = null
+    private fun Booking(){
+        val id = UUID.randomUUID().toString()
+        val url = ""
+        val name = ""
+        val timeS = ""
+        val timeE = ""
+        val or = ""
+        val data = hashMapOf("urlImage" to url,
+            "name" to name,
+            "timeBooking" to timeS,
+            "timeEnd" to timeE,
+            "order" to or)
+        val docRef = db.collection("MyOrders").document(id).set(data)
+        docRef.addOnCompleteListener { docRef ->
+            Toast.makeText(this@MainActivity, "Booking...", Toast.LENGTH_SHORT).show()
+        }
+            .addOnFailureListener { e ->
+                Toast.makeText(this@MainActivity, "Can't book!!!", Toast.LENGTH_SHORT).show()
             }
     }
 
