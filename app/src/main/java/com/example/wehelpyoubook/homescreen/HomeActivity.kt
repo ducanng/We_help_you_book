@@ -3,10 +3,13 @@ package com.example.wehelpyoubook.homescreen
 
 import android.content.Intent
 import android.os.Bundle
+import android.provider.SyncStateContract.Helpers.update
 import android.view.Menu
 import android.view.MenuInflater
+import androidx.appcompat.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.wehelpyoubook.Feedback
+import com.example.wehelpyoubook.ListRestaurantActivity
 import com.example.wehelpyoubook.R
 import com.example.wehelpyoubook.TestActivity
 import com.example.wehelpyoubook.accountcontrol.HomeSignInActivity
@@ -22,34 +25,7 @@ val db = Firebase.firestore
 private const val linkServer = "https://www.foody.vn/ho-chi-minh/food/dia-diem?q=nha+hang&ss=header_search_form&page="
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
-
-//    fun eventChangeListener() =
-//        runBlocking {
-//
-//            async {
-//                val resList = ArrayList<Restaurant>()
-//                db = FirebaseFirestore.getInstance()
-//                db.collection("Restaurants")
-//                    .addSnapshotListener(object : EventListener<QuerySnapshot> {
-//                        override fun onEvent(
-//                            value: QuerySnapshot?,
-//                            error: FirebaseFirestoreException?
-//                        ) {
-//                            if (error != null) {
-//                                Log.e("FireStore error", error.message.toString())
-//                                return
-//                            }
-//                            for (dc: DocumentChange in value?.documentChanges!!) {
-//                                if (dc.type == DocumentChange.Type.ADDED) {
-//                                    resList.add(dc.document.toObject(Restaurant::class.java))
-//                                }
-//                            }
-//                        }
-//
-//                    })
-//                resList
-//            }.await()
-//        }
+    var resList = listOf<Restaurant>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
@@ -64,14 +40,35 @@ class HomeActivity : AppCompatActivity() {
 ////                binding.recyclerView.adapter = NearRestaurantAdapter(this@HomeActivity, eventChangeListener())
 ////            }
 //        }
+        // Show near restaurant
         var resDoc = db.collection("Restaurants")
         resDoc.get().addOnSuccessListener { documentSnapshot ->
-            val res = documentSnapshot.toObjects<Restaurant>()
+            resList = documentSnapshot.toObjects<Restaurant>()
             binding.recyclerView.adapter =
-                NearRestaurantAdapter(this@HomeActivity, res)
+                NearRestaurantAdapter(this@HomeActivity, resList)
         }
 
         binding.recyclerView.setHasFixedSize(true)
+
+        binding.restaurantSearchboxSearchview.setOnSearchClickListener() {
+            startActivity(Intent(this,ListRestaurantActivity::class.java))
+        }
+//        val searchView = binding.restaurantSearchboxSearchview
+//        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+//            override fun onQueryTextSubmit(query: String): Boolean {
+//                return false
+//            }
+//
+//            override fun onQueryTextChange(newText: String): Boolean {
+//                val results: ArrayList<Restaurant> = ArrayList<Restaurant>()
+//                for (x in resList) {
+//                    if (x.name!!.contains(newText)) results.add(x)
+//                }
+//                binding.recyclerView.adapter = NearRestaurantAdapter(this@HomeActivity, results)
+//                return false
+//            }
+//        })
+
         binding.restaurantListButton.setOnClickListener {
             startActivity(Intent(this, TestActivity::class.java))
         }
@@ -86,7 +83,22 @@ class HomeActivity : AppCompatActivity() {
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.menu_home, menu)
         val homeLoginItem = menu.findItem(R.id.menu_home_login_item)
-
+//        val searchView = homeLoginItem.actionView as SearchView
+//
+//        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+//            override fun onQueryTextSubmit(query: String): Boolean {
+//                return false
+//            }
+//
+//            override fun onQueryTextChange(newText: String): Boolean {
+//                val results: ArrayList<Restaurant> = ArrayList<Restaurant>()
+//                for (x in resList) {
+//                    if (x.name!!.contains(newText)) results.add(x)
+//                }
+//                binding.recyclerView.adapter = NearRestaurantAdapter(this@HomeActivity, results)
+//                return false
+//            }
+//        })
         homeLoginItem.setOnMenuItemClickListener {
             startActivity(Intent(this, HomeSignInActivity::class.java))
             return@setOnMenuItemClickListener true

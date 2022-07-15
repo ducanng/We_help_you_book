@@ -13,7 +13,8 @@
         <ImageView
             android:id="@+id/restaurant_image"
             android:layout_width="wrap_content"
-            android:layout_height="194dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
             android:scaleType="centerCrop"
             android:importantForAccessibility="no"
             app:layout_constraintTop_toTopOf="parent"
