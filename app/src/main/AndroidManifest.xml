@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Wehelpyoubook">
         <activity
+            android:name=".accountcontrol.info.DeleteAccountActivity"
+            android:exported="false" />
+        <activity
             android:name=".accountcontrol.info.ChangeEmailActivity"
             android:exported="false" />
         <activity
@@ -21,12 +24,11 @@
             android:exported="false" />
         <activity
             android:name=".accountcontrol.info.ChangeNameActivity"
-            android:exported="false" />
-        <!--Ducan-->
+            android:exported="false" /> <!-- Ducan -->
         <activity
             android:name=".accountcontrol.info.UserInformationActivity"
             android:exported="false"
-            android:parentActivityName=".homescreen.HomeActivity"/>
+            android:parentActivityName=".homescreen.HomeActivity" />
         <activity
             android:name=".accountcontrol.auth.EmailVerificationActivity"
             android:exported="false" />

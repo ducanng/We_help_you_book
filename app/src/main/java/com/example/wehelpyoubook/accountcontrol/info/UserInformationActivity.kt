@@ -51,15 +51,24 @@ class UserInformationActivity : AppCompatActivity() {
         }
         changeEmailImg!!.setOnClickListener {
             val intent = Intent(this, ReAuthenticateActivity::class.java)
-            intent.putExtra("change_email", "email")
+            intent.putExtra("choose", "c_email")
+            intent.putExtra("pos", 0)
             startActivity(intent)
+            finish()
         }
         changePassword!!.setOnClickListener {
-            val intent = Intent(this, ChangePasswordActivity::class.java)
+            val intent = Intent(this, ReAuthenticateActivity::class.java)
+            intent.putExtra("choose", "c_password")
+            intent.putExtra("pos", 1)
             startActivity(intent)
+            finish()
         }
         deleteAccount!!.setOnClickListener {
-            //set click
+            val intent = Intent(this, ReAuthenticateActivity::class.java)
+            intent.putExtra("choose", "d_account")
+            intent.putExtra("pos", 2)
+            startActivity(intent)
+            finish()
         }
         logout!!.setOnClickListener {
             Firebase.auth.signOut()

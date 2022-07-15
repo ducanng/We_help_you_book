@@ -1,14 +1,14 @@
 package com.example.wehelpyoubook.accountcontrol.info
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.wehelpyoubook.R
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import java.util.regex.Pattern
 
 class ChangePasswordActivity : AppCompatActivity() {
     private var saveBtn: Button? = null
@@ -40,20 +40,13 @@ class ChangePasswordActivity : AppCompatActivity() {
             }
         }
     }
-    private val passwordPattern: Pattern = Pattern.compile(
-        "^" +
-                "(?=.*[@#$%^&+=])" +  // at least 1 special character
-                "(?=\\S+$)" +  // no white spaces
-                ".{4,}" +  // at least 4 characters
-                "$"
-    )
     private fun isValidatePassword(passwordInput: String, nofitication: TextInputEditText): Boolean {
         // if password field is empty
         // it will display error message "Field can not be empty"
         return if (passwordInput.isEmpty()) {
             nofitication.error = "Không thể để trống"
             false
-        } else if (!passwordPattern.matcher(passwordInput).matches()) {
+        } else if (passwordInput.length < 6) {
             nofitication.error = "Mật khẩu yếu"
             false
         } else {
@@ -66,6 +59,7 @@ class ChangePasswordActivity : AppCompatActivity() {
         user!!.updatePassword(newPass)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
+                    startActivity(Intent(this, UserInformationActivity::class.java))
                     Toast.makeText(this, "Cập nhật mật khẩu thành công", Toast.LENGTH_SHORT)
                         .show()
                 } else {

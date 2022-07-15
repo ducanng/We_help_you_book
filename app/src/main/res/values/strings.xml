@@ -49,5 +49,7 @@
     <string name="email_sent_vetification">Gửi xác nhận Email</string>
     <string name="change_confirm">Xác nhận thay đổi</string>
     <string name="confirm">Xác nhận</string>
+    <string name="cancel_goback">Hủy và trở về</string>
+    <string name="are_you_sure">Bạn có chắc chắn rằng là bạn muốn xóa tài khoản?</string>
 
 </resources>
