@@ -1,5 +1,6 @@
 package com.example.wehelpyoubook
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.widget.SearchView
@@ -10,6 +11,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObjects
 import com.google.firebase.ktx.Firebase
 
+@SuppressLint("StaticFieldLeak")
 val db = Firebase.firestore
 class ListRestaurantActivity : AppCompatActivity() {
     private lateinit var binding: ActivityListRestaurantBinding
@@ -20,11 +22,13 @@ class ListRestaurantActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Get restaurant data from firestore
-        var resDoc = com.example.wehelpyoubook.scrapingdata.db.collection("Restaurants")
+        val resDoc = com.example.wehelpyoubook.scrapingdata.db.collection("Restaurants")
         resDoc.get().addOnSuccessListener { documentSnapshot ->
-            resList = documentSnapshot.toObjects<Restaurant>()
+            resList = documentSnapshot.toObjects()
             binding.recyclerView.adapter =
-                NearRestaurantAdapter(this@ListRestaurantActivity, resList)
+                NearRestaurantAdapter(this@ListRestaurantActivity, resList) {
+                        res -> println(res.name)
+                }
         }
         binding.recyclerView.setHasFixedSize(true)
 
@@ -35,11 +39,14 @@ class ListRestaurantActivity : AppCompatActivity() {
             }
 
             override fun onQueryTextChange(newText: String): Boolean {
-                val results: ArrayList<Restaurant> = ArrayList<Restaurant>()
+                val results: ArrayList<Restaurant> = ArrayList()
                 for (x in resList) {
                     if (x.name!!.contains(newText)) results.add(x)
                 }
-                binding.recyclerView.adapter = NearRestaurantAdapter(this@ListRestaurantActivity, results)
+                binding.recyclerView.adapter =
+                    NearRestaurantAdapter(this@ListRestaurantActivity, results) {
+                            res -> println(res.name)
+                    }
                 return false
             }
         })

@@ -1,6 +1,7 @@
 package com.example.wehelpyoubook.homescreen
 
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -16,11 +17,12 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObjects
 import com.google.firebase.ktx.Firebase
 
+@SuppressLint("StaticFieldLeak")
 val db = Firebase.firestore
 private const val linkServer = "https://www.foody.vn/ho-chi-minh/food/dia-diem?q=nha+hang&ss=header_search_form&page="
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
-    var resList = listOf<Restaurant>()
+    private var resList = listOf<Restaurant>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
@@ -33,19 +35,23 @@ class HomeActivity : AppCompatActivity() {
 //            ScrapingData().reviewScraping(linkServer)
 //        }
         // Show near restaurant
-        var resDoc = db.collection("Restaurants")
+        val resDoc = db.collection("Restaurants")
         resDoc.get().addOnSuccessListener { documentSnapshot ->
-            resList = documentSnapshot.toObjects<Restaurant>()
+            resList = documentSnapshot.toObjects()
             binding.recyclerView.adapter =
-                NearRestaurantAdapter(this@HomeActivity, resList)
+                NearRestaurantAdapter(this@HomeActivity, resList) {
+                    res -> val myIntent = Intent(this, RestaurantInterfaceControl::class.java)
+                            myIntent.putExtra("resKey",res.resID)
+                            startActivity(myIntent)
+                }
         }
 
         binding.recyclerView.setHasFixedSize(true)
 
-        binding.restaurantSearchboxSearchview.setOnSearchClickListener() {
+        binding.restaurantSearchboxSearchview.setOnSearchClickListener {
             startActivity(Intent(this,ListRestaurantActivity::class.java))
         }
-        binding.voucherButton.setOnClickListener() {
+        binding.voucherButton.setOnClickListener {
             startActivity(Intent(this,RestaurantInterfaceControl::class.java))
         }
 

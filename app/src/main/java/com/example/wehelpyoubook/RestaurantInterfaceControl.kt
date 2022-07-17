@@ -1,5 +1,6 @@
 package com.example.wehelpyoubook
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -47,18 +48,10 @@ class RestaurantInterfaceControl : AppCompatActivity() {
         reviewArrayList = arrayListOf()
         adapter = ReviewAdapter(this@RestaurantInterfaceControl,reviewArrayList)
         recyclerView.adapter = adapter
-        eventChangeListener()
 
         // Get Intent from class RestaurantAdapter
-        val letterId = intent?.extras?.getString("resKey").toString()
-
-        println(letterId)
-//        val bundle = intent.extras
-//        println(bundle)
-//        if (bundle != null) {
-//            val resId = bundle.getString("resKey", "")
-//            println(resId)
-//        }
+        val resID = intent.getStringExtra("resKey").toString()
+        eventChangeListener(resID)
     }
 
     private fun uploadComment(review: String) {
@@ -77,8 +70,9 @@ class RestaurantInterfaceControl : AppCompatActivity() {
             }
     }
 
-    private fun eventChangeListener() {
-        db.collection("Reviews").whereEqualTo("resId","1439").addSnapshotListener(object : EventListener<QuerySnapshot> {
+    private fun eventChangeListener(Id: String) {
+        db.collection("Reviews").whereEqualTo("resId",Id).addSnapshotListener(object : EventListener<QuerySnapshot> {
+            @SuppressLint("NotifyDataSetChanged")
             override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
                 if (error!=null){
                     Log.e("FireStore error",error.message.toString())
