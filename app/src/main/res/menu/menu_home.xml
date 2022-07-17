@@ -13,6 +13,8 @@
                 android:title="Thông tin người dùng" />
             <item android:id="@+id/menu_home_voucher_item"
                 android:title="Voucher" />
+            <item android:id="@+id/menu_home_logout_item"
+                android:title="Đăng xuất" />
         </menu>
     </item>
 </menu>

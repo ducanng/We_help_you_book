@@ -68,4 +68,8 @@ dependencies {
     //Firebase
     implementation 'com.google.firebase:firebase-analytics-ktx:21.0.0'
     implementation 'com.google.firebase:firebase-firestore-ktx:24.2.0'
+    implementation 'com.google.firebase:firebase-auth-ktx:21.0.6'
+
+    //Circle ImageView
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 }

@@ -1,18 +1,13 @@
-package com.example.wehelpyoubook
+package com.example.wehelpyoubook.restaurentInterface
 
-import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import com.example.wehelpyoubook.adapter.NearRestaurantAdapter
 import com.example.wehelpyoubook.databinding.ActivityListRestaurantBinding
 import com.example.wehelpyoubook.model.Restaurant
-import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObjects
-import com.google.firebase.ktx.Firebase
 
-@SuppressLint("StaticFieldLeak")
-val db = Firebase.firestore
 class ListRestaurantActivity : AppCompatActivity() {
     private lateinit var binding: ActivityListRestaurantBinding
     var resList = listOf<Restaurant>()

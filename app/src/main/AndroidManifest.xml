@@ -14,22 +14,46 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Wehelpyoubook">
         <activity
-            android:name=".RestaurantInterfaceControl"
+            android:name=".MyBooking"
             android:exported="false" />
         <activity
-            android:name=".ListRestaurantActivity"
+            android:name=".accountcontrol.info.UserInformationActivity"
             android:exported="false" />
         <activity
-            android:name=".accountcontrol.RegisterActivity"
+            android:name=".accountcontrol.info.ChangePasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accountcontrol.info.ChangeNameActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accountcontrol.info.DeleteAccountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accountcontrol.info.ChangeEmailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accountcontrol.auth.ReAuthenticateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accountcontrol.auth.EmailVerificationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".restaurentInterface.RestaurantInterfaceControl"
+            android:exported="false" />
+        <activity
+            android:name=".restaurentInterface.ListRestaurantActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accountcontrol.user.RegisterActivity"
             android:exported="false" />
         <activity
             android:name=".accountcontrol.HomeSignInActivity"
             android:exported="false" />
         <activity
-            android:name=".accountcontrol.LoginActivity"
+            android:name=".accountcontrol.user.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".accountcontrol.PhoneNumberActivity"
+            android:name=".accountcontrol.user.EmailActivity"
             android:exported="false" />
         <activity
             android:name=".Feedback"
@@ -42,22 +66,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".TestActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".homescreen.HomeActivity" />
-        </activity>
-        <activity
-            android:name=".homescreen.SearchableHomeActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.SEARCH" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.app.searchableHome"
-                android:resource="@xml/searchable" />
         </activity>
 
         <meta-data

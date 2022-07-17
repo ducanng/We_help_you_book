@@ -2,6 +2,7 @@ package com.example.wehelpyoubook.homescreen
 
 
 import android.annotation.SuppressLint
+import android.app.ListActivity
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -9,10 +10,14 @@ import android.view.MenuInflater
 import androidx.appcompat.app.AppCompatActivity
 import com.example.wehelpyoubook.*
 import com.example.wehelpyoubook.accountcontrol.HomeSignInActivity
+import com.example.wehelpyoubook.accountcontrol.info.UserInformationActivity
 import com.example.wehelpyoubook.adapter.NearRestaurantAdapter
 import com.example.wehelpyoubook.databinding.ActivityHomeBinding
 import com.example.wehelpyoubook.model.Restaurant
+import com.example.wehelpyoubook.restaurentInterface.ListRestaurantActivity
+import com.example.wehelpyoubook.restaurentInterface.RestaurantInterfaceControl
 import com.example.wehelpyoubook.scrapingdata.db
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObjects
 import com.google.firebase.ktx.Firebase
@@ -52,12 +57,12 @@ class HomeActivity : AppCompatActivity() {
             startActivity(Intent(this,ListRestaurantActivity::class.java))
         }
         binding.voucherButton.setOnClickListener {
-            startActivity(Intent(this,RestaurantInterfaceControl::class.java))
+            startActivity(Intent(this, RestaurantInterfaceControl::class.java))
         }
 
-        binding.restaurantListButton.setOnClickListener {
-            startActivity(Intent(this, TestActivity::class.java))
-        }
+//        binding.restaurantListButton.setOnClickListener {
+//            startActivity(Intent(this, TestActivity::class.java))
+//        }
         binding.userInformationButton.setOnClickListener {
             startActivity(Intent(this,HomeSignInActivity::class.java))
         }
@@ -65,31 +70,38 @@ class HomeActivity : AppCompatActivity() {
             startActivity(Intent(this, Feedback::class.java))
         }
     }
+    @SuppressLint("NewApi")
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.menu_home, menu)
         val homeLoginItem = menu.findItem(R.id.menu_home_login_item)
-//        val searchView = homeLoginItem.actionView as SearchView
-//
-//        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-//            override fun onQueryTextSubmit(query: String): Boolean {
-//                return false
-//            }
-//
-//            override fun onQueryTextChange(newText: String): Boolean {
-//                val results: ArrayList<Restaurant> = ArrayList<Restaurant>()
-//                for (x in resList) {
-//                    if (x.name!!.contains(newText)) results.add(x)
-//                }
-//                binding.recyclerView.adapter = NearRestaurantAdapter(this@HomeActivity, results)
-//                return false
-//            }
-//        })
+        //An
+        val homeLogoutItem = menu.findItem(R.id.menu_home_logout_item)
+        val homeInfoItem = menu.findItem(R.id.menu_home_userinfo_item)
+        val user = Firebase.auth.currentUser
+        if (user != null) {
+            homeLoginItem.isVisible = false
+        } else  {
+            homeLogoutItem.isVisible = false
+        }
         homeLoginItem.setOnMenuItemClickListener {
             startActivity(Intent(this, HomeSignInActivity::class.java))
             return@setOnMenuItemClickListener true
         }
+        //An
+        homeLogoutItem.setOnMenuItemClickListener {
+            Firebase.auth.signOut()
+            this.recreate()
+            return@setOnMenuItemClickListener true
+        }
+        homeInfoItem.setOnMenuItemClickListener {
+            if (user != null) {
+                startActivity(Intent(this, UserInformationActivity::class.java))
+            } else {
+                startActivity(Intent(this, HomeSignInActivity::class.java))
+            }
+            return@setOnMenuItemClickListener true
+        }
         return true
     }
-
 }

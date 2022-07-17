@@ -36,9 +36,67 @@
     },
     {
       "client_info": {
+        "mobilesdk_app_id": "1:406200163640:android:3c7bfcab431e39499175cd",
+        "android_client_info": {
+          "package_name": "com.example.tipwithrgb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "406200163640-h46cs6coiuibes9qta5hs4cu5rsq6j77.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgFraKEtJRkosOmK68zQe3zAuF39480zw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "406200163640-h46cs6coiuibes9qta5hs4cu5rsq6j77.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:406200163640:android:398c5f826f077f809175cd",
         "android_client_info": {
           "package_name": "com.example.wehelpyoubook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "406200163640-h46cs6coiuibes9qta5hs4cu5rsq6j77.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgFraKEtJRkosOmK68zQe3zAuF39480zw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "406200163640-h46cs6coiuibes9qta5hs4cu5rsq6j77.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:406200163640:android:55b29f90b6cfbc119175cd",
+        "android_client_info": {
+          "package_name": "com.example.wehelpyoubookver2"
         }
       },
       "oauth_client": [

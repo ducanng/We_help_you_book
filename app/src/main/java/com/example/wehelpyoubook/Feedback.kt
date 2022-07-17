@@ -10,7 +10,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class Feedback : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
 
         this.title = "Feedback"
@@ -21,18 +23,24 @@ class Feedback : AppCompatActivity() {
         btn.setOnClickListener {
             val i = Intent(Intent.ACTION_SEND)
             i.type = "message/html"
-            i.putExtra(Intent.EXTRA_EMAIL, ("datnguyen180502@gmail.com"))
+            i.putExtra(Intent.EXTRA_EMAIL, "datnguyen180502@gmail.com")
+            i.putExtra(Intent.EXTRA_EMAIL, arrayOf("datnguyen180502@gmail.com"))
             i.putExtra(Intent.EXTRA_SUBJECT, "Feedback From App")
             i.putExtra(
-                Intent.EXTRA_TEXT, """Name:${edit1.text} Message:${edit2.text}"""
+                Intent.EXTRA_TEXT, """Name:${edit1.text}
+ Message:${edit2.text}"""
             )
             try {
                 startActivity(Intent.createChooser(i, "Please select Email"))
             } catch (ex: ActivityNotFoundException) {
-                Toast.makeText(this@Feedback, "There are no Email Clients", Toast.LENGTH_SHORT)
+                Toast.makeText(
+                    this@Feedback,
+                    "There are no Email Clients",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
-        }
 
+        }
 
     }
 }

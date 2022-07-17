@@ -1,4 +1,4 @@
-package com.example.wehelpyoubook
+package com.example.wehelpyoubook.restaurentInterface
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.wehelpyoubook.R
 import com.example.wehelpyoubook.adapter.ReviewAdapter
 import com.example.wehelpyoubook.model.Review
 import com.google.firebase.firestore.*

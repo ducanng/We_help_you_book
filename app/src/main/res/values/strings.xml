@@ -31,14 +31,40 @@
 
     <!-- An -->
     <string name="full_app_name">WE HELP YOU BOOK</string>
-    <string name="input_phone_number">Nhập số điện thoại của bạn</string>
-    <string name="phone_number">Số điện thoại</string>
+    <string name="sign_in_by">Đăng nhập bằng</string>
+    <string name="email">Email</string>
     <string name="next">Tiếp tục</string>
     <string name="input_password">Nhập mật khẩu</string>
     <string name="password">Mật khẩu</string>
     <string name="login">Đăng nhập</string>
     <string name="register">Đăng ký</string>
     <string name="settv">settv</string>
+    <string name="input_fullname">Nhập họ tên</string>
+    <string name="fullname_hint">Họ tên</string>
+    <string name="input_repass_textview">Nhập lại mật khẩu</string>
+    <string name="forgot_password">Quên mật khẩu?</string>
+    <string name="continue_with">hoặc tiếp tục bằng</string>
+    <string name="todo">TODO</string>
+    <string name="check">check</string>
+    <string name="input_repassword">Nhập lại mật khẩu</string>
+    <string name="name">Tên</string>
+    <string name="form_email">user@example.com</string>
+    <string name="logout">Đăng xuất</string>
+    <string name="change_password">Đổi mật khẩu</string>
+    <string name="sent_verify">Gửi xác nhận</string>
+    <string name="please_verify_email">Hãy xác nhận email của bạn</string>
+    <string name="delete_account">Xóa tài khoản</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="fullname">Họ tên</string>
+    <string name="update">Cập nhật</string>
+    <string name="new_password">Mật khẩu mới</string>
+    <string name="confirm_new_password">Xác nhận mật khẩu mới</string>
+    <string name="email_sent_vetification">Gửi xác nhận Email</string>
+    <string name="change_confirm">Xác nhận thay đổi</string>
+    <string name="confirm">Xác nhận</string>
+    <string name="cancel_goback">Hủy và trở về</string>
+    <string name="are_you_sure">Bạn có chắc chắn rằng là bạn muốn xóa tài khoản?</string>
 
     <!-- Testfragment-->
     <string name="navigation_drawer_open">Open navigation drawer</string>
