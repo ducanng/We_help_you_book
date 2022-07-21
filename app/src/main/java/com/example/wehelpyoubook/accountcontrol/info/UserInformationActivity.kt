@@ -43,7 +43,13 @@ class UserInformationActivity : AppCompatActivity() {
         setContentView(R.layout.activity_user_information)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         initUIUserInfo()
-        setInfoUser()
+        val it = this.intent
+        val change = it.getIntExtra("change", 0)
+        if (change == 1) {
+            setInfoUserAfterChange()
+        } else {
+            setInfoUser()
+        }
         checkEmailVerification()
         changeNameImg!!.setOnClickListener {
             val intent = Intent(this, ChangeNameActivity::class.java)
@@ -77,14 +83,20 @@ class UserInformationActivity : AppCompatActivity() {
         }
     }
 
-    fun setInfoUser() {
+    private fun setInfoUser() {
         val user = Firebase.auth.currentUser ?: return
         name!!.text = user.displayName
         println(name)
         println(user.displayName)
         email!!.text = user.email
     }
-
+    private fun setInfoUserAfterChange() {
+        val user = Firebase.auth.currentUser ?: return
+        name!!.text = user.displayName
+        println(name)
+        println(user.displayName)
+        email!!.text = user.email
+    }
     private fun checkEmailVerification() {
         val user = Firebase.auth.currentUser ?: return
         if (user.isEmailVerified) {
