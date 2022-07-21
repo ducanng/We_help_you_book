@@ -1,5 +1,6 @@
 package com.example.wehelpyoubook.accountcontrol.info
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -16,8 +17,8 @@ class ChangeEmailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_change_email)
         initChangeEmailUI()
-        val email = editEmail!!.text.toString().trim()
         saveBtn!!.setOnClickListener {
+            val email = editEmail!!.text.toString().trim()
             changeEmail(email)
         }
     }
@@ -35,6 +36,9 @@ class ChangeEmailActivity : AppCompatActivity() {
                                     .show()
                             }
                         }
+                    val intent = Intent(this, UserInformationActivity::class.java)
+                    intent.putExtra("change", 1)
+                    startActivity(intent)
                 } else  {
                     Toast.makeText(this, "Cập nhật email thất bại", Toast.LENGTH_SHORT)
                         .show()
