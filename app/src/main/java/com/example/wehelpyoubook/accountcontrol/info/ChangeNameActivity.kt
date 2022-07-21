@@ -1,5 +1,6 @@
 package com.example.wehelpyoubook.accountcontrol.info
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -33,6 +34,11 @@ class ChangeNameActivity : AppCompatActivity() {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     Toast.makeText(this, "Cập nhật thành công", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, UserInformationActivity::class.java)
+                    intent.putExtra("change", 1)
+                    startActivity(intent)
+                } else {
+                    Toast.makeText(this, "Cập nhật thất bại.\nVui lòng thử lại", Toast.LENGTH_SHORT).show()
                 }
             }
     }
