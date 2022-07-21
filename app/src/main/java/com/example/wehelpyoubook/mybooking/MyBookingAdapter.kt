@@ -5,9 +5,11 @@ package com.example.wehelpyoubook.mybooking
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.wehelpyoubook.R
 import com.example.wehelpyoubook.model.Orders
 
@@ -27,7 +29,7 @@ class ContentItem(val urlImage : String? = null,
 
     class MyBookingAdapterViewHolder
         (private val view: View) : RecyclerView.ViewHolder(view) {
-        //val imageView: ImageView = view.findViewById(R.id.restaurant_image)
+        val imageView: ImageView = view.findViewById(R.id.restaurant_image)
         val nameView: TextView = view.findViewById(R.id.my_booking_list_name)
         val timeBookingView: TextView = view.findViewById(R.id.time_booking)
         val timeEndView: TextView = view.findViewById(R.id.time_end)
@@ -59,8 +61,7 @@ class ContentItem(val urlImage : String? = null,
         val countOrder : Int
         countOrder = position + 1
         holder.orderView.text =  (mybooking.order + countOrder)
-
-        //holder.imageView.setImageResource(mybooking.imageResourceId)
+        Glide.with(context).load(mybooking.urlImage).into(holder.imageView)
 
     }
 
