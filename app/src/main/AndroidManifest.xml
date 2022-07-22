@@ -14,9 +14,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Wehelpyoubook">
         <activity
-            android:name=".homescreen.HomeActivity"
-            android:exported="false" />
-        <activity
             android:name=".MyBooking"
             android:exported="false" />
         <activity
@@ -58,9 +55,6 @@
         <activity
             android:name=".accountcontrol.user.EmailActivity"
             android:exported="false" />
-        <activity
-            android:name=".Feedback"
-            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

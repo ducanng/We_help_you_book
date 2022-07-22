@@ -7,9 +7,9 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.wehelpyoubook.MainActivity
 import com.example.wehelpyoubook.R
 import com.example.wehelpyoubook.accountcontrol.auth.EmailVerificationActivity
-import com.example.wehelpyoubook.homescreen.HomeActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -64,7 +64,7 @@ class LoginActivity : AppCompatActivity() {
                     val user = auth.currentUser
                     if (user != null) {
                         if (user.isEmailVerified) {
-                            startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
+                            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                         } else {
                             startActivity(Intent(this@LoginActivity, EmailVerificationActivity::class.java))
                             Toast.makeText(this@LoginActivity, "email chưa xác nhận", Toast.LENGTH_SHORT)

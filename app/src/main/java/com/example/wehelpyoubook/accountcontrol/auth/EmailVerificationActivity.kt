@@ -7,8 +7,8 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.wehelpyoubook.MainActivity
 import com.example.wehelpyoubook.R
-import com.example.wehelpyoubook.homescreen.HomeActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
@@ -32,7 +32,7 @@ class EmailVerificationActivity : AppCompatActivity() {
             sendEmailVerification(user)
         }
         continueBtn!!.setOnClickListener{
-            startActivity(Intent(this, HomeActivity::class.java))
+            startActivity(Intent(this, MainActivity::class.java))
         }
     }
     private fun init() {

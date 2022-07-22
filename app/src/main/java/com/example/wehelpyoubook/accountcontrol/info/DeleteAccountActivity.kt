@@ -5,8 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
+import com.example.wehelpyoubook.MainActivity
 import com.example.wehelpyoubook.R
-import com.example.wehelpyoubook.homescreen.HomeActivity
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
@@ -32,7 +32,7 @@ class DeleteAccountActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     Toast.makeText(this, "Xóa tài khoản thành công", Toast.LENGTH_SHORT)
                         .show()
-                    startActivity(Intent(this, HomeActivity::class.java))
+                    startActivity(Intent(this, MainActivity::class.java))
                 }
             }
     }

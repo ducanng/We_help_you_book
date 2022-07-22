@@ -7,9 +7,9 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.wehelpyoubook.MainActivity
 import com.example.wehelpyoubook.R
 import com.example.wehelpyoubook.accountcontrol.auth.ReAuthenticateActivity
-import com.example.wehelpyoubook.homescreen.HomeActivity
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
@@ -78,7 +78,7 @@ class UserInformationActivity : AppCompatActivity() {
         }
         logout!!.setOnClickListener {
             Firebase.auth.signOut()
-            startActivity(Intent(this, HomeActivity::class.java))
+            startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
     }
