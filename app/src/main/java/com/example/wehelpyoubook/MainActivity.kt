@@ -16,7 +16,6 @@ import com.example.wehelpyoubook.accountcontrol.HomeSignInActivity
 import com.example.wehelpyoubook.accountcontrol.info.UserInformationActivity
 import com.example.wehelpyoubook.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationView
-import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
@@ -33,10 +32,10 @@ class MainActivity : AppCompatActivity() {
 
 //        setSupportActionBar(binding.appBarMain.toolbar)
 
-        binding.appBarMain.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
+//        binding.appBarMain.fab.setOnClickListener { view ->
+//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                .setAction("Action", null).show()
+//        }
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_main)

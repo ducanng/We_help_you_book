@@ -27,10 +27,7 @@ class FeedbackFragment : Fragment() {
         _binding = FragmentFeedbackBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-//        val textView: TextView = binding.edit1
-//        slideshowViewModel.text.observe(viewLifecycleOwner) {
-//            textView.text = it
-//        }
+
         return root
     }
 

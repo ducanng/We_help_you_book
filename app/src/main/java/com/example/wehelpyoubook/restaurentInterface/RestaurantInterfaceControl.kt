@@ -1,31 +1,36 @@
 package com.example.wehelpyoubook.restaurentInterface
 
 import android.annotation.SuppressLint
+import android.content.ContentValues
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.EditText
-import android.widget.ImageButton
-import android.widget.ProgressBar
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wehelpyoubook.R
 import com.example.wehelpyoubook.adapter.ReviewAdapter
+import com.example.wehelpyoubook.model.Restaurant
 import com.example.wehelpyoubook.model.Review
-import com.google.firebase.firestore.*
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.EventListener
-import java.util.*
+import com.google.firebase.firestore.FirebaseFirestoreException
+import com.google.firebase.firestore.QuerySnapshot
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.toObjects
+import com.google.firebase.ktx.Firebase
 
+val db = Firebase.firestore
 class RestaurantInterfaceControl : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var reviewArrayList: ArrayList<Review>
     private lateinit var adapter: ReviewAdapter
-    private lateinit var db: FirebaseFirestore
     private lateinit var button: ImageButton
     private lateinit var comment: EditText
-
+    private lateinit var resName: TextView
+    private var resID = ""
     private lateinit var pd: ProgressBar
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +39,7 @@ class RestaurantInterfaceControl : AppCompatActivity() {
         comment = findViewById(R.id.comment)
         recyclerView = findViewById(R.id.rvReviewRestaurant)
         pd = ProgressBar(this)
-        db = FirebaseFirestore.getInstance()
+
 
         button.setOnClickListener(object: View.OnClickListener {
             override fun onClick(view: View?) {
@@ -51,27 +56,49 @@ class RestaurantInterfaceControl : AppCompatActivity() {
         recyclerView.adapter = adapter
 
         // Get Intent from class RestaurantAdapter
-        val resID = intent.getStringExtra("resKey").toString()
-        eventChangeListener(resID)
+        resID = intent.getStringExtra("resKey").toString()
+        eventChangeListener(resID,1)
+
+        val resDoc = com.example.wehelpyoubook.scrapingdata.db
+            .collection("Restaurants")
+            .whereEqualTo("resID",resID)
+        resDoc.get().addOnSuccessListener { documentSnapshot ->
+            val resData = documentSnapshot.toObjects<Restaurant>()
+            if (resData.isNotEmpty()) {
+                resName = findViewById(R.id.tvTitle)
+                resName.text = resData[0].name
+            }
+        }
     }
 
     private fun uploadComment(review: String) {
-        val id = UUID.randomUUID().toString()
-        val res = (0..10000).random().toString()
-        val use = (0..10000).random().toString()
-        val data = hashMapOf("description" to review,
-            "resId" to res,
-            "useId" to use)
-        val docRef = db.collection("Reviews").document(id).set(data)
-        docRef.addOnCompleteListener {
-            Toast.makeText(this@RestaurantInterfaceControl, "Review uploaded!!!", Toast.LENGTH_SHORT).show()
+        val auth = Firebase.auth.currentUser
+        if (auth == null) {
+            Toast.makeText(this@RestaurantInterfaceControl, "You must login to write review", Toast.LENGTH_SHORT).show()
+            return
         }
-            .addOnFailureListener {
+        val review = Review(
+            resID,
+            auth!!.uid,
+            review
+        )
+        com.example.wehelpyoubook.accountcontrol.user.db.collection("Reviews")
+            .add(
+                review
+            )
+            .addOnSuccessListener { documentReference ->
+                Log.d(ContentValues.TAG, "User added with ID: ${documentReference.id}")
+                Toast.makeText(this@RestaurantInterfaceControl, "Review uploaded!!!", Toast.LENGTH_SHORT).show()
+                eventChangeListener(resID,2)
+            }
+            .addOnFailureListener { e ->
                 Toast.makeText(this@RestaurantInterfaceControl, "Can't upload review", Toast.LENGTH_SHORT).show()
+                Log.w(ContentValues.TAG, "Error adding review", e)
             }
     }
 
-    private fun eventChangeListener(Id: String) {
+    private fun eventChangeListener(Id: String,type :Int) {
+        reviewArrayList.clear()
         db.collection("Reviews").whereEqualTo("resId",Id).addSnapshotListener(object : EventListener<QuerySnapshot> {
             @SuppressLint("NotifyDataSetChanged")
             override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
@@ -81,9 +108,10 @@ class RestaurantInterfaceControl : AppCompatActivity() {
                 }
                 for (dc : DocumentChange in value?.documentChanges!!){
                     if (dc.type == DocumentChange.Type.ADDED){
-
-                        reviewArrayList.add(dc.document.toObject(Review::class.java))
-
+                        when(type){
+                            1 -> reviewArrayList.add(dc.document.toObject(Review::class.java))
+                            2 -> reviewArrayList.add(0,dc.document.toObject(Review::class.java))
+                        }
                     }
                 }
                 adapter.notifyDataSetChanged()

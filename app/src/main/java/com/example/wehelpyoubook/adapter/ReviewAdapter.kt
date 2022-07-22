@@ -26,16 +26,18 @@ class ReviewAdapter(
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val review: Review = reviewList[position]
-        holder.useId.text = review.useId
-        holder.resId.text = review.resId
-        holder.description.text = review.description
         val resDoc = com.example.wehelpyoubook.scrapingdata.db
             .collection("Users")
             .whereEqualTo("id",review.useId)
         resDoc.get().addOnSuccessListener { documentSnapshot ->
             val userData = documentSnapshot.toObjects<User>()
-            Glide.with(context).load(userData[0].avatarUrl).into(holder.imageView)
+            if (userData.isNotEmpty()) {
+                Glide.with(context).load(userData[0].avatarUrl).into(holder.imageView)
+                holder.userName.text = userData[0].name
+            }
+
         }
+        holder.description.text = review.description
     }
 
     override fun getItemCount(): Int {
@@ -43,9 +45,7 @@ class ReviewAdapter(
     }
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-        val resId: TextView = itemView.findViewById(R.id.resID)
-        val useId: TextView = itemView.findViewById(R.id.useID)
+        val userName: TextView = itemView.findViewById(R.id.useID)
         val description: TextView = itemView.findViewById(R.id.description)
         val imageView : ImageView = itemView.findViewById(R.id.user_imageView)
     }
