@@ -31,6 +31,7 @@ public class MyAdapter extends ArrayAdapter {
     public class  ViewHolder{
         TextView textView;
         ImageView imageView;
+        TextView textView1;
     }
     @Override
     public int getCount(){
@@ -50,6 +51,7 @@ public class MyAdapter extends ArrayAdapter {
             viewHolder=new ViewHolder();
             viewHolder.imageView=row.findViewById(R.id.androidimage);
             viewHolder.textView=row.findViewById(R.id.Versionname);
+            viewHolder.textView1=row.findViewById(R.id.Intergertext);
             row.setTag(viewHolder);
 
 
@@ -60,6 +62,7 @@ public class MyAdapter extends ArrayAdapter {
         }
         viewHolder.imageView.setImageResource(items.get(position).image);
         viewHolder.textView.setText(items.get(position).Name);
+        viewHolder.textView1.setText(items.get(position).interGer);
         return row;
 
     }

@@ -8,7 +8,10 @@ import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.SearchView;
 
+import java.text.Normalizer;
 import java.util.ArrayList;
+import java.util.Locale;
+import java.util.regex.Pattern;
 
 public class List_Restaurent extends AppCompatActivity {
 
@@ -22,15 +25,21 @@ public class List_Restaurent extends AppCompatActivity {
 
         listView=findViewById(R.id.myList);
 
-        items.add(new TrangChu("VietNam",R.drawable.image1));
-        items.add(new TrangChu("Singapore",R.drawable.image2));
-        items.add(new TrangChu("ThaiLand",R.drawable.image3));
-        items.add(new TrangChu("Canada",R.drawable.image4));
-        items.add(new TrangChu("Lao",R.drawable.image5));
+        items.add(new TrangChu("VietNam",R.drawable.image1,null));
+        items.add(new TrangChu("Singapore",R.drawable.image2,null));
+        items.add(new TrangChu("ThaiLand",R.drawable.image3,null));
+        items.add(new TrangChu("Canada",R.drawable.image4,null));
+        items.add(new TrangChu("Lao",R.drawable.image5,null));
 
         //items.add(new AndroidVersion("Voucher",R.drawable.avatar_whybook));
 
         listView.setAdapter(new MyAdapter(List_Restaurent.this,R.layout.my_list_item,items));
+    }
+    public static String removeAccent(String s) {
+        String temp = Normalizer.normalize(s, Normalizer.Form.NFD);
+        Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
+        temp=pattern.matcher(temp).replaceAll("");
+        return temp.replaceAll("đ", "d");
     }
 
     @Override
@@ -48,9 +57,10 @@ public class List_Restaurent extends AppCompatActivity {
             @Override
             public boolean onQueryTextChange(String newText) {
                 ArrayList<TrangChu> results=new ArrayList<>();
+                String searchStr=removeAccent(newText.toLowerCase());
                 for(TrangChu x: items)
                 {
-                    if(x.Name.contains(newText))
+                    if(removeAccent(x.Name.toLowerCase()).contains(searchStr))
                         results.add(x);
                 }
 

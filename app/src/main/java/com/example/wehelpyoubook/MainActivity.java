@@ -20,8 +20,8 @@ public class MainActivity extends AppCompatActivity {
 
         ListView listView=findViewById(R.id.myList);
         ArrayList<TrangChu> items=new ArrayList<>();
-        items.add(new TrangChu("Restaurent",R.drawable.image1));
-        items.add(new TrangChu("Voucher",R.drawable.avatar_whybook));
+        items.add(new TrangChu("Restaurent",R.drawable.image1,null));
+        items.add(new TrangChu("Voucher",R.drawable.avatar_whybook,null));
 
         listView.setAdapter(new MyAdapter(MainActivity.this,R.layout.my_list_item,items));
 
