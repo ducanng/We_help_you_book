@@ -2,13 +2,16 @@ package com.example.wehelpyoubook.restaurentInterface
 
 import android.annotation.SuppressLint
 import android.content.ContentValues
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.wehelpyoubook.MainActivity
 import com.example.wehelpyoubook.R
 import com.example.wehelpyoubook.adapter.ReviewAdapter
 import com.example.wehelpyoubook.model.Restaurant
@@ -40,6 +43,10 @@ class RestaurantInterfaceControl : AppCompatActivity() {
         recyclerView = findViewById(R.id.rvReviewRestaurant)
         pd = ProgressBar(this)
 
+        val toolbar = findViewById<View>(R.id.toolbar)
+        toolbar.setOnClickListener {
+            startActivity(Intent(this@RestaurantInterfaceControl,MainActivity::class.java))
+        }
 
         button.setOnClickListener(object: View.OnClickListener {
             override fun onClick(view: View?) {

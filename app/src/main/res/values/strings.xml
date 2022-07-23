@@ -27,6 +27,7 @@
     <string name="jam">jam</string>
     <string name="rute">Rute</string>
     <string name="website">Website</string>
+    <string name="description">Miêu tả</string>
 
 
     <!-- An -->
@@ -75,9 +76,10 @@
     <string name="action_settings">Settings</string>
 
     <string name="menu_home">Home</string>
+    <string name="menu_user_infor">User Info</string>
+    <string name="menu_voucher">Voucher</string>
     <string name="menu_mybooking">MyBooking</string>
     <string name="menu_feedback">Feedback</string>
-    <string name="description">Miêu tả</string>
-
-
+    <string name="menu_logout">Logout</string>
+    
 </resources>
