@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Wehelpyoubook">
         <activity
+            android:name=".vouchercontroller.VoucherListActivity"
+            android:exported="false" />
+        <activity
             android:name=".MyBooking"
             android:exported="false" />
         <activity

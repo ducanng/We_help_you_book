@@ -58,15 +58,14 @@ class MyBookingAdapter(
         val separated = currentString.split(":").toMutableList()
 
         val content = "Time ending: "
-        if (separated[1] == "23"){
+        if (separated[1] == "23") {
             separated[1] = "-1"
         }
         val difHour = separated[1].toInt() + 1
         val difMin = separated[2]
         val difSec = separated[3]
-        val res =content + (difHour).toString() + " giờ " + difMin + " phút " + difSec + " giây"
 
-        return res
+        return content + (difHour).toString() + " giờ " + difMin + " phút " + difSec + " giây"
     }
 
 

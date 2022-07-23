@@ -7,6 +7,9 @@ import com.example.wehelpyoubook.adapter.NearRestaurantAdapter
 import com.example.wehelpyoubook.databinding.ActivityListRestaurantBinding
 import com.example.wehelpyoubook.model.Restaurant
 import com.google.firebase.firestore.ktx.toObjects
+import java.text.Normalizer
+import java.util.*
+import java.util.regex.Pattern
 
 class ListRestaurantActivity : AppCompatActivity() {
     private lateinit var binding: ActivityListRestaurantBinding
@@ -17,15 +20,15 @@ class ListRestaurantActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Get restaurant data from firestore
-        val resDoc = com.example.wehelpyoubook.scrapingdata.db.collection("Restaurants")
-        resDoc.get().addOnSuccessListener { documentSnapshot ->
-            resList = documentSnapshot.toObjects()
-            binding.recyclerView.adapter =
-                NearRestaurantAdapter(this@ListRestaurantActivity, resList) {
-                        res -> println(res.name)
-                }
-        }
-        binding.recyclerView.setHasFixedSize(true)
+//        val resDoc = com.example.wehelpyoubook.scrapingdata.db.collection("Restaurants")
+//        resDoc.get().addOnSuccessListener { documentSnapshot ->
+//            resList = documentSnapshot.toObjects()
+//            binding.recyclerView.adapter =
+//                NearRestaurantAdapter(this@ListRestaurantActivity, resList) {
+//                        res -> println(res.name)
+//                }
+//        }
+//        binding.recyclerView.setHasFixedSize(true)
 
         val searchView = binding.restaurantSearchboxSearchview
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
@@ -35,8 +38,9 @@ class ListRestaurantActivity : AppCompatActivity() {
 
             override fun onQueryTextChange(newText: String): Boolean {
                 val results: ArrayList<Restaurant> = ArrayList()
+                val searchStr = removeAccent(newText.lowercase(Locale.getDefault()))
                 for (x in resList) {
-                    if (x.name!!.contains(newText)) results.add(x)
+                    if (removeAccent(x.name?.lowercase()).contains(searchStr)) results.add(x)
                 }
                 binding.recyclerView.adapter =
                     NearRestaurantAdapter(this@ListRestaurantActivity, results) {
@@ -45,5 +49,11 @@ class ListRestaurantActivity : AppCompatActivity() {
                 return false
             }
         })
+    }
+    fun removeAccent(s: String?): String {
+        var temp = Normalizer.normalize(s, Normalizer.Form.NFD)
+        val pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+")
+        temp = pattern.matcher(temp).replaceAll("")
+        return temp.replace("đ".toRegex(), "d")
     }
 }

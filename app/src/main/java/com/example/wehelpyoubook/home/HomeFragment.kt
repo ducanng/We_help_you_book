@@ -10,18 +10,15 @@ import androidx.fragment.app.Fragment
 import com.example.wehelpyoubook.accountcontrol.HomeSignInActivity
 import com.example.wehelpyoubook.adapter.NearRestaurantAdapter
 import com.example.wehelpyoubook.databinding.FragmentHomeBinding
-import com.example.wehelpyoubook.feedback.FeedbackFragment
 import com.example.wehelpyoubook.model.Restaurant
 import com.example.wehelpyoubook.restaurentInterface.ListRestaurantActivity
 import com.example.wehelpyoubook.restaurentInterface.RestaurantInterfaceControl
-import com.example.wehelpyoubook.scrapingdata.ScrapingData
 import com.example.wehelpyoubook.scrapingdata.db
+import com.example.wehelpyoubook.vouchercontroller.VoucherListActivity
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObjects
 import com.google.firebase.ktx.Firebase
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers.IO
-import kotlinx.coroutines.launch
+
 @SuppressLint("StaticFieldLeak")
 val db = Firebase.firestore
 private const val linkServer = "https://www.foody.vn/ho-chi-minh/food/dia-diem?q=nha+hang&ss=header_search_form&page="
@@ -65,7 +62,7 @@ class HomeFragment : Fragment() {
             startActivity(Intent(context,ListRestaurantActivity::class.java))
         }
         binding.voucherButton.setOnClickListener {
-            startActivity(Intent(context, RestaurantInterfaceControl::class.java))
+            startActivity(Intent(context, VoucherListActivity::class.java))
         }
 
         binding.userInformationButton.setOnClickListener {
