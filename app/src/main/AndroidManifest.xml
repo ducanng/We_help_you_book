@@ -1,18 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.wehelpyoubook">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
         android:allowBackup="true"
-        android:dataExtractionRules="@xml/data_extraction_rules"
-        android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/avatar_whybook"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/avatar_whybook"
         android:supportsRtl="true"
-        android:theme="@style/Theme.TipWithRGB"
-        tools:targetApi="31">
+        android:theme="@style/Theme.Wehelpyoubook">
+        <activity
+            android:name=".vouchercontroller.VoucherListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MyBooking"
+            android:exported="false" />
+        <activity
+            android:name=".accountcontrol.info.UserInformationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accountcontrol.info.ChangePasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accountcontrol.info.ChangeNameActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accountcontrol.info.DeleteAccountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accountcontrol.info.ChangeEmailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accountcontrol.auth.ReAuthenticateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accountcontrol.auth.EmailVerificationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".restaurentInterface.RestaurantInterfaceControl"
+            android:exported="false" />
+        <activity
+            android:name=".restaurentInterface.ListRestaurantActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accountcontrol.user.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accountcontrol.HomeSignInActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accountcontrol.user.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accountcontrol.user.EmailActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -22,6 +67,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

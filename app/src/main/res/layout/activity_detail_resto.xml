@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
@@ -14,6 +15,18 @@
         android:theme="@style/AppTheme.AppBarOverlay"
         app:navigationIcon="@drawable/ic_back">
 
+        <TextView
+            android:id="@+id/tvTitle"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
+            android:text=""
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -63,24 +76,6 @@
                 android:layout_marginTop="10dp"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/tvEstablishment"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:text="Establishment"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/tvLocalityVerbose"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-
-                    android:text="@string/locality_verbose"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/tvAverageCost"
@@ -88,12 +83,18 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
 
-                    android:text="@string/average_cost_for_two"
+                    android:text="@string/Information"
                     android:textColor="#43A047"
-                    android:textSize="14sp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </LinearLayout>
+
+            <ImageView
+                android:id="@+id/urlRes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:srcCompat="@tools:sample/avatars" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -105,41 +106,40 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
-                    android:text="@string/time_active"
+                    android:text="@string/address"
                     android:textColor="@color/colorBlack"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/tvAddress"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-
-                    android:text=""
-                    android:textColor="@color/colorBlack"
-                    android:textSize="12sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
 
-                    android:text="@string/time_open"
+                    android:text="@string/jam"
                     android:textColor="@color/colorBlack"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/tvOpenTime"
-                    android:layout_width="wrap_content"
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_FoodList"
+                    android:layout_width="392dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-
-                    android:text=""
-                    android:textColor="@color/colorBlack"
-                    android:textSize="12sp" />
-
+                    android:layout_marginStart="4dp"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ratingRestaurant"
+                    app:spanCount="1" />
             </LinearLayout>
 
             <LinearLayout
@@ -161,8 +161,8 @@
 
                     <ImageButton
                         android:id="@+id/bookingButton"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
                         android:background="@drawable/bg_rounded"
                         android:contentDescription="TODO"
                         android:padding="10dp"
@@ -172,7 +172,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:text="Booking"
+
+                        android:text="@string/rute"
                         android:textAllCaps="true"
                         android:textColor="@color/colorPrimary"
                         android:textSize="12sp" />
@@ -201,7 +202,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
 
-                        android:text="Telephone"
+                        android:text="@string/telephone"
                         android:textAllCaps="true"
                         android:textColor="@color/colorPrimary"
                         android:textSize="12sp" />
@@ -276,7 +277,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:src="@drawable/ic_baseline_send_24" />
+                    android:minHeight="48dp"
+                    android:src="@drawable/ic_baseline_send_24"
+                    tools:ignore="SpeakableTextPresentCheck" />
 
             </RelativeLayout>
 

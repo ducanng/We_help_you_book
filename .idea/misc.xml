@@ -3,19 +3,34 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/AndroidStudio/We_help_you_book/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.326" />
-        <entry key="..\:/AndroidStudio/We_help_you_book/app/src/main/res/drawable/bg_rounded.xml" value="0.349" />
-        <entry key="..\:/AndroidStudio/We_help_you_book/app/src/main/res/drawable/ic_baseline_send_24.xml" value="0.326" />
-        <entry key="..\:/AndroidStudio/We_help_you_book/app/src/main/res/drawable/ic_launcher_background.xml" value="0.326" />
-        <entry key="..\:/AndroidStudio/We_help_you_book/app/src/main/res/drawable/input_comment_bg.xml" value="0.349" />
-        <entry key="..\:/AndroidStudio/We_help_you_book/app/src/main/res/layout/activity_detail_resto.xml" value="0.3877551020408163" />
-        <entry key="..\:/AndroidStudio/We_help_you_book/app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="..\:/AndroidStudio/We_help_you_book/app/src/main/res/layout/activity_main1.xml" value="0.365625" />
-        <entry key="..\:/AndroidStudio/We_help_you_book/app/src/main/res/layout/list_review.xml" value="0.365625" />
-        <entry key="..\:/AndroidStudio/We_help_you_book/app/src/main/res/layout/toolbar_main.xml" value="0.33" />
-        <entry key="..\:/AndroidStudio/Wehelpyoubook/app/src/main/res/layout/activity_detail_resto.xml" value="0.5" />
-        <entry key="..\:/AndroidStudio/Wehelpyoubook/app/src/main/res/layout/activity_main.xml" value="0.35260416666666666" />
-        <entry key="..\:/AndroidStudio/Wehelpyoubook/app/src/main/res/layout/toolbar_main.xml" value="0.358695652173913" />
+        <entry key="..\:/download/We_help_you_book-master/We_help_you_book-master/app/src/main/res/layout/activity_change_name.xml" value="0.33695652173913043" />
+        <entry key="..\:/download/We_help_you_book-master/We_help_you_book-master/app/src/main/res/layout/activity_delete_account.xml" value="0.33695652173913043" />
+        <entry key="..\:/download/We_help_you_book-master/We_help_you_book-master/app/src/main/res/layout/activity_detail_resto.xml" value="0.33" />
+        <entry key="..\:/download/We_help_you_book-master/We_help_you_book-master/app/src/main/res/layout/activity_email_verification.xml" value="0.33695652173913043" />
+        <entry key="..\:/download/We_help_you_book-master/We_help_you_book-master/app/src/main/res/layout/activity_home_sign_in.xml" value="0.33695652173913043" />
+        <entry key="..\:/download/We_help_you_book-master/We_help_you_book-master/app/src/main/res/layout/activity_list_restaurant.xml" value="0.33695652173913043" />
+        <entry key="..\:/download/We_help_you_book-master/We_help_you_book-master/app/src/main/res/layout/activity_login.xml" value="0.33695652173913043" />
+        <entry key="..\:/download/We_help_you_book-master/We_help_you_book-master/app/src/main/res/layout/activity_re_authenticate.xml" value="0.33695652173913043" />
+        <entry key="..\:/download/We_help_you_book-master/We_help_you_book-master/app/src/main/res/layout/activity_register.xml" value="0.33695652173913043" />
+        <entry key="..\:/download/We_help_you_book-master/We_help_you_book-master/app/src/main/res/layout/activity_restaurant_interface_control.xml" value="0.33695652173913043" />
+        <entry key="..\:/download/We_help_you_book-master/We_help_you_book-master/app/src/main/res/layout/activity_user_information.xml" value="0.33695652173913043" />
+        <entry key="..\:/download/We_help_you_book-master/We_help_you_book-master/app/src/main/res/layout/app_bar_main.xml" value="0.33695652173913043" />
+        <entry key="..\:/download/We_help_you_book-master/We_help_you_book-master/app/src/main/res/layout/fragment_feedback.xml" value="0.33695652173913043" />
+        <entry key="..\:/download/We_help_you_book-master/We_help_you_book-master/app/src/main/res/layout/fragment_home.xml" value="0.33695652173913043" />
+        <entry key="..\:/download/We_help_you_book-master/We_help_you_book-master/app/src/main/res/layout/fragment_waiting.xml" value="0.33695652173913043" />
+        <entry key="..\:/download/We_help_you_book-master/We_help_you_book-master/app/src/main/res/layout/list_food.xml" value="0.33695652173913043" />
+        <entry key="..\:/download/We_help_you_book-master/We_help_you_book-master/app/src/main/res/layout/list_review.xml" value="0.33695652173913043" />
+        <entry key="..\:/download/We_help_you_book-master/We_help_you_book-master/app/src/main/res/layout/nav_header_main.xml" value="0.10277777777777777" />
+        <entry key="..\:/download/We_help_you_book-master/We_help_you_book-master/app/src/main/res/layout/near_restaurant_gird_list.xml" value="0.33695652173913043" />
+        <entry key="..\:/download/We_help_you_book-master/app/src/main/res/layout/activity_detail_resto.xml" value="0.33" />
+        <entry key="..\:/download/We_help_you_book-master/app/src/main/res/layout/app_bar_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/download/We_help_you_book-master/app/src/main/res/layout/list_food.xml" value="0.3523550724637681" />
+        <entry key="..\:/download/We_help_you_book-master/app/src/main/res/layout/list_horizontal_food.xml" value="0.365625" />
+        <entry key="..\:/download/We_help_you_book-master/app/src/main/res/layout/list_review.xml" value="0.3523550724637681" />
+        <entry key="app/src/main/res/layout/activity_detail_resto.xml" value="0.24270833333333333" />
+        <entry key="app/src/main/res/layout/list_food.xml" value="0.24270833333333333" />
+        <entry key="app/src/main/res/layout/list_review.xml" value="0.24270833333333333" />
+        <entry key="app/src/main/res/layout/my_booking.xml" value="0.24270833333333333" />
       </map>
     </option>
   </component>

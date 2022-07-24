@@ -1,129 +1,92 @@
 package com.example.wehelpyoubook
 
-
-import android.os.Bundle
-import android.util.Log
-import android.view.View
-import android.widget.EditText
-import android.widget.ImageButton
-import android.widget.ProgressBar
-import android.widget.Toast
+import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-
-import com.google.firebase.firestore.*
-import com.google.firebase.firestore.EventListener
-import java.util.*
-
+import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.navigateUp
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
+import com.example.wehelpyoubook.accountcontrol.HomeSignInActivity
+import com.example.wehelpyoubook.accountcontrol.info.UserInformationActivity
+import com.example.wehelpyoubook.databinding.ActivityMainBinding
+import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var reviewArrayList: ArrayList<Review>
-    private lateinit var adapter: Adapter
-    private lateinit var db: FirebaseFirestore
-    private lateinit var sbutton: ImageButton
-    private lateinit var bookButton: ImageButton
-    private lateinit var comment: EditText
 
-    private lateinit var pd: ProgressBar
+    private lateinit var appBarConfiguration: AppBarConfiguration
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detail_resto)
-        sbutton = findViewById(R.id.sendButton)
-        comment = findViewById(R.id.comment)
-        recyclerView = findViewById(R.id.rvReviewRestaurant)
-        pd = ProgressBar(this)
-        db = FirebaseFirestore.getInstance()
-        bookButton = findViewById(R.id.bookingButton)
 
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        //Review
-        sbutton.setOnClickListener(object: View.OnClickListener {
-           override fun onClick(view: View?) {
-               val review = comment.text.toString().trim()
-               uploadComment(review)
-            }
-        })
+//        setSupportActionBar(binding.appBarMain.toolbar)
 
-        //BOOKING
-
-
-        bookButton.setOnClickListener(object: View.OnClickListener {
-            override fun onClick(view: View?) {
-                Booking()
-            }
-        })
-
-
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.setHasFixedSize(true)
-        reviewArrayList = arrayListOf()
-        adapter = Adapter(reviewArrayList)
-        recyclerView.adapter = adapter
-        eventChangeListener()
-
+//        binding.appBarMain.fab.setOnClickListener { view ->
+//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                .setAction("Action", null).show()
+//        }
+        val drawerLayout: DrawerLayout = binding.drawerLayout
+        val navView: NavigationView = binding.navView
+        val navController = findNavController(R.id.nav_host_fragment_content_main)
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.nav_home, R.id.nav_my_booking, R.id.nav_feedback
+            ), drawerLayout
+        )
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        navView.setupWithNavController(navController)
     }
 
-    private fun uploadComment(review: String) {
-        val id = UUID.randomUUID().toString()
-        val res = (0..10000).random().toString()
-        val use = (0..10000).random().toString()
-        val data = hashMapOf("description" to review,
-                                "resId" to res,
-                                "useId" to use)
-        val docRef = db.collection("Reviews").document(id).set(data)
-        docRef.addOnCompleteListener { docRef ->
-            Toast.makeText(this@MainActivity, "Review uploaded!!!", Toast.LENGTH_SHORT).show()
+    @SuppressLint("NewApi")
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.menu_home, menu)
+        val homeLoginItem = menu.findItem(R.id.menu_home_login_item)
+        //An
+        val homeLogoutItem = menu.findItem(R.id.menu_home_logout_item)
+        val homeInfoItem = menu.findItem(R.id.menu_home_userinfo_item)
+        val user = Firebase.auth.currentUser
+        if (user != null) {
+            homeLoginItem.isVisible = false
+        } else  {
+            homeLogoutItem.isVisible = false
         }
-            .addOnFailureListener { e ->
-                Toast.makeText(this@MainActivity, "Can't upload review", Toast.LENGTH_SHORT).show()
-            }
-    }
-//val urlImage : String? = null,
-//    var name: String? = null,
-//    var timeBooking: String? = null,
-//    var timeEnd: String? = null,
-//    var order: String? = null
-    private fun Booking(){
-        val id = UUID.randomUUID().toString()
-        val url = ""
-        val name = ""
-        val timeS = ""
-        val timeE = ""
-        val or = ""
-        val data = hashMapOf("urlImage" to url,
-            "name" to name,
-            "timeBooking" to timeS,
-            "timeEnd" to timeE,
-            "order" to or)
-        val docRef = db.collection("MyOrders").document(id).set(data)
-        docRef.addOnCompleteListener { docRef ->
-            Toast.makeText(this@MainActivity, "Booking...", Toast.LENGTH_SHORT).show()
+        homeLoginItem.setOnMenuItemClickListener {
+            startActivity(Intent(this, HomeSignInActivity::class.java))
+            return@setOnMenuItemClickListener true
         }
-            .addOnFailureListener { e ->
-                Toast.makeText(this@MainActivity, "Can't book!!!", Toast.LENGTH_SHORT).show()
+        //An
+        homeLogoutItem.setOnMenuItemClickListener {
+            Firebase.auth.signOut()
+            this.recreate()
+            return@setOnMenuItemClickListener true
+        }
+        homeInfoItem.setOnMenuItemClickListener {
+            if (user != null) {
+                startActivity(Intent(this, UserInformationActivity::class.java))
+            } else {
+                startActivity(Intent(this, HomeSignInActivity::class.java))
             }
+            return@setOnMenuItemClickListener true
+        }
+        return true
     }
 
-    private fun eventChangeListener() {
-        db.collection("Reviews").addSnapshotListener(object : EventListener<QuerySnapshot>{
-            override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
-                if (error!=null){
-                    Log.e("FireStore error",error.message.toString())
-                    return
-                }
-                for (dc : DocumentChange in value?.documentChanges!!){
-                    if (dc.type == DocumentChange.Type.ADDED){
-
-                        reviewArrayList.add(dc.document.toObject(Review::class.java))
-
-                    }
-                }
-                adapter.notifyDataSetChanged()
-            }
-        })
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = findNavController(R.id.nav_host_fragment_content_main)
+        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 }
-
-

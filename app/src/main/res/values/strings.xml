@@ -1,19 +1,80 @@
 <resources>
-    <string name="app_name">WHYBOOK</string>
+    <!-- Hoang -->
+    <string name="app_name">WhyBook?</string>
+    <string name="rate">Rate: %1$s</string>
+    <string name="restaurant_list">Danh sách nhà hàng</string>
+    <string name="booked_restaurant">Chỗ đã đặt</string>
+    <string name="voucher">Voucher</string>
+    <string name="user_information">Thông tin người dùng</string>
+    <string name="feed_back">Phản hồi ứng dụng</string>
+    <string name="restaurant_near_you">Nhà hàng gần bạn</string>
+    <string name="searching_restaurant">Tìm kiếm nhà hàng</string>
+
+    <!-- Duong -->
     <string name="primary_color">Primary color</string>
     <string name="button">Button</string>
     <string name="secondary_color">Secondary color</string>
     <string name="email_icon">email icon</string>
-    <string name="telephone">Telepon</string>
+    <string name="telephone">Telephone</string>
     <string name="Enter_your_comment">Enter your comment</string>
     <string name="phi_duong">phi duong</string>
-    <string name="review_terbaru">Review Terbaru :</string>
-    <string name="locality_verbose">Locality Verbose</string>
-    <string name="average_cost_for_two">Average Cost For Two</string>
-    <string name="time_active">Time active</string>
-    <string name="alamat">alamat</string>
-    <string name="time_open">Time open</string>
-    <string name="jam">jam</string>
-    <string name="rute">Rute</string>
+    <string name="review">Review restaurant :</string>
+    <string name="Information">Information</string>
+    <string name="address">Address</string>
+    <string name="jam">Rating</string>
+    <string name="rute">Booking</string>
     <string name="website">Website</string>
+
+
+    <!-- An -->
+    <string name="full_app_name">WE HELP YOU BOOK</string>
+    <string name="sign_in_by">Đăng nhập bằng</string>
+    <string name="email">Email</string>
+    <string name="next">Tiếp tục</string>
+    <string name="input_password">Nhập mật khẩu</string>
+    <string name="password">Mật khẩu</string>
+    <string name="login">Đăng nhập</string>
+    <string name="register">Đăng ký</string>
+    <string name="settv">settv</string>
+    <string name="input_fullname">Nhập họ tên</string>
+    <string name="fullname_hint">Họ tên</string>
+    <string name="input_repass_textview">Nhập lại mật khẩu</string>
+    <string name="forgot_password">Quên mật khẩu?</string>
+    <string name="continue_with">hoặc tiếp tục bằng</string>
+    <string name="todo">TODO</string>
+    <string name="check">check</string>
+    <string name="input_repassword">Nhập lại mật khẩu</string>
+    <string name="name">Tên</string>
+    <string name="form_email">user@example.com</string>
+    <string name="logout">Đăng xuất</string>
+    <string name="change_password">Đổi mật khẩu</string>
+    <string name="sent_verify">Gửi xác nhận</string>
+    <string name="please_verify_email">Hãy xác nhận email của bạn</string>
+    <string name="delete_account">Xóa tài khoản</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="fullname">Họ tên</string>
+    <string name="update">Cập nhật</string>
+    <string name="new_password">Mật khẩu mới</string>
+    <string name="confirm_new_password">Xác nhận mật khẩu mới</string>
+    <string name="email_sent_vetification">Gửi xác nhận Email</string>
+    <string name="change_confirm">Xác nhận thay đổi</string>
+    <string name="confirm">Xác nhận</string>
+    <string name="cancel_goback">Hủy và trở về</string>
+    <string name="are_you_sure">Bạn có chắc chắn rằng là bạn muốn xóa tài khoản?</string>
+
+    <!-- Testfragment-->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_mybooking">MyBooking</string>
+    <string name="menu_feedback">Feedback</string>
+    <string name="description">Miêu tả</string>
+    <string name="price">Price</string>
+
 </resources>
