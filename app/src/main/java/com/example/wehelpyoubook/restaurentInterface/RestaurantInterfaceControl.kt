@@ -1,10 +1,17 @@
 package com.example.wehelpyoubook.restaurentInterface
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
+import android.app.Dialog
 import android.content.ContentValues
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
 import android.view.View
+import android.view.Window
+import android.view.WindowManager
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -37,9 +44,10 @@ class RestaurantInterfaceControl : AppCompatActivity() {
     private lateinit var foodRecyclerView: RecyclerView
     private lateinit var foodAdapter: FoodAdapter
     private lateinit var foodArrayList: ArrayList<Food>
-//    private lateinit var foodImageView: ImageView
-//    private lateinit var nameTextView: TextView
-//    private lateinit var priceTextView: TextView
+
+
+    //Declare button for booking
+    private lateinit var buttonBook: ImageButton
     private var resID = ""
     private lateinit var pd: ProgressBar
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,11 +57,22 @@ class RestaurantInterfaceControl : AppCompatActivity() {
         comment = findViewById(R.id.comment)
         reviewRecyclerView = findViewById(R.id.rvReviewRestaurant)
         foodRecyclerView = findViewById(R.id.rv_FoodList)
-//        foodImageView = findViewById(R.id.food_imageView)
-//        nameTextView = findViewById(R.id.name_food)
-//        priceTextView = findViewById(R.id.price)
         pd = ProgressBar(this)
+        buttonBook = findViewById(R.id.bookingButton)
+        buttonBook.setOnClickListener {
+            val view = View.inflate(this@RestaurantInterfaceControl,R.layout.booking_layout,null)
+            val builder = AlertDialog.Builder(this@RestaurantInterfaceControl)
+            builder.setView(view)
+            val dialog = builder.create()
+            dialog.show()
+            dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+            val yesBook = findViewById<Button>(R.id.order)
+            yesBook.setOnClickListener(object:View.OnClickListener{
+                override fun onClick(v: View?) {
 
+                }
+            })
+        }
 
         button.setOnClickListener(object: View.OnClickListener {
             override fun onClick(view: View?) {
@@ -157,6 +176,7 @@ class RestaurantInterfaceControl : AppCompatActivity() {
         })
 
     }
+
 }
 
 

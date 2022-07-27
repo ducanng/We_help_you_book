@@ -27,7 +27,6 @@ class FoodAdapter(
         println(food.urlImage)
         println("lll")
         Glide.with(context).load(food.urlImage).into(holder.foodImageView)
-        holder.nameTextView.text = food.name
     }
 
     override fun getItemCount(): Int {
@@ -36,7 +35,6 @@ class FoodAdapter(
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val foodImageView: ImageView = itemView.findViewById(R.id.food_imageView)
-        val nameTextView: TextView = itemView.findViewById(R.id.name_food)
     }
 
 }
