@@ -16,6 +16,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 class LoginActivity : AppCompatActivity() {
+    private var setTv: TextView? = null
     private var editPass: TextInputEditText? = null
     private var btnCallLogin: Button? = null
     private var tvForgotPass: TextView? = null
@@ -24,12 +25,14 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        setTv = findViewById(R.id.login_set_textview)
         editPass = findViewById(R.id.login_password_edittext)
         btnCallLogin = findViewById<View>(R.id.login_button) as Button
         tvForgotPass = findViewById(R.id.forgot_password_textview)
 
         val intent = this.intent
         val email = intent.getStringExtra("email")
+        setTv!!.text = "Đăng nhập với $email"
         auth = FirebaseAuth.getInstance()
 
         tvForgotPass!!.setOnClickListener {

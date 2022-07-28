@@ -30,7 +30,7 @@
 
     <!-- An -->
     <string name="full_app_name">WE HELP YOU BOOK</string>
-    <string name="sign_in_by">Đăng nhập bằng</string>
+    <string name="sign_in_by">Đăng nhập hoặc đăng ký bằng</string>
     <string name="email">Email</string>
     <string name="next">Tiếp tục</string>
     <string name="input_password">Nhập mật khẩu</string>
@@ -79,5 +79,6 @@
     <string name="menu_mybooking">MyBooking</string>
     <string name="menu_feedback">Feedback</string>
     <string name="menu_logout">Logout</string>
-    
+    <string name="input_email">Nhập email</string>
+
 </resources>
