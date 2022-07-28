@@ -2,7 +2,6 @@ package com.example.wehelpyoubook.accountcontrol.info
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.MenuItem
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
@@ -43,7 +42,6 @@ class UserInformationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_information)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-
         initUIUserInfo()
         val it = this.intent
         val change = it.getIntExtra("change", 0)
@@ -83,11 +81,6 @@ class UserInformationActivity : AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        startActivity(Intent(this@UserInformationActivity,MainActivity::class.java))
-        return super.onSupportNavigateUp()
     }
 
     private fun setInfoUser() {

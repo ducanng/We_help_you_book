@@ -1,9 +1,7 @@
 package com.example.wehelpyoubook.vouchercontroller
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.wehelpyoubook.MainActivity
 import com.example.wehelpyoubook.adapter.VoucherAdapter
 import com.example.wehelpyoubook.databinding.ActivityVoucherListBinding
 import com.example.wehelpyoubook.model.Voucher
@@ -17,8 +15,6 @@ class VoucherListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityVoucherListBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-
         //Get voucher list data from firestore
         val resDoc = com.example.wehelpyoubook.scrapingdata.db.collection("Vouchers")
         resDoc.get().addOnSuccessListener { documentSnapshot ->
@@ -29,10 +25,7 @@ class VoucherListActivity : AppCompatActivity() {
                 }
         }
         binding.recyclerView.setHasFixedSize(true)
-    }
-    // Awaken backing button
-    override fun onSupportNavigateUp(): Boolean {
-        startActivity(Intent(this@VoucherListActivity,MainActivity::class.java))
-        return super.onSupportNavigateUp()
+
+
     }
 }

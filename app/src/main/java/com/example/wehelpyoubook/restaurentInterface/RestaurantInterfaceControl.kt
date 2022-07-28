@@ -2,18 +2,17 @@ package com.example.wehelpyoubook.restaurentInterface
 
 import android.annotation.SuppressLint
 import android.content.ContentValues
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.wehelpyoubook.MainActivity
 import com.example.wehelpyoubook.R
+import com.example.wehelpyoubook.adapter.FoodAdapter
 import com.example.wehelpyoubook.adapter.ReviewAdapter
+import com.example.wehelpyoubook.model.Food
 import com.example.wehelpyoubook.model.Restaurant
 import com.example.wehelpyoubook.model.Review
 import com.google.firebase.auth.ktx.auth
@@ -24,15 +23,23 @@ import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObjects
 import com.google.firebase.ktx.Firebase
+import org.jsoup.select.Evaluator
 
 val db = Firebase.firestore
 class RestaurantInterfaceControl : AppCompatActivity() {
-    private lateinit var recyclerView: RecyclerView
+    private lateinit var reviewRecyclerView: RecyclerView
     private lateinit var reviewArrayList: ArrayList<Review>
     private lateinit var adapter: ReviewAdapter
     private lateinit var button: ImageButton
     private lateinit var comment: EditText
     private lateinit var resName: TextView
+
+    private lateinit var foodRecyclerView: RecyclerView
+    private lateinit var foodAdapter: FoodAdapter
+    private lateinit var foodArrayList: ArrayList<Food>
+//    private lateinit var foodImageView: ImageView
+//    private lateinit var nameTextView: TextView
+//    private lateinit var priceTextView: TextView
     private var resID = ""
     private lateinit var pd: ProgressBar
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,13 +47,13 @@ class RestaurantInterfaceControl : AppCompatActivity() {
         setContentView(R.layout.activity_detail_resto)
         button = findViewById(R.id.sendButton)
         comment = findViewById(R.id.comment)
-        recyclerView = findViewById(R.id.rvReviewRestaurant)
+        reviewRecyclerView = findViewById(R.id.rvReviewRestaurant)
+        foodRecyclerView = findViewById(R.id.rv_FoodList)
+//        foodImageView = findViewById(R.id.food_imageView)
+//        nameTextView = findViewById(R.id.name_food)
+//        priceTextView = findViewById(R.id.price)
         pd = ProgressBar(this)
 
-        val toolbar = findViewById<View>(R.id.toolbar)
-        toolbar.setOnClickListener {
-            startActivity(Intent(this@RestaurantInterfaceControl,MainActivity::class.java))
-        }
 
         button.setOnClickListener(object: View.OnClickListener {
             override fun onClick(view: View?) {
@@ -56,16 +63,17 @@ class RestaurantInterfaceControl : AppCompatActivity() {
         })
 
 
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.setHasFixedSize(true)
+        reviewRecyclerView.layoutManager = LinearLayoutManager(this)
+        reviewRecyclerView.setHasFixedSize(true)
+
         reviewArrayList = arrayListOf()
         adapter = ReviewAdapter(this@RestaurantInterfaceControl,reviewArrayList)
-        recyclerView.adapter = adapter
+        reviewRecyclerView.adapter = adapter
 
         // Get Intent from class RestaurantAdapter
         resID = intent.getStringExtra("resKey").toString()
         eventChangeListener(resID,1)
-
+        // Find res following resKey
         val resDoc = com.example.wehelpyoubook.scrapingdata.db
             .collection("Restaurants")
             .whereEqualTo("resID",resID)
@@ -76,6 +84,12 @@ class RestaurantInterfaceControl : AppCompatActivity() {
                 resName.text = resData[0].name
             }
         }
+
+        foodRecyclerView.setHasFixedSize(true)
+        foodArrayList = arrayListOf()
+        foodCollectData(resID)
+        foodAdapter = FoodAdapter(this@RestaurantInterfaceControl,foodArrayList)
+        foodRecyclerView.adapter = foodAdapter
     }
 
     private fun uploadComment(review: String) {
@@ -124,6 +138,23 @@ class RestaurantInterfaceControl : AppCompatActivity() {
                 adapter.notifyDataSetChanged()
             }
         })
+    }
+    private fun foodCollectData(resId: String)  {
+        db.collection("Foods").whereEqualTo("resId", resId).addSnapshotListener(object : EventListener<QuerySnapshot> {
+            override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
+                if (error!=null){
+                    Log.e("FireStore error",error.message.toString())
+                    return
+                }
+                for (dc : DocumentChange in value?.documentChanges!!){
+                    if (dc.type == DocumentChange.Type.ADDED){
+                        foodArrayList.add(dc.document.toObject(Food::class.java))
+                    }
+                }
+                foodAdapter.notifyDataSetChanged()
+            }
+        })
+
     }
 }
 

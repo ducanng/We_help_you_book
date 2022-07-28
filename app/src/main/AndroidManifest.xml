@@ -17,6 +17,9 @@
             android:name=".vouchercontroller.VoucherListActivity"
             android:exported="false" />
         <activity
+            android:name=".MyBooking"
+            android:exported="false" />
+        <activity
             android:name=".accountcontrol.info.UserInformationActivity"
             android:exported="false" />
         <activity
