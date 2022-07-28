@@ -1,5 +1,6 @@
 package com.example.wehelpyoubook.restaurentInterface
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
@@ -20,15 +21,17 @@ class ListRestaurantActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Get restaurant data from firestore
-//        val resDoc = com.example.wehelpyoubook.scrapingdata.db.collection("Restaurants")
-//        resDoc.get().addOnSuccessListener { documentSnapshot ->
-//            resList = documentSnapshot.toObjects()
-//            binding.recyclerView.adapter =
-//                NearRestaurantAdapter(this@ListRestaurantActivity, resList) {
-//                        res -> println(res.name)
-//                }
-//        }
-//        binding.recyclerView.setHasFixedSize(true)
+        val resDoc = com.example.wehelpyoubook.scrapingdata.db.collection("Restaurants")
+        resDoc.get().addOnSuccessListener { documentSnapshot ->
+            resList = documentSnapshot.toObjects()
+            binding.recyclerView.adapter =
+                NearRestaurantAdapter(this@ListRestaurantActivity, resList) {
+                        res -> val myIntent = Intent(this, RestaurantInterfaceControl::class.java)
+                        myIntent.putExtra("resKey",res.resID)
+                        startActivity(myIntent)
+                }
+        }
+        binding.recyclerView.setHasFixedSize(true)
 
         val searchView = binding.restaurantSearchboxSearchview
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {

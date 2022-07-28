@@ -12,14 +12,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.wehelpyoubook.R
 import com.example.wehelpyoubook.model.Orders
+import com.example.wehelpyoubook.model.Restaurant
+import com.example.wehelpyoubook.model.User
+import com.google.firebase.firestore.ktx.toObjects
 
-class ContentItem(val urlImage : String? = null,
-                  var name: String? = null,
-                  var timeBooking: String? = null,
-                  var timeEnd: String? = null,
-                  var order: String? = null)
-
-    class MyBookingAdapter(
+class MyBookingAdapter(
         private val context: MyBookingFragment,
         private val orders: List<Orders>,
         private val listener: (Orders) -> Unit
@@ -29,8 +26,9 @@ class ContentItem(val urlImage : String? = null,
 
     class MyBookingAdapterViewHolder
         (private val view: View) : RecyclerView.ViewHolder(view) {
+        //        val userId : String? = null,
         val imageView: ImageView = view.findViewById(R.id.restaurant_image)
-        val nameView: TextView = view.findViewById(R.id.my_booking_list_name)
+        val resNameView: TextView = view.findViewById(R.id.my_booking_list_name)
         val timeBookingView: TextView = view.findViewById(R.id.time_booking)
         val timeEndView: TextView = view.findViewById(R.id.time_end)
         val orderView: TextView = view.findViewById(R.id.order)
@@ -51,20 +49,37 @@ class ContentItem(val urlImage : String? = null,
                                   position: Int) {
         val mybooking = orders[position]
         val resources = context?.resources
-
+//        val userId : String? = null,
+//        val resID: String? = null,
+//        var timeBooking: String? = null,
+//        var timeEnd: String? = null,
+//        var order: String? = null,
+//        var voucher: String? = null
         holder.itemView.setOnClickListener { listener(mybooking) }
 
-        holder.nameView.text =  mybooking.name
+        holder.resNameView.text =  getResName(mybooking.resID!!)
         holder.timeBookingView.text = mybooking.timeBooking
         mybooking.timeEnd = mybooking.timeBooking?.let { calcDifTime(it) }
         holder.timeEndView.text =  mybooking.timeEnd
         val countOrder : Int
         countOrder = position + 1
         holder.orderView.text =  (mybooking.order + countOrder)
-        Glide.with(context).load(mybooking.urlImage).into(holder.imageView)
+//        Glide.with(context).load(mybooking.urlImage).into(holder.imageView)
 
     }
-
+    fun getResName(id : String) : String{
+        var res : String = ""
+        val resDoc = com.example.wehelpyoubook.scrapingdata.db
+            .collection("resID")
+            .whereEqualTo("id",id)
+        resDoc.get().addOnSuccessListener { documentSnapshot ->
+            val userData = documentSnapshot.toObjects<Restaurant>()
+            if (userData.isNotEmpty()) {
+                res = userData[0].resID!!
+            }
+        }
+        return res
+    }
     private fun calcDifTime(tmpStr: String): String {
         val currentString = tmpStr
         val separated = currentString.split(":").toMutableList()

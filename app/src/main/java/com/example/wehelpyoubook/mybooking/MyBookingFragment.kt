@@ -38,7 +38,6 @@ class MyBookingFragment : Fragment() {
         val resDoc = db.collection("MyOrders")
         resDoc.get().addOnSuccessListener { documentSnapshot ->
             orderList = documentSnapshot.toObjects()
-            println(orderList.size)
             binding.recyclerView.adapter = MyBookingAdapter(this, orderList){
                     res-> println("hello")
             }

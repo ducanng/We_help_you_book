@@ -6,6 +6,4 @@ data class Voucher(
     val imageUrl: Int? = null,
     val percentage : Int? = null,
     val userId : String? = null
-){
-
-}
+)

@@ -25,16 +25,15 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        setTv = findViewById(R.id.login_set_textview)
         editPass = findViewById(R.id.login_password_edittext)
+        setTv = findViewById(R.id.login_set_textview)
         btnCallLogin = findViewById<View>(R.id.login_button) as Button
         tvForgotPass = findViewById(R.id.forgot_password_textview)
 
         val intent = this.intent
         val email = intent.getStringExtra("email")
-        setTv!!.text = "Đăng nhập với $email"
         auth = FirebaseAuth.getInstance()
-
+        setTv!!.text = "Đăng nhập với $email"
         tvForgotPass!!.setOnClickListener {
             forgotPassword(email)
         }

@@ -15,6 +15,16 @@
         android:text="You want to book this restaurant?"
         android:textColor="@color/black"
         android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/timeStart_EditText"
+        android:layout_width="match_parent"
+        android:layout_height="84dp"
+        android:ems="10"
+        android:hint="Enter your time to start booking"
+        android:inputType="textPersonName"
+        android:text="" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

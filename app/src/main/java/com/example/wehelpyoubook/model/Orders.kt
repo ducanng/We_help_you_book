@@ -6,9 +6,9 @@ import androidx.annotation.StringRes
 
 data class Orders(
     val userId : String? = null,
-    val urlImage : String? = null,
-    var name: String? = null,
+    val resID: String? = null,
     var timeBooking: String? = null,
     var timeEnd: String? = null,
-    var order: String? = null ) {
-}
+    var order: String? = null,
+    var voucher: String? = null
+)
