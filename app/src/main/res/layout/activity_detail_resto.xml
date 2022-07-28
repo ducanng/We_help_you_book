@@ -125,20 +125,22 @@
             </LinearLayout>
 
 
-            <ScrollView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_FoodList"
                     android:layout_width="392dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
-                    android:orientation="vertical"
+                    android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/ratingRestaurant"
-                    app:spanCount="2" />
-            </ScrollView>
+                    app:spanCount="1" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -157,7 +159,8 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <ImageView
+                    <ImageButton
+                        android:id="@+id/bookingButton"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:background="@drawable/bg_rounded"
@@ -169,7 +172,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-
                         android:text="@string/rute"
                         android:textAllCaps="true"
                         android:textColor="@color/colorPrimary"
