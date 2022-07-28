@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.TimePickerDialog
 import android.content.ContentValues
-import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -24,14 +23,8 @@ import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObjects
 import com.google.firebase.ktx.Firebase
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers.IO
-import kotlinx.coroutines.async
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
-import java.sql.Time
 import java.util.*
-import kotlin.collections.ArrayList
+
 
 val db = Firebase.firestore
 class RestaurantInterfaceControl : AppCompatActivity() {
@@ -47,6 +40,7 @@ class RestaurantInterfaceControl : AppCompatActivity() {
     private lateinit var foodArrayList: ArrayList<Food>
     private lateinit var yesBook: Button
     private lateinit var noBook: Button
+    private lateinit var yesTimeDialogButton: Button
 
     //Declare button for booking
     private lateinit var buttonBook: ImageButton
@@ -216,8 +210,6 @@ class RestaurantInterfaceControl : AppCompatActivity() {
                 yesBook.setOnClickListener {
                     dialog.dismiss()
                     chooseVoucher(listVoucherName)
-                    //showHourPicker()
-
                 }
                 noBook.setOnClickListener {
                     dialog.dismiss()
@@ -236,9 +228,10 @@ class RestaurantInterfaceControl : AppCompatActivity() {
                 if (view.isShown) {
                     myCalender.set(Calendar.HOUR_OF_DAY, hourOfDay)
                     myCalender.set(Calendar.MINUTE, minute)
-                }
-                res = getBookingTime(myCalender.time.toString())
 
+                    res = getBookingTime(myCalender.time.toString())
+                    UpOrder(res)
+                }
             }
 
         val timePickerDialog = TimePickerDialog(
@@ -249,14 +242,13 @@ class RestaurantInterfaceControl : AppCompatActivity() {
             minute,
             true
         )
-
         timePickerDialog.setTitle("Choose hour:")
         timePickerDialog.window!!.setBackgroundDrawableResource(android.R.color.transparent)
         timePickerDialog.show()
         return res
     }
 
-    fun Updata(time: String) {
+    fun UpOrder(time: String) {
         var order = Orders(
             userId,
             resID,
