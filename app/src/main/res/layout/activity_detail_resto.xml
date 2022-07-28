@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
@@ -75,24 +76,6 @@
                 android:layout_marginTop="10dp"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/tvEstablishment"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:text="Establishment"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/tvLocalityVerbose"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-
-                    android:text="@string/locality_verbose"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/tvAverageCost"
@@ -100,12 +83,18 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
 
-                    android:text="@string/average_cost_for_two"
+                    android:text="@string/Information"
                     android:textColor="#43A047"
-                    android:textSize="14sp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </LinearLayout>
+
+            <ImageView
+                android:id="@+id/urlRes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:srcCompat="@tools:sample/avatars" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -117,41 +106,40 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
-                    android:text="@string/time_active"
+                    android:text="@string/address"
                     android:textColor="@color/colorBlack"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/tvAddress"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-
-                    android:text="@string/alamat"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="12sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
 
-                    android:text="@string/time_open"
+                    android:text="@string/jam"
                     android:textColor="@color/colorBlack"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/tvOpenTime"
-                    android:layout_width="wrap_content"
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_FoodList"
+                    android:layout_width="392dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-
-                    android:text="@string/jam"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="12sp" />
-
+                    android:layout_marginStart="4dp"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ratingRestaurant"
+                    app:spanCount="1" />
             </LinearLayout>
 
             <LinearLayout
@@ -171,7 +159,8 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <ImageView
+                    <ImageButton
+                        android:id="@+id/bookingButton"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:background="@drawable/bg_rounded"
@@ -183,7 +172,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-
                         android:text="@string/rute"
                         android:textAllCaps="true"
                         android:textColor="@color/colorPrimary"
@@ -282,15 +270,17 @@
                     android:minHeight="48dp"
                     android:textSize="18sp"
                     app:counterMaxLength="50" />
+
                 <ImageButton
                     android:id="@+id/sendButton"
-                    android:src="@drawable/ic_baseline_send_24"
-                    android:layout_alignParentEnd="true"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:minHeight="48dp"
+                    android:src="@drawable/ic_baseline_send_24"
+                    tools:ignore="SpeakableTextPresentCheck" />
 
             </RelativeLayout>
-
 
 
             <ScrollView

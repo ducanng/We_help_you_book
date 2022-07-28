@@ -15,19 +15,17 @@
     <string name="button">Button</string>
     <string name="secondary_color">Secondary color</string>
     <string name="email_icon">email icon</string>
-    <string name="telephone">Telepon</string>
+    <string name="telephone">Telephone</string>
     <string name="Enter_your_comment">Enter your comment</string>
     <string name="phi_duong">phi duong</string>
-    <string name="review_terbaru">Review Terbaru :</string>
-    <string name="locality_verbose">Locality Verbose</string>
-    <string name="average_cost_for_two">Average Cost For Two</string>
-    <string name="time_active">Time active</string>
-    <string name="alamat">alamat</string>
-    <string name="time_open">Time open</string>
-    <string name="jam">jam</string>
-    <string name="rute">Rute</string>
+    <string name="review">Review restaurant :</string>
+    <string name="Information">Information</string>
+    <string name="address">Address</string>
+    <string name="jam">Rating</string>
+    <string name="rute">Booking</string>
     <string name="website">Website</string>
     <string name="description">Miêu tả</string>
+    <string name="price">Price</string>
 
 
     <!-- An -->
