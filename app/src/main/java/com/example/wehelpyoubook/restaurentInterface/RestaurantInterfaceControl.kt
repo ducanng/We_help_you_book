@@ -3,7 +3,7 @@ package com.example.wehelpyoubook.restaurentInterface
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.TimePickerDialog
-import android.content.ContentValues
+import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -40,7 +40,9 @@ class RestaurantInterfaceControl : AppCompatActivity() {
     private lateinit var foodArrayList: ArrayList<Food>
     private lateinit var yesBook: Button
     private lateinit var noBook: Button
-    private lateinit var yesTimeDialogButton: Button
+    private lateinit var rating: TextView
+    private lateinit var address: TextView
+
 
     //Declare button for booking
     private lateinit var buttonBook: ImageButton
@@ -64,6 +66,9 @@ class RestaurantInterfaceControl : AppCompatActivity() {
             }
         })
 
+        val auth = Firebase.auth.currentUser
+        userId = auth!!.uid
+        println(userId)
 
         reviewRecyclerView.layoutManager = LinearLayoutManager(this)
         reviewRecyclerView.setHasFixedSize(true)
@@ -83,6 +88,10 @@ class RestaurantInterfaceControl : AppCompatActivity() {
             val resData = documentSnapshot.toObjects<Restaurant>()
             if (resData.isNotEmpty()) {
                 resName = findViewById(R.id.tvTitle)
+                rating = findViewById(R.id.ratingID)
+                rating.text = resources?.getString(R.string.rate,resData[0].rate)
+                address = findViewById(R.id.addressID)
+                address.text = resData[0].address
                 resName.text = resData[0].name
             }
         }
@@ -99,14 +108,6 @@ class RestaurantInterfaceControl : AppCompatActivity() {
 
     private fun uploadComment(review: String) {
         val auth = Firebase.auth.currentUser
-        if (auth == null) {
-            Toast.makeText(
-                this@RestaurantInterfaceControl,
-                "You must login to write review",
-                Toast.LENGTH_SHORT
-            ).show()
-            return
-        }
         userId = auth!!.uid
         val review = Review(
             resID,
@@ -118,7 +119,7 @@ class RestaurantInterfaceControl : AppCompatActivity() {
                 review
             )
             .addOnSuccessListener { documentReference ->
-                Log.d(ContentValues.TAG, "User added with ID: ${documentReference.id}")
+                Log.d(TAG, "User added with ID: ${documentReference.id}")
                 Toast.makeText(
                     this@RestaurantInterfaceControl,
                     "Review uploaded!!!",
@@ -132,7 +133,7 @@ class RestaurantInterfaceControl : AppCompatActivity() {
                     "Can't upload review",
                     Toast.LENGTH_SHORT
                 ).show()
-                Log.w(ContentValues.TAG, "Error adding review", e)
+                Log.w(TAG, "Error adding review", e)
             }
     }
 
@@ -161,7 +162,6 @@ class RestaurantInterfaceControl : AppCompatActivity() {
                 }
             })
     }
-
     private fun foodCollectData(resId: String) {
         db.collection("Foods").whereEqualTo("resId", resId)
             .addSnapshotListener(object : EventListener<QuerySnapshot> {
@@ -188,7 +188,7 @@ class RestaurantInterfaceControl : AppCompatActivity() {
     fun bookingDialogAction(){
         val doc = com.example.wehelpyoubook.scrapingdata.db
             .collection("Vouchers")
-            .whereEqualTo("userId", "1")
+            .whereEqualTo("userId", userId)
         doc.get().addOnSuccessListener { documentSnapshot ->
             val tmpData = documentSnapshot.toObjects<Voucher>()
             val listVoucherName = mutableListOf<String>()
@@ -197,6 +197,7 @@ class RestaurantInterfaceControl : AppCompatActivity() {
                     listVoucherName.add(item.description.toString())
                 }
             }
+
             buttonBook = findViewById(R.id.bookingButton)
             buttonBook.setOnClickListener {
                 val view = View.inflate(this@RestaurantInterfaceControl, R.layout.booking_layout, null)
@@ -231,6 +232,13 @@ class RestaurantInterfaceControl : AppCompatActivity() {
 
                     res = getBookingTime(myCalender.time.toString())
                     UpOrder(res)
+                    removeVoucher(10)
+                    Toast.makeText(
+                        this@RestaurantInterfaceControl,
+                        "Booking success",
+                        Toast.LENGTH_SHORT
+                    ).show()
+
                 }
             }
 
@@ -242,6 +250,7 @@ class RestaurantInterfaceControl : AppCompatActivity() {
             minute,
             true
         )
+
         timePickerDialog.setTitle("Choose hour:")
         timePickerDialog.window!!.setBackgroundDrawableResource(android.R.color.transparent)
         timePickerDialog.show()
@@ -249,6 +258,7 @@ class RestaurantInterfaceControl : AppCompatActivity() {
     }
 
     fun UpOrder(time: String) {
+        println(userId)
         var order = Orders(
             userId,
             resID,
@@ -262,10 +272,10 @@ class RestaurantInterfaceControl : AppCompatActivity() {
                 order
             )
             .addOnSuccessListener { documentReference ->
-                Log.d(ContentValues.TAG, "Orders added with ID: ${documentReference.id}")
+                Log.d(TAG, "Orders added with ID: ${documentReference.id}")
             }
             .addOnFailureListener { e ->
-                Log.w(ContentValues.TAG, "Error adding Orders", e)
+                Log.w(TAG, "Error adding Orders", e)
             }
     }
 
@@ -273,9 +283,8 @@ class RestaurantInterfaceControl : AppCompatActivity() {
         // setup the alert builder
         val builder = AlertDialog.Builder(this@RestaurantInterfaceControl)
         builder.setTitle("Choose a voucher")
-
         builder.setSingleChoiceItems(voucherList.toTypedArray(), 0) { dialog, which ->
-            // user checked an item
+
         }
         builder.setPositiveButton("OK") { dialog, which ->
             showHourPicker()
@@ -285,8 +294,31 @@ class RestaurantInterfaceControl : AppCompatActivity() {
         val dialog = builder.create()
         dialog.show()
     }
-
+    fun getIDColection(s : String) : String{
+        if (s.isNotEmpty()) {
+            var tmp = s.split(",")[0]
+            val listRes : List<String> = tmp.split("/")
+                if (listRes.size > 1)
+                    return listRes[1]
+        }
+        return ""
+    }
+    fun removeVoucher(percent : Int) {
+        val doc = com.example.wehelpyoubook.scrapingdata.db
+            .collection("Vouchers")
+            .whereEqualTo("userId", userId).whereEqualTo("percentage", percent)
+        doc.get().addOnSuccessListener { documentReference ->
+            if  (documentReference.documents.toString() != "") {
+                val idColection = getIDColection(documentReference.documents.toString())
+                if (idColection.isNotEmpty()) {
+                    db.collection("Vouchers").document(idColection)
+                        .delete()
+                }
+            }
+        }
+    }
 }
+
 
 
 
