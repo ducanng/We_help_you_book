@@ -25,6 +25,7 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         setContentView(R.layout.activity_login)
         editPass = findViewById(R.id.login_password_edittext)
         setTv = findViewById(R.id.login_set_textview)
@@ -82,5 +83,9 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
         // [END sign_in_with_email]
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        startActivity(Intent(this@LoginActivity,MainActivity::class.java))
+        return super.onSupportNavigateUp()
     }
 }
