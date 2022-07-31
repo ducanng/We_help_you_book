@@ -1,7 +1,9 @@
 package com.example.wehelpyoubook.accountcontrol.user
 
+import android.content.ContentValues
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
@@ -10,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.wehelpyoubook.MainActivity
 import com.example.wehelpyoubook.R
 import com.example.wehelpyoubook.accountcontrol.auth.EmailVerificationActivity
+import com.example.wehelpyoubook.model.User
 import com.example.wehelpyoubook.vouchercontroller.VoucherDatasource
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
@@ -31,6 +34,8 @@ class LoginActivity : AppCompatActivity() {
         setTv = findViewById(R.id.login_set_textview)
         btnCallLogin = findViewById<View>(R.id.login_button) as Button
         tvForgotPass = findViewById(R.id.forgot_password_textview)
+
+
 
         val intent = this.intent
         val email = intent.getStringExtra("email")

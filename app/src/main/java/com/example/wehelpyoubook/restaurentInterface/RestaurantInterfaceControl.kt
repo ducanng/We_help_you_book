@@ -10,6 +10,7 @@ import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wehelpyoubook.MainActivity
@@ -190,18 +191,27 @@ class RestaurantInterfaceControl : AppCompatActivity() {
     }
 
     fun bookingDialogAction(){
+
         val doc = com.example.wehelpyoubook.scrapingdata.db
             .collection("Vouchers")
-            .whereEqualTo("userId", userId)
+            .whereEqualTo("resId", resID)
         doc.get().addOnSuccessListener { documentSnapshot ->
             val tmpData = documentSnapshot.toObjects<Voucher>()
-            val listVoucherName = mutableListOf<String>()
-            val listVoucherPercent = mutableListOf<Int>()
+            var listCurrentVoucher = mutableListOf<Voucher>()
+
             if (tmpData.isNotEmpty()) {
                 for (item in tmpData){
-                    listVoucherPercent.add(item.percentage!!)
-                    listVoucherName.add(item.description.toString())
+                    val doc2 = com.example.wehelpyoubook.scrapingdata.db
+                        .collection("UsedVouchers")
+                        .whereEqualTo("userId", userId).whereEqualTo("resId", resID).whereEqualTo("description",item.description)
+                    doc2.get().addOnSuccessListener { documentReference ->
+                        val tmpList = documentReference.toObjects<UsedVoucher>()
+                        if (tmpList.isEmpty()){
+                            listCurrentVoucher.add((item))
+                        }
+                    }
                 }
+                println(listCurrentVoucher.size)
             }
 
             buttonBook = findViewById(R.id.bookingButton)
@@ -216,7 +226,7 @@ class RestaurantInterfaceControl : AppCompatActivity() {
                 noBook = view.findViewById(R.id.no_order)
                 yesBook.setOnClickListener {
                     dialog.dismiss()
-                    chooseVoucher(listVoucherName,listVoucherPercent)
+                    chooseVoucher(listCurrentVoucher)
                 }
                 noBook.setOnClickListener {
                     dialog.dismiss()
@@ -225,7 +235,7 @@ class RestaurantInterfaceControl : AppCompatActivity() {
 
         }
     }
-    fun showHourPicker(percent : Int,description :String): String {
+    fun showHourPicker(voucher: Voucher): String {
         val myCalender: Calendar = Calendar.getInstance()
         val hour: Int = myCalender.get(Calendar.HOUR_OF_DAY)
         val minute: Int = myCalender.get(Calendar.MINUTE)
@@ -235,10 +245,11 @@ class RestaurantInterfaceControl : AppCompatActivity() {
                 if (view.isShown) {
                     myCalender.set(Calendar.HOUR_OF_DAY, hourOfDay)
                     myCalender.set(Calendar.MINUTE, minute)
-                    UpOrder(res,description)
-                    removeVoucher(percent)
                     res = getBookingTime(myCalender.time.toString())
-
+                    if (voucher.percentage != null) {
+                        UpOrder(res, voucher.description!!)
+                        uploadUsedVouchers(voucher)
+                    }
                     Toast.makeText(
                         this@RestaurantInterfaceControl,
                         "Booking success",
@@ -285,25 +296,29 @@ class RestaurantInterfaceControl : AppCompatActivity() {
             }
     }
 
-    private fun chooseVoucher(voucherNameList : MutableList<String>,voucherPercentList: MutableList<Int>) {
+    private fun chooseVoucher(listVoucher: List<Voucher>) {
         // setup the alert builder
+        val listVoucherName = mutableListOf<String>()
+        for (item in listVoucher) {
+            listVoucherName.add(item.description.toString())
+        }
         val builder = AlertDialog.Builder(this@RestaurantInterfaceControl)
         builder.setTitle("Choose a voucher")
         var order : Int = -1
-        builder.setSingleChoiceItems(voucherNameList.toTypedArray(), 0) { dialog, which ->
+        builder.setSingleChoiceItems(listVoucherName.toTypedArray(), 0) { dialog, which ->
             order = which
         }
 
         builder.setPositiveButton("OK") { dialog, which ->
-            if (voucherNameList.size == 0){
-                showHourPicker(0,"")
+            if (listVoucherName.size == 0){
+                showHourPicker(Voucher())
             }
             else if (order == -1){
                 order = 0
-                showHourPicker(voucherPercentList[order],voucherNameList[order])
+                showHourPicker(listVoucher[order])
             }
             else{
-                showHourPicker(voucherPercentList[order],voucherNameList[order])
+                showHourPicker(listVoucher[order])
             }
         }
         builder.setNegativeButton("Cancel", null)
@@ -311,28 +326,18 @@ class RestaurantInterfaceControl : AppCompatActivity() {
         val dialog = builder.create()
         dialog.show()
     }
-    fun getIDColection(s : String) : String{
-        if (s.isNotEmpty()) {
-            var tmp = s.split(",")[0]
-            val listRes : List<String> = tmp.split("/")
-                if (listRes.size > 1)
-                    return listRes[1]
-        }
-        return ""
-    }
-    fun removeVoucher(percent : Int) {
-        val doc = com.example.wehelpyoubook.scrapingdata.db
-            .collection("Vouchers")
-            .whereEqualTo("userId", userId).whereEqualTo("percentage", percent)
-        doc.get().addOnSuccessListener { documentReference ->
-            if  (documentReference.documents.toString() != "") {
-                val idColection = getIDColection(documentReference.documents.toString())
-                if (idColection.isNotEmpty()) {
-                    db.collection("Vouchers").document(idColection)
-                        .delete()
-                }
-            }
-        }
+    fun uploadUsedVouchers(voucher : Voucher) {
+        var usedVoucher = UsedVoucher(
+            voucher.description,
+            voucher.imageUrl,
+            voucher.percentage,
+            userId,
+            voucher.resId,
+        )
+        com.example.wehelpyoubook.scrapingdata.db.collection("UsedVouchers")
+            .add(
+                usedVoucher
+            )
     }
     override fun onSupportNavigateUp(): Boolean {
         startActivity(Intent(this@RestaurantInterfaceControl, MainActivity::class.java))

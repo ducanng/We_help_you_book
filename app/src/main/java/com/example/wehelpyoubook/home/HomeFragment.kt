@@ -1,7 +1,9 @@
 package com.example.wehelpyoubook.home
 
+import android.content.ContentValues
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +11,7 @@ import androidx.fragment.app.Fragment
 import com.example.wehelpyoubook.adapter.NearRestaurantAdapter
 import com.example.wehelpyoubook.databinding.FragmentHomeBinding
 import com.example.wehelpyoubook.model.Restaurant
+import com.example.wehelpyoubook.model.User
 import com.example.wehelpyoubook.restaurentInterface.ListRestaurantActivity
 import com.example.wehelpyoubook.restaurentInterface.RestaurantInterfaceControl
 import com.example.wehelpyoubook.scrapingdata.ScrapingData
@@ -17,7 +20,7 @@ import com.google.firebase.firestore.ktx.toObjects
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
-private const val linkServer = "https://www.foody.vn/ho-chi-minh/food/dia-diem?q=nha+hang&ss=header_search_form&page="
+
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null

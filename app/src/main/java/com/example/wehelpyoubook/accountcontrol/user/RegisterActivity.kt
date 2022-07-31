@@ -110,7 +110,8 @@ class RegisterActivity : AppCompatActivity() {
                                     user.email,
                                     user.email,
                                     password,
-                                    null
+                                    "",
+                                    ""
                                 )
                                 db.collection("Users")
                                     .add(
@@ -122,7 +123,6 @@ class RegisterActivity : AppCompatActivity() {
                                     .addOnFailureListener { e ->
                                         Log.w(TAG, "Error adding User", e)
                                     }
-                                VoucherDatasource().UpVoucherData(user.uid)
                             }
                         }
                     val intent = Intent(this, EmailVerificationActivity::class.java)
