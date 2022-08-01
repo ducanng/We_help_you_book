@@ -10,12 +10,14 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.wehelpyoubook.MainActivity
 import com.example.wehelpyoubook.R
 import com.example.wehelpyoubook.accountcontrol.auth.EmailVerificationActivity
+import com.example.wehelpyoubook.vouchercontroller.VoucherDatasource
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 class LoginActivity : AppCompatActivity() {
+    private var setTv: TextView? = null
     private var editPass: TextInputEditText? = null
     private var btnCallLogin: Button? = null
     private var tvForgotPass: TextView? = null
@@ -25,13 +27,14 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         editPass = findViewById(R.id.login_password_edittext)
+        setTv = findViewById(R.id.login_set_textview)
         btnCallLogin = findViewById<View>(R.id.login_button) as Button
         tvForgotPass = findViewById(R.id.forgot_password_textview)
 
         val intent = this.intent
         val email = intent.getStringExtra("email")
         auth = FirebaseAuth.getInstance()
-
+        setTv!!.text = "Đăng nhập với $email"
         tvForgotPass!!.setOnClickListener {
             forgotPassword(email)
         }

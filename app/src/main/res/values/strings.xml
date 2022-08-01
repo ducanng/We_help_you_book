@@ -10,6 +10,10 @@
     <string name="restaurant_near_you">Nhà hàng gần bạn</string>
     <string name="searching_restaurant">Tìm kiếm nhà hàng</string>
 
+    <!-- Duy -->
+    <string name="time_booking">Time booking:  %1$s</string>
+    <string name="order">Order #%1$s</string>
+
     <!-- Duong -->
     <string name="primary_color">Primary color</string>
     <string name="button">Button</string>
@@ -24,11 +28,13 @@
     <string name="jam">Rating</string>
     <string name="rute">Booking</string>
     <string name="website">Website</string>
+    <string name="description">Miêu tả</string>
+    <string name="price">Price</string>
 
 
     <!-- An -->
     <string name="full_app_name">WE HELP YOU BOOK</string>
-    <string name="sign_in_by">Đăng nhập bằng</string>
+    <string name="sign_in_by">Đăng nhập hoặc đăng ký bằng</string>
     <string name="email">Email</string>
     <string name="next">Tiếp tục</string>
     <string name="input_password">Nhập mật khẩu</string>
@@ -53,7 +59,7 @@
     <string name="delete_account">Xóa tài khoản</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="fullname">Họ tên</string>
+    <string name="fullname">Họ tên</string> 
     <string name="update">Cập nhật</string>
     <string name="new_password">Mật khẩu mới</string>
     <string name="confirm_new_password">Xác nhận mật khẩu mới</string>
@@ -72,9 +78,11 @@
     <string name="action_settings">Settings</string>
 
     <string name="menu_home">Home</string>
+    <string name="menu_user_infor">User Info</string>
+    <string name="menu_voucher">Voucher</string>
     <string name="menu_mybooking">MyBooking</string>
     <string name="menu_feedback">Feedback</string>
-    <string name="description">Miêu tả</string>
-    <string name="price">Price</string>
+    <string name="menu_logout">Logout</string>
+    <string name="input_email">Nhập email</string>
 
 </resources>

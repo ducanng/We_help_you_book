@@ -2,6 +2,7 @@ package com.example.wehelpyoubook.scrapingdata
 
 import android.util.Log
 import com.example.wehelpyoubook.model.*
+import com.example.wehelpyoubook.vouchercontroller.VoucherDatasource
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.async
@@ -9,6 +10,7 @@ import kotlinx.coroutines.runBlocking
 import org.jsoup.Jsoup
 import java.io.IOException
 val db = Firebase.firestore
+private const val linkServer = "https://www.foody.vn/ho-chi-minh/food/dia-diem?q=nha+hang&ss=header_search_form&page="
 private  const val mainUrl : String = "https://www.foody.vn/"
 private const val TAG = "MyActivity"
 class ScrapingData {
@@ -25,13 +27,13 @@ class ScrapingData {
         return account[2]
     }
 
-    suspend fun restaurantScraping(url: String) =
+    suspend fun restaurantScraping() =
         runBlocking {
             async {
                 for (page: Int in 1..5) {
                     try {
 
-                        val tmpUrl = url + page.toString()
+                        val tmpUrl = linkServer + page.toString()
                         val doc = Jsoup.connect(tmpUrl)
                         val event = doc.get().getElementsByClass("row-item filter-result-item")
 
@@ -69,13 +71,13 @@ class ScrapingData {
             }
         }.await()
 
-    suspend fun reviewScraping(url: String) =
+    suspend fun reviewScraping() =
         runBlocking {
 
             async {
                 for (page: Int in 1..5) {
                     try {
-                        val tmpUrl = url + page.toString()
+                        val tmpUrl = linkServer + page.toString()
                         val doc = Jsoup.connect(tmpUrl)
                         val resEvents = doc.get().getElementsByClass("row-item filter-result-item")
 
@@ -123,6 +125,7 @@ class ScrapingData {
                                         .addOnFailureListener { e ->
                                             Log.w(TAG, "Error adding review", e)
                                         }
+                                    VoucherDatasource().UpVoucherData(userID)
                                 }
                             }
                         }
@@ -132,13 +135,13 @@ class ScrapingData {
                 }
             }
         }.await()
-    suspend fun foodScraping(url: String) =
+    suspend fun foodScraping() =
         runBlocking {
             async {
                 for (page: Int in 1..5) {
                     try {
 
-                        val tmpUrl = url + page.toString()
+                        val tmpUrl = linkServer + page.toString()
                         val doc = Jsoup.connect(tmpUrl)
                         val event = doc.get().getElementsByClass("row-item filter-result-item")
 

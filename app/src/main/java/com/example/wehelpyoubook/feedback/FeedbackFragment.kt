@@ -1,12 +1,13 @@
 package com.example.wehelpyoubook.feedback
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.Fragment
 import com.example.wehelpyoubook.databinding.FragmentFeedbackBinding
+import com.example.wehelpyoubook.mybooking.MyBookingFragment
 
 class FeedbackFragment : Fragment() {
 
@@ -21,15 +22,13 @@ class FeedbackFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val feedbackViewModel =
-            ViewModelProvider(this).get(FeedbackViewModel::class.java)
+
 
         _binding = FragmentFeedbackBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
-
-        return root
+        startActivity(Intent(getActivity(), Feedback::class.java))
+        return binding.root
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

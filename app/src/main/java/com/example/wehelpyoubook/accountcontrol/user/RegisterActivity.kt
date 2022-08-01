@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.wehelpyoubook.R
 import com.example.wehelpyoubook.accountcontrol.auth.EmailVerificationActivity
 import com.example.wehelpyoubook.model.User
+import com.example.wehelpyoubook.vouchercontroller.VoucherDatasource
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.userProfileChangeRequest
@@ -119,6 +120,7 @@ class RegisterActivity : AppCompatActivity() {
                                     .addOnFailureListener { e ->
                                         Log.w(TAG, "Error adding User", e)
                                     }
+                                VoucherDatasource().UpVoucherData(user.uid)
                             }
                         }
                     val intent = Intent(this, EmailVerificationActivity::class.java)

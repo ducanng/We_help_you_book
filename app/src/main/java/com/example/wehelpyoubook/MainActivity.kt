@@ -2,10 +2,10 @@ package com.example.wehelpyoubook
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
+import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -26,16 +26,15 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        //user
+        val user = Firebase.auth.currentUser
+        if (user == null) {
+            startActivity(Intent(this, HomeSignInActivity::class.java))
+            finish()
+        }
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        setSupportActionBar(binding.appBarMain.toolbar)
-
-//        binding.appBarMain.fab.setOnClickListener { view ->
-//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                .setAction("Action", null).show()
-//        }
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_main)
@@ -43,7 +42,7 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_my_booking, R.id.nav_feedback
+                R.id.nav_home, R.id.nav_my_booking, R.id.nav_feedback, R.id.nav_logout
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -54,37 +53,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.menu_home, menu)
-        val homeLoginItem = menu.findItem(R.id.menu_home_login_item)
-        //An
-        val homeLogoutItem = menu.findItem(R.id.menu_home_logout_item)
-        val homeInfoItem = menu.findItem(R.id.menu_home_userinfo_item)
-        val user = Firebase.auth.currentUser
-        if (user != null) {
-            homeLoginItem.isVisible = false
-        } else  {
-            homeLogoutItem.isVisible = false
-        }
-        homeLoginItem.setOnMenuItemClickListener {
-            startActivity(Intent(this, HomeSignInActivity::class.java))
-            return@setOnMenuItemClickListener true
-        }
-        //An
-        homeLogoutItem.setOnMenuItemClickListener {
-            Firebase.auth.signOut()
-            this.recreate()
-            return@setOnMenuItemClickListener true
-        }
-        homeInfoItem.setOnMenuItemClickListener {
-            if (user != null) {
-                startActivity(Intent(this, UserInformationActivity::class.java))
-            } else {
-                startActivity(Intent(this, HomeSignInActivity::class.java))
-            }
-            return@setOnMenuItemClickListener true
-        }
+
         return true
     }
-
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()

@@ -21,6 +21,7 @@ class VoucherAdapter (
         val percentTextView: TextView = view.findViewById(R.id.voucher_percent_tv)
         val descTextView: TextView = view.findViewById((R.id.voucher_desc_tv))
         val button : Button = view.findViewById(R.id.voucher_choose_bt)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VoucherViewHolder {

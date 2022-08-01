@@ -50,20 +50,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp">
 
-                <RatingBar
-                    android:id="@+id/ratingRestaurant"
-                    style="@style/Widget.AppCompat.RatingBar.Small"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_centerInParent="true"
-                    android:progressTint="@color/colorRating" />
-
                 <TextView
                     android:id="@+id/tvRating"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/ratingRestaurant"
                     android:textColor="@color/colorBlack"
                     android:textSize="14sp" />
 
@@ -103,21 +93,23 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/addressID"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
-                    android:text="@string/address"
+                    android:text=""
                     android:textColor="@color/colorBlack"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
 
                 <TextView
+                    android:id="@+id/ratingID"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
 
-                    android:text="@string/jam"
+                    android:text=""
                     android:textColor="@color/colorBlack"
                     android:textSize="14sp"
                     android:textStyle="bold" />
@@ -138,7 +130,6 @@
                     android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ratingRestaurant"
                     app:spanCount="1" />
             </LinearLayout>
 
