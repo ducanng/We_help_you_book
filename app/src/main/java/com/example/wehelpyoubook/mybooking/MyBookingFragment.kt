@@ -14,6 +14,8 @@ import com.example.wehelpyoubook.restaurentInterface.ListRestaurantActivity
 import com.example.wehelpyoubook.restaurentInterface.RestaurantInterfaceControl
 import com.example.wehelpyoubook.update.UpdateData
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObjects
 import com.google.firebase.ktx.Firebase
@@ -48,15 +50,15 @@ class MyBookingFragment : Fragment() {
             orderList = documentSnapshot.toObjects()
             binding.recyclerView.adapter =
                 context?.let {
-                    MyBookingAdapter(this, orderList) {
-                            order -> val myIntent = Intent(context, UpdateData::class.java)
-                        myIntent.putExtra("resKey",order.resID)
-                        myIntent.putExtra("cusKey",order.userId)
-                        myIntent.putExtra("timeKey",order.timeBooking)
-                        myIntent.putExtra("voucherKey",order.voucher)
-                        startActivity(myIntent)
-                    }
+                MyBookingAdapter(this, orderList) {
+                        order -> val myIntent = Intent(context, UpdateData::class.java)
+                    myIntent.putExtra("resKey",order.resID)
+                    myIntent.putExtra("cusKey",order.userId)
+                    myIntent.putExtra("timeKey",order.timeBooking)
+                    myIntent.putExtra("voucherKey",order.voucher)
+                    startActivity(myIntent)
                 }
+            }
         }
         //binding.recyclerView.setHasFixedSize(true)
 

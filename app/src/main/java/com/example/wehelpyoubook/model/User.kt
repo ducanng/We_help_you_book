@@ -9,5 +9,4 @@ data class User (
     val account : String? = null,
     val password : String? = null,
     val dayOfBirth : String? = null,
-    val restaurantManager: String? = null
 )

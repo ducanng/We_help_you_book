@@ -1,4 +1,4 @@
-package com.example.wehelpyoubook.notification;
+package com.example.wehelpyoubook;
 
 import android.app.Activity;
 

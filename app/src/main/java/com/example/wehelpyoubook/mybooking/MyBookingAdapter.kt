@@ -17,9 +17,9 @@ import com.example.wehelpyoubook.model.User
 import com.google.firebase.firestore.ktx.toObjects
 
 class MyBookingAdapter(
-    private val context: MyBookingFragment,
-    private val orders: List<Orders>,
-    private val listener: (Orders) -> Unit
+        private val context: MyBookingFragment,
+        private val orders: List<Orders>,
+        private val listener: (Orders) -> Unit
 ) : RecyclerView.Adapter<MyBookingAdapter.MyBookingAdapterViewHolder>() {
 
     class MyBookingAdapterViewHolder
