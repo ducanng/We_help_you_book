@@ -107,6 +107,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@color/white"
+            android:focusable="false"
             android:hint="@string/rate_text"
             android:textColor="@color/black"
             android:textColorHint="@color/black" />
