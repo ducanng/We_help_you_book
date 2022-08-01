@@ -7,7 +7,6 @@ import android.util.Patterns
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.wehelpyoubook.MainActivity
 import com.example.wehelpyoubook.R
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
@@ -22,7 +21,6 @@ class EmailActivity : AppCompatActivity() {
     @SuppressLint("ShowToast", "SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         setContentView(R.layout.activity_input_email)
         auth = FirebaseAuth.getInstance()
         editEmail = findViewById(R.id.email_edittext)
@@ -61,9 +59,5 @@ class EmailActivity : AppCompatActivity() {
         }
         val pattern: Pattern = Patterns.EMAIL_ADDRESS
         return pattern.matcher(email).matches()
-    }
-    override fun onSupportNavigateUp(): Boolean {
-        startActivity(Intent(this@EmailActivity, MainActivity::class.java))
-        return super.onSupportNavigateUp()
     }
 }
