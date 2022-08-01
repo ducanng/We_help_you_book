@@ -79,7 +79,7 @@ class VoucherListActivity : AppCompatActivity() {
         }
         binding.recyclerView.setHasFixedSize(true)
     }
-    fun addNewVoucher(){
+    private fun addNewVoucher(){
         binding.addVoucherBt.setOnClickListener(){
             var intent = Intent(this@VoucherListActivity, VoucherEdit::class.java)
             intent.putExtra("resKey", manager.restaurantManager)

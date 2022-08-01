@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.wehelpyoubook.databinding.FragmentMyBookingBinding
-import com.example.wehelpyoubook.feedback.FeedbackViewModel
 import com.example.wehelpyoubook.model.Orders
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObjects
@@ -27,8 +26,6 @@ class MyBookingFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        ViewModelProvider(this).get(FeedbackViewModel::class.java)
-
         // Initialize data.
 
         _binding = FragmentMyBookingBinding.inflate(inflater, container, false)

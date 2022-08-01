@@ -33,27 +33,8 @@ class VoucherEdit : AppCompatActivity() {
         binding.voucherEditImage.addTextChangedListener{
         }
         binding.voucherEditChangeButton.setOnClickListener{
-
             voucherInputHandle()
-
             when(actionType) {
-                "edit" -> {
-                    db.collection("Vouchers").document(documentID).delete()
-                    db.collection("Vouchers").add(
-                        Voucher(
-                            binding.voucherEditDescription.text.toString(),
-                            binding.voucherEditImage.text.toString().toInt(),
-                            binding.voucherEditSale.text.toString().toInt(),
-                            "",
-                            resId
-                        )
-                    )
-                    Toast.makeText(
-                        this@VoucherEdit,
-                        "Cập nhật thành công !!!",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
                 "add" -> {
                     db.collection("Vouchers").add(
                         Voucher(
@@ -70,6 +51,24 @@ class VoucherEdit : AppCompatActivity() {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
+                //edit
+                else ->{
+                    db.collection("Vouchers").document(documentID).delete()
+                    db.collection("Vouchers").add(
+                        Voucher(
+                            binding.voucherEditDescription.text.toString(),
+                            binding.voucherEditImage.text.toString().toInt(),
+                            binding.voucherEditSale.text.toString().toInt(),
+                            "",
+                            resId
+                        )
+                    )
+                    Toast.makeText(
+                        this@VoucherEdit,
+                        "Cập nhật thành công !!!",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
 
             startActivity(Intent(this@VoucherEdit,VoucherListActivity::class.java))
@@ -80,10 +79,15 @@ class VoucherEdit : AppCompatActivity() {
     }
     private fun getVoucherData(){
         resId = intent.getStringExtra("resKey").toString()
-        actionType = intent.getStringExtra("actionType").toString()
+        actionType= intent.getStringExtra("actionType").toString()
         voucherDes = intent.getStringExtra("voucherDescription").toString()
+
         when(actionType) {
-            "edit" -> {
+            "add" -> {
+                voucherImUrl = R.drawable.avatar_whybook.toString()
+            }
+            else ->
+            {
                 val resDoc = db
                     .collection("Vouchers")
                     .whereEqualTo("resId", resId)
@@ -99,9 +103,6 @@ class VoucherEdit : AppCompatActivity() {
                         }
                     }
                 }
-            }
-            "add" -> {
-                voucherImUrl = R.drawable.avatar_whybook.toString()
             }
         }
     }

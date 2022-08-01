@@ -56,9 +56,9 @@
     <string name="cancel">hủy</string>
     <string name="image_url">Image URL</string>
     <string name="rate_text">Rate</string>
-    <string name="change_voucher">Sửa thông tin voucher</string>
+    <string name="change_voucher">Thông tin voucher</string>
     <string name="voucher_name">Tên voucher</string>
-    <string name="change_info_restaurant">Sửa thông tin nhà hàng</string>
+    <string name="change_info_restaurant">Thông tin nhà hàng</string>
     <string name="restaurant_name">Tên nhà hàng</string>
     <string name="restaurant_address">Địa chỉ nhà hàng</string>
     <string name="voucher_description">Mô tả voucher</string>

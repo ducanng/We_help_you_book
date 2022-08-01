@@ -84,6 +84,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@color/white"
+            android:inputType="number"
             android:hint="@string/sale"
             android:textColor="@color/black"
             android:textColorHint="@color/black" />
