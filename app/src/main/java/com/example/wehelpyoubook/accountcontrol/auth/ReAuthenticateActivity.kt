@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.wehelpyoubook.MainActivity
 import com.example.wehelpyoubook.accountcontrol.info.DeleteAccountActivity
 import com.example.wehelpyoubook.R
 import com.example.wehelpyoubook.accountcontrol.info.ChangeEmailActivity
@@ -27,6 +28,7 @@ class ReAuthenticateActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_re_authenticate)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         initReAuthenticateUI()
         val intent = this.intent
         val change = intent.getStringExtra("choose")!!.toString()
@@ -78,5 +80,9 @@ class ReAuthenticateActivity : AppCompatActivity() {
                     password!!.error = "Sai mật khẩu!"
                 }
             }
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        startActivity(Intent(this@ReAuthenticateActivity, MainActivity::class.java))
+        return super.onSupportNavigateUp()
     }
 }

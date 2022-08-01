@@ -15,6 +15,7 @@ class DeleteAccountActivity : AppCompatActivity() {
     private var deleteBtn: Button? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         setContentView(R.layout.activity_delete_account)
         initDeleteAccountUI()
         cancelBtn!!.setOnClickListener {
@@ -40,5 +41,9 @@ class DeleteAccountActivity : AppCompatActivity() {
     private fun initDeleteAccountUI() {
         cancelBtn = findViewById(R.id.cancel_and_back_button)
         deleteBtn = findViewById(R.id.delete_account_button)
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        startActivity(Intent(this@DeleteAccountActivity, MainActivity::class.java))
+        return super.onSupportNavigateUp()
     }
 }

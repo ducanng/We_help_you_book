@@ -14,7 +14,6 @@ import android.widget.Button
 import android.widget.RemoteViews
 import androidx.appcompat.app.AppCompatActivity
 import com.example.wehelpyoubook.R
-import com.example.wehelpyoubook.afterNotification
 
 class NotificationActivity : AppCompatActivity() {
 

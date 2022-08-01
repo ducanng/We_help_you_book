@@ -47,7 +47,9 @@ class ListRestaurantActivity : AppCompatActivity() {
                 }
                 binding.recyclerView.adapter =
                     NearRestaurantAdapter(this@ListRestaurantActivity, results) {
-                            res -> println(res.name)
+                            res -> val myIntent = Intent(this@ListRestaurantActivity, RestaurantInterfaceControl::class.java)
+                            myIntent.putExtra("resKey",res.resID)
+                            startActivity(myIntent)
                     }
                 return false
             }

@@ -43,20 +43,12 @@
             app:layout_constraintStart_toStartOf="@id/time_booking"/>
 
         <TextView
-            android:id="@+id/voucher"
+            android:id="@+id/order"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor = "#B000"
             app:layout_constraintTop_toBottomOf="@id/time_end"
             app:layout_constraintStart_toStartOf="@id/time_end"/>
-
-        <TextView
-            android:id="@+id/order"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor = "#B000"
-            app:layout_constraintTop_toBottomOf="@id/voucher"
-            app:layout_constraintStart_toStartOf="@id/voucher"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
