@@ -53,7 +53,17 @@
     <string name="sent_verify">Gửi xác nhận</string>
     <string name="please_verify_email">Hãy xác nhận email của bạn</string>
     <string name="delete_account">Xóa tài khoản</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="cancel">hủy</string>
+    <string name="image_url">Image URL</string>
+    <string name="rate_text">Rate</string>
+    <string name="change_voucher">Sửa thông tin voucher</string>
+    <string name="voucher_name">Tên voucher</string>
+    <string name="change_info_restaurant">Sửa thông tin nhà hàng</string>
+    <string name="restaurant_name">Tên nhà hàng</string>
+    <string name="restaurant_address">Địa chỉ nhà hàng</string>
+    <string name="voucher_description">Mô tả voucher</string>
+    <string name="sale">Khuyến mãi bao nhiêu phần trăm?</string>
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="fullname">Họ tên</string>
     <string name="update">Cập nhật</string>
@@ -82,5 +92,6 @@
     <string name="input_email">Nhập email</string>
     <string name="edit_voucher">Edit</string>
     <string name="remove_voucher">Remove</string>
+    <string name="add_voucher">Thêm voucher</string>
 
 </resources>

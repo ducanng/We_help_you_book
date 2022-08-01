@@ -38,6 +38,7 @@ class MainActivity : AppCompatActivity() {
         val user = Firebase.auth.currentUser
         if (user == null) {
             startActivity(Intent(this, HomeSignInActivity::class.java))
+            finish()
         }
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)

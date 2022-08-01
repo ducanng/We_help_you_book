@@ -14,10 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Wehelpyoubook">
         <activity
-            android:name=".RestaurantEdit"
+            android:name=".restaurentInterface.RestaurantEdit"
             android:exported="false" />
         <activity
-            android:name=".VoucherEdit"
+            android:name=".vouchercontroller.VoucherEdit"
             android:exported="false" />
         <activity
             android:name=".vouchercontroller.VoucherListActivity"
