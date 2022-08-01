@@ -14,6 +14,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Wehelpyoubook">
         <activity
+            android:name=".notification.afterNotification"
+            android:exported="false" />
+        <activity
+            android:name=".notification.NotificationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".feedback.Feedback"
+            android:exported="false" />
+        <activity
+            android:name=".update.UpdateData"
+            android:exported="false" />
+        <activity
             android:name=".restaurentInterface.RestaurantEdit"
             android:exported="false" />
         <activity

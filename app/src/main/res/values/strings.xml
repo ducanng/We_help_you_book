@@ -94,4 +94,7 @@
     <string name="remove_voucher">Remove</string>
     <string name="add_voucher">Thêm voucher</string>
 
+<!--    Duy-->
+    <string name="time_booking">Time booking:  %1$s</string>
+    <string name="order">Order #%1$s</string>
 </resources>

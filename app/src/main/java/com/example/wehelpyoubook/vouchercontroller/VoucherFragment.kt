@@ -9,7 +9,7 @@ import com.example.wehelpyoubook.restaurentInterface.RestaurantEdit
 
 class VoucherFragment: Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        startActivity(Intent(activity, RestaurantEdit::class.java))
+        startActivity(Intent(activity, VoucherListActivity::class.java))
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 }

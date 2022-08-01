@@ -67,6 +67,7 @@ class RestaurantInterfaceControl : AppCompatActivity() {
         button.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View?) {
                 val review = comment.text.toString().trim()
+                comment.setText("")
                 uploadComment(review)
             }
         })
@@ -216,21 +217,7 @@ class RestaurantInterfaceControl : AppCompatActivity() {
 
             buttonBook = findViewById(R.id.bookingButton)
             buttonBook.setOnClickListener {
-                val view = View.inflate(this@RestaurantInterfaceControl, R.layout.booking_layout, null)
-                val builder = AlertDialog.Builder(this@RestaurantInterfaceControl)
-                builder.setView(view)
-                val dialog = builder.create()
-                dialog.show()
-                dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
-                yesBook = view.findViewById(R.id.order)
-                noBook = view.findViewById(R.id.no_order)
-                yesBook.setOnClickListener {
-                    dialog.dismiss()
-                    chooseVoucher(listCurrentVoucher)
-                }
-                noBook.setOnClickListener {
-                    dialog.dismiss()
-                }
+                chooseVoucher(listCurrentVoucher)
             }
 
         }
