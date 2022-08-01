@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.wehelpyoubook.databinding.FragmentFeedbackBinding
-import com.example.wehelpyoubook.mybooking.MyBookingFragment
 
 class FeedbackFragment : Fragment() {
 
@@ -23,12 +22,10 @@ class FeedbackFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-
         _binding = FragmentFeedbackBinding.inflate(inflater, container, false)
         startActivity(Intent(getActivity(), Feedback::class.java))
         return binding.root
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()

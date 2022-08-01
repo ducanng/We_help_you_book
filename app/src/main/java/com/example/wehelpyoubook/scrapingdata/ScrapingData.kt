@@ -10,6 +10,7 @@ import kotlinx.coroutines.runBlocking
 import org.jsoup.Jsoup
 import java.io.IOException
 val db = Firebase.firestore
+
 private const val linkServer = "https://www.foody.vn/ho-chi-minh/food/dia-diem?q=nha+hang&ss=header_search_form&page="
 private  const val mainUrl : String = "https://www.foody.vn/"
 private const val TAG = "MyActivity"
@@ -43,6 +44,7 @@ class ScrapingData {
                             val resTitle = i.getElementsByTag("img").attr("alt")
                             val resRate = i.getElementsByClass("point highlight-text").text()
                             val resAddress = i.getElementsByClass("address").text()
+
                             val tmpRes = Restaurant(
                                 resId,
                                 resTitle,
@@ -51,7 +53,6 @@ class ScrapingData {
                                 resImage
                             )
                             resList.add(tmpRes)
-
                             db.collection("Restaurants")
                                 .add(
                                     tmpRes
@@ -62,6 +63,7 @@ class ScrapingData {
                                 .addOnFailureListener { e ->
                                     Log.w(TAG, "Error adding restaurant", e)
                                 }
+                            VoucherDatasource().UpVoucherData("",resId)
                         }
                     } catch (e: IOException) {
                         e.printStackTrace()
@@ -105,6 +107,7 @@ class ScrapingData {
                                             "",
                                             account,
                                             account,
+                                            "",
                                             ""
                                         )
                                     )
@@ -125,7 +128,6 @@ class ScrapingData {
                                         .addOnFailureListener { e ->
                                             Log.w(TAG, "Error adding review", e)
                                         }
-                                    VoucherDatasource().UpVoucherData(userID)
                                 }
                             }
                         }

@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.wehelpyoubook.MainActivity
 import com.example.wehelpyoubook.R
 import com.example.wehelpyoubook.accountcontrol.auth.EmailVerificationActivity
 import com.example.wehelpyoubook.model.User
@@ -30,6 +31,7 @@ class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         auth = FirebaseAuth.getInstance()
         val intent = this.intent
@@ -108,7 +110,8 @@ class RegisterActivity : AppCompatActivity() {
                                     user.email,
                                     user.email,
                                     password,
-                                    null
+                                    "",
+                                    ""
                                 )
                                 db.collection("Users")
                                     .add(
@@ -120,7 +123,6 @@ class RegisterActivity : AppCompatActivity() {
                                     .addOnFailureListener { e ->
                                         Log.w(TAG, "Error adding User", e)
                                     }
-                                VoucherDatasource().UpVoucherData(user.uid)
                             }
                         }
                     val intent = Intent(this, EmailVerificationActivity::class.java)
@@ -133,5 +135,9 @@ class RegisterActivity : AppCompatActivity() {
                 }
             }
         // [END create_user_with_email]
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        startActivity(Intent(this@RegisterActivity, MainActivity::class.java))
+        return super.onSupportNavigateUp()
     }
 }

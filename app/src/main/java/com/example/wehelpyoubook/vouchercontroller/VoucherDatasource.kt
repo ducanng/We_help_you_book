@@ -8,16 +8,16 @@ import com.example.wehelpyoubook.scrapingdata.db
 
 class VoucherDatasource {
 
-    fun getData(userId: String) : List<Voucher>{
+    fun getData(userId: String,resId : String) : List<Voucher>{
         var voucherList = mutableListOf<Voucher>()
-        voucherList.add(Voucher("Voucher giảm 5%", R.drawable.avatar_whybook, 5,userId))
-        voucherList.add(Voucher("Voucher giảm 10%", R.drawable.avatar_whybook, 10,userId))
-        voucherList.add(Voucher("Voucher giảm 15%", R.drawable.avatar_whybook, 15,userId))
-        voucherList.add(Voucher("Voucher giảm 20%", R.drawable.avatar_whybook, 20,userId))
+        voucherList.add(Voucher("Voucher giảm 5%", R.drawable.avatar_whybook, 5,userId,resId))
+        voucherList.add(Voucher("Voucher giảm 10%", R.drawable.avatar_whybook, 10,userId,resId))
+        voucherList.add(Voucher("Voucher giảm 15%", R.drawable.avatar_whybook, 15,userId,resId))
+        voucherList.add(Voucher("Voucher giảm 20%", R.drawable.avatar_whybook, 20,userId,resId))
         return voucherList
     }
-    fun UpVoucherData(userId : String){
-        var voucherList = getData(userId)
+    fun UpVoucherData(userId : String,resId : String){
+        var voucherList = getData(userId,resId)
         for (v in voucherList) {
             var voucher = v
             db.collection("Vouchers")

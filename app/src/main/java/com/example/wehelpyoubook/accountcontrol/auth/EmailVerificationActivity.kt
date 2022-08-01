@@ -20,6 +20,7 @@ class EmailVerificationActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         setContentView(R.layout.activity_email_verification)
         init()
 
@@ -34,6 +35,10 @@ class EmailVerificationActivity : AppCompatActivity() {
         continueBtn!!.setOnClickListener{
             startActivity(Intent(this, MainActivity::class.java))
         }
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        startActivity(Intent(this@EmailVerificationActivity,MainActivity::class.java))
+        return super.onSupportNavigateUp()
     }
     private fun init() {
         verifyBtn = findViewById(R.id.verify_button)
