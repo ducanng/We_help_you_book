@@ -15,9 +15,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wehelpyoubook.MainActivity
 import com.example.wehelpyoubook.R
+import com.example.wehelpyoubook.accountcontrol.HomeSignInActivity
 import com.example.wehelpyoubook.adapter.FoodAdapter
 import com.example.wehelpyoubook.adapter.ReviewAdapter
+import com.example.wehelpyoubook.databinding.FragmentMyBookingBinding
 import com.example.wehelpyoubook.model.*
+import com.example.wehelpyoubook.mybooking.MyBookingAdapter
+import com.example.wehelpyoubook.notification.NotificationActivity
+import com.example.wehelpyoubook.update.UpdateData
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.EventListener
@@ -52,6 +57,7 @@ class RestaurantInterfaceControl : AppCompatActivity() {
     private var resID = ""
     private var userId = ""
     private lateinit var pd: ProgressBar
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -262,7 +268,7 @@ class RestaurantInterfaceControl : AppCompatActivity() {
     }
 
     fun UpOrder(time: String,description: String) {
-
+        startActivity(Intent(this, NotificationActivity::class.java))
         var order = Orders(
             userId,
             resID,
