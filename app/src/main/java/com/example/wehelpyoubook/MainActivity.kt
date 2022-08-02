@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
@@ -51,13 +52,17 @@ class MainActivity : AppCompatActivity() {
 
         val resDoc = com.example.wehelpyoubook.scrapingdata.db.collection("Users")
             .whereEqualTo("id",userId)
+
         resDoc.get().addOnSuccessListener { documentSnapshot ->
             println(manager!!.role )
             if (documentSnapshot.toObjects<User>().isNotEmpty()){
                 manager = documentSnapshot.toObjects<User>()[0]
                 if(manager!!.role == "manager"){
                     binding = ActivityMainBinding.inflate(layoutInflater)
+
                     setContentView(binding.root)
+                    val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
+                    setSupportActionBar(toolbar)
                     val drawerLayout: DrawerLayout = binding.drawerLayout
                     val navView: NavigationView = binding.navView
                     val navController = findNavController(R.id.nav_host_fragment_content_main)
@@ -68,6 +73,11 @@ class MainActivity : AppCompatActivity() {
                     )
                     setupActionBarWithNavController(navController, appBarConfiguration)
                     navView.setupWithNavController(navController)
+                    val header = navView.getHeaderView(0)
+                    val name = header.findViewById<TextView>(R.id.display_name_nav)
+                    val email = header.findViewById<TextView>(R.id.email_nav)
+                    name.text = auth.displayName
+                    email.text = auth.email
                 }
                 else if(manager!!.role == "customer"){
                     binding2 = ActivityCustomerBinding.inflate(layoutInflater)
@@ -82,7 +92,11 @@ class MainActivity : AppCompatActivity() {
                     )
                     setupActionBarWithNavController(navController, appBarConfiguration)
                     navView.setupWithNavController(navController)
-
+                    val header = navView.getHeaderView(0)
+                    val name = header.findViewById<TextView>(R.id.display_name_nav)
+                    val email = header.findViewById<TextView>(R.id.email_nav)
+                    name.text = auth.displayName
+                    email.text = auth.email
                 }
             }
         }
