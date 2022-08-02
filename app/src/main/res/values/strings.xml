@@ -75,7 +75,7 @@
     <string name="cancel_goback">Hủy và trở về</string>
     <string name="are_you_sure">Bạn có chắc chắn rằng là bạn muốn xóa tài khoản?</string>
 
-    <!-- Testfragment-->
+    <!-- Duy-->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -93,8 +93,8 @@
     <string name="edit_voucher">Edit</string>
     <string name="remove_voucher">Remove</string>
     <string name="add_voucher">Thêm voucher</string>
-
-<!--    Duy-->
     <string name="time_booking">Time booking:  %1$s</string>
     <string name="order">Order #%1$s</string>
+    <string name="menu_edit_restaurant">Edit Restaurant</string>
+
 </resources>

@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.example.wehelpyoubook.adapter.NearRestaurantAdapter
 import com.example.wehelpyoubook.databinding.FragmentMyBookingBinding
 import com.example.wehelpyoubook.model.Orders
+import com.example.wehelpyoubook.model.User
 import com.example.wehelpyoubook.restaurentInterface.ListRestaurantActivity
 import com.example.wehelpyoubook.restaurentInterface.RestaurantInterfaceControl
 import com.example.wehelpyoubook.update.UpdateData
@@ -25,6 +26,8 @@ val db = Firebase.firestore
 class MyBookingFragment : Fragment() {
     private var orderList = listOf<Orders>()
     private var _binding: FragmentMyBookingBinding? = null
+    private var userId = ""
+    private var manager : User = User()
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -42,6 +45,14 @@ class MyBookingFragment : Fragment() {
         _binding = FragmentMyBookingBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+
+        //binding.recyclerView.setHasFixedSize(true)
+
+        getManagerRestaurantId()
+
+        return root
+    }
+    private fun getUserRestaurantId() {
         var customer = Firebase.auth.currentUser
         val resDoc = db.collection("MyOrders")
         resDoc.whereEqualTo("userId",customer!!.uid).get().addOnSuccessListener { documentSnapshot ->
@@ -58,13 +69,40 @@ class MyBookingFragment : Fragment() {
                     }
                 }
         }
-        //binding.recyclerView.setHasFixedSize(true)
-
-
-
-        return root
     }
 
+    private fun getManagerRestaurantId() {
+        val auth = Firebase.auth.currentUser
+        userId = auth!!.uid
+
+        val resDoc = com.example.wehelpyoubook.scrapingdata.db.collection("Users")
+            .whereEqualTo("id",userId)
+        resDoc.get().addOnSuccessListener { documentSnapshot ->
+            if (documentSnapshot.toObjects<User>().isNotEmpty()){
+                manager = documentSnapshot.toObjects<User>()[0]
+                if(manager!!.role == "customer"){
+                    getUserRestaurantId()
+
+                }
+                else if(manager.role == "manager"){
+                    fetchOrderList()
+                }
+
+            }
+        }
+    }
+    private fun fetchOrderList() {
+        println("Thay")
+        val resDoc = com.example.wehelpyoubook.scrapingdata.db.collection("MyOrders")
+            .whereEqualTo("resID", manager.restaurantManager)
+        resDoc.get().addOnSuccessListener { documentSnapshot ->
+            orderList = documentSnapshot.toObjects()
+            binding.recyclerView.adapter =
+                MyBookingAdapter(this, orderList) {
+                        order ->
+                }
+        }
+    }
 
 
 

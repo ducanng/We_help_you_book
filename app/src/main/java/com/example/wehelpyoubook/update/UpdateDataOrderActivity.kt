@@ -34,7 +34,7 @@ class UpdateData : AppCompatActivity() {
         binding.updateBtn.setOnClickListener {
 
             updateData()
-            startActivity(Intent(this,MyBookingFragment::class.java))
+            startActivity(Intent(this,MainActivity::class.java))
         }
 
         binding.cancelBtn.setOnClickListener {
