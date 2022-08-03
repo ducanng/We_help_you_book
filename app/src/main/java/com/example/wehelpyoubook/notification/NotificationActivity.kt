@@ -44,7 +44,7 @@ class NotificationActivity() : AppCompatActivity() {
 
 
         //R.id.btn_Notify.apply {
-            sendNotify()
+        sendNotify()
         //}
 
         //startActivity(Intent(this, MainActivity::class.java))

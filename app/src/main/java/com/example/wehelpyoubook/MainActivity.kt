@@ -52,14 +52,12 @@ class MainActivity : AppCompatActivity() {
 
         val resDoc = com.example.wehelpyoubook.scrapingdata.db.collection("Users")
             .whereEqualTo("id",userId)
-
         resDoc.get().addOnSuccessListener { documentSnapshot ->
             println(manager!!.role )
             if (documentSnapshot.toObjects<User>().isNotEmpty()){
                 manager = documentSnapshot.toObjects<User>()[0]
                 if(manager!!.role == "manager"){
                     binding = ActivityMainBinding.inflate(layoutInflater)
-
                     setContentView(binding.root)
                     val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
                     setSupportActionBar(toolbar)
@@ -82,6 +80,8 @@ class MainActivity : AppCompatActivity() {
                 else if(manager!!.role == "customer"){
                     binding2 = ActivityCustomerBinding.inflate(layoutInflater)
                     setContentView(binding2.root)
+                    val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
+                    setSupportActionBar(toolbar)
                     val drawerLayout: DrawerLayout = binding2.drawerLayoutCustomer
                     val navView: NavigationView = binding2.navViewCustomer
                     val navController = findNavController(R.id.nav_host_fragment_content_main)
@@ -97,6 +97,7 @@ class MainActivity : AppCompatActivity() {
                     val email = header.findViewById<TextView>(R.id.email_nav)
                     name.text = auth.displayName
                     email.text = auth.email
+
                 }
             }
         }

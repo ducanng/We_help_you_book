@@ -13,13 +13,12 @@ import com.example.wehelpyoubook.MainActivity
 import com.example.wehelpyoubook.R
 import com.example.wehelpyoubook.accountcontrol.auth.EmailVerificationActivity
 import com.example.wehelpyoubook.model.User
+import com.example.wehelpyoubook.vouchercontroller.VoucherDatasource
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.userProfileChangeRequest
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import java.util.regex.Matcher
-import java.util.regex.Pattern
 
 val db = Firebase.firestore
 class RegisterActivity : AppCompatActivity() {
@@ -77,21 +76,6 @@ class RegisterActivity : AppCompatActivity() {
             true
         }
     }
-    private fun isPatternName(name: String): Boolean {
-        val pattern: Pattern
-        val namePattern = "(?=.*[a-z])(?=.*[A-Z]).{4,}"
-        pattern = Pattern.compile(namePattern)
-        val matcher: Matcher = pattern.matcher(name)
-        return matcher.matches()
-    }
-    private fun isCharacterSpecial(name: String): Boolean {
-        val pattern: Pattern
-        val specialCharacters = "-@%\\[\\}+'!/#$^?:;,\\(\"\\)~`.*=&\\{>\\]<_"
-        val namePattern = "(?=.*[$specialCharacters]).{4,}"
-        pattern = Pattern.compile(namePattern)
-        val matcher: Matcher = pattern.matcher(name)
-        return matcher.matches()
-    }
     private fun isValidateName(name: String): Boolean {
         if (name == "") {
             editName!!.error = "Không thể để trống"
@@ -99,10 +83,6 @@ class RegisterActivity : AppCompatActivity() {
         }
         if (name.length < 4) {
             editName!!.error = "Đặt đầy đủ họ tên"
-            return false
-        }
-        if (!isPatternName(name) || isCharacterSpecial(name)) {
-            editName!!.error = "Tên chỉ chứa kí tự [A-Z] và [a-z]"
             return false
         }
         return true
