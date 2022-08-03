@@ -1,6 +1,5 @@
 package com.example.wehelpyoubook.feedback
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -23,7 +22,7 @@ class FeedbackFragment : Fragment() {
     ): View {
 
         _binding = FragmentFeedbackBinding.inflate(inflater, container, false)
-        startActivity(Intent(getActivity(), Feedback::class.java))
+
         return binding.root
     }
 
