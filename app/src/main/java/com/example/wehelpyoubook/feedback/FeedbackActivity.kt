@@ -18,13 +18,9 @@ class Feedback : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         this.title = "Feedback"
         setContentView(R.layout.fragment_feedback)
-        if (supportActionBar != null){
-            supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        }
-
         val edit1 = findViewById<View>(R.id.edit1) as EditText
         val edit2 = findViewById<View>(R.id.edit2) as EditText
         val btn = findViewById<View>(R.id.button) as Button
@@ -53,7 +49,7 @@ class Feedback : AppCompatActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        startActivity(Intent(this@Feedback, MainActivity::class.java))
+        startActivity(Intent(this, MainActivity::class.java))
         return super.onSupportNavigateUp()
     }
 }

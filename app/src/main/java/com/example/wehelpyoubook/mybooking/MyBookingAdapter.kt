@@ -51,9 +51,11 @@ class MyBookingAdapter(
         holder.itemView.setOnClickListener { listener(mybooking) }
 
         holder.timeBookingView.text = resources?.getString(R.string.time_booking,mybooking.timeBooking)
+//        mybooking.timeEnd = mybooking.timeBooking?.let { calcDifTime(it) }
+//        holder.timeEndView.text =  mybooking.timeEnd
+
         //mybooking.timeEnd = mybooking.timeBooking?.let { calcDifTime(it) }
         holder.timeEndView.text =  resources?.getString(R.string.time_ending,mybooking.timeEnd)
-
 
         val resDoc = com.example.wehelpyoubook.scrapingdata.db
             .collection("Restaurants")

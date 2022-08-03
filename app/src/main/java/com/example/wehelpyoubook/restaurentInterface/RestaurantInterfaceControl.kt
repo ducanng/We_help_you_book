@@ -13,15 +13,20 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wehelpyoubook.MainActivity
 import com.example.wehelpyoubook.R
+import com.example.wehelpyoubook.accountcontrol.HomeSignInActivity
 import com.example.wehelpyoubook.adapter.FoodAdapter
 import com.example.wehelpyoubook.adapter.ReviewAdapter
 import com.example.wehelpyoubook.databinding.FragmentMyBookingBinding
 import com.example.wehelpyoubook.model.*
+import com.example.wehelpyoubook.mybooking.MyBookingAdapter
 import com.example.wehelpyoubook.notification.NotificationActivity
+import com.example.wehelpyoubook.update.UpdateData
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.EventListener
@@ -265,8 +270,6 @@ class RestaurantInterfaceControl : AppCompatActivity() {
         timePickerDialog.show()
         return res
     }
-
-
 
     fun UpOrder(time: String,description: String) {
         var timeEnd = calcDifTime(time)
