@@ -96,5 +96,6 @@
     <string name="time_booking">Time booking:  %1$s</string>
     <string name="order">Order #%1$s</string>
     <string name="menu_edit_restaurant">Edit Restaurant</string>
+    <string name="time_ending">Time ending:  %1$s</string>
 
 </resources>

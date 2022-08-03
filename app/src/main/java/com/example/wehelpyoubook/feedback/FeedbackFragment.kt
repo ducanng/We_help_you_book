@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.wehelpyoubook.databinding.FragmentFeedbackBinding
+import com.example.wehelpyoubook.restaurentInterface.RestaurantEdit
 
 class FeedbackFragment : Fragment() {
 
@@ -23,7 +24,7 @@ class FeedbackFragment : Fragment() {
     ): View {
 
         _binding = FragmentFeedbackBinding.inflate(inflater, container, false)
-        startActivity(Intent(getActivity(), Feedback::class.java))
+        startActivity(Intent(activity, Feedback::class.java))
         return binding.root
     }
 

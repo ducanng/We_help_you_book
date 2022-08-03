@@ -28,7 +28,7 @@ class RestaurantEdit : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRestaurantEditBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         getMangedRestaurantId()
 
         binding.restaurantEditName.addTextChangedListener{
@@ -103,5 +103,9 @@ class RestaurantEdit : AppCompatActivity() {
         if (binding.restaurantEditImage.text.toString() == "") {
             binding.restaurantEditImage.setText(res.imageUrl)
         }
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        startActivity(Intent(this@RestaurantEdit,MainActivity::class.java))
+        return super.onSupportNavigateUp()
     }
 }

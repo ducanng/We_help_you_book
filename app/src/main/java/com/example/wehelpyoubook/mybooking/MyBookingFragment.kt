@@ -92,7 +92,6 @@ class MyBookingFragment : Fragment() {
         }
     }
     private fun fetchOrderList() {
-        println("Thay")
         val resDoc = com.example.wehelpyoubook.scrapingdata.db.collection("MyOrders")
             .whereEqualTo("resID", manager.restaurantManager)
         resDoc.get().addOnSuccessListener { documentSnapshot ->

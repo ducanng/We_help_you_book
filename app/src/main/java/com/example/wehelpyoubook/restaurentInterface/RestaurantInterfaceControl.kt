@@ -13,20 +13,15 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wehelpyoubook.MainActivity
 import com.example.wehelpyoubook.R
-import com.example.wehelpyoubook.accountcontrol.HomeSignInActivity
 import com.example.wehelpyoubook.adapter.FoodAdapter
 import com.example.wehelpyoubook.adapter.ReviewAdapter
 import com.example.wehelpyoubook.databinding.FragmentMyBookingBinding
 import com.example.wehelpyoubook.model.*
-import com.example.wehelpyoubook.mybooking.MyBookingAdapter
 import com.example.wehelpyoubook.notification.NotificationActivity
-import com.example.wehelpyoubook.update.UpdateData
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.EventListener
@@ -271,17 +266,21 @@ class RestaurantInterfaceControl : AppCompatActivity() {
         return res
     }
 
+
+
     fun UpOrder(time: String,description: String) {
-        createNotificationChannel()
-        sendNotify()
+        var timeEnd = calcDifTime(time)
         var order = Orders(
             userId,
             resID,
             time,
-            "",
+            timeEnd,
             "",
             description
         )
+
+        createNotificationChannel()
+        sendNotify()
         com.example.wehelpyoubook.scrapingdata.db.collection("MyOrders")
             .add(
                 order
@@ -292,6 +291,26 @@ class RestaurantInterfaceControl : AppCompatActivity() {
             .addOnFailureListener { e ->
                 Log.w(TAG, "Error adding Orders", e)
             }
+    }
+
+    private fun calcDifTime(tmpStr: String): String {
+        if(tmpStr == ""){
+            val res = tmpStr
+            return res
+        }
+        val currentString = tmpStr
+        val separated = currentString.split(":").toMutableList()
+
+        //val content = "Time ending: "
+        if (separated[0] == "23"){
+            separated[0] = "-1"
+        }
+        val difHour = separated[0].toInt() + 1
+        val difMin = separated[1]
+        val difSec = separated[2]
+        val res = (difHour).toString() + " giờ " + difMin + " phút " + difSec + " giây"
+
+        return res
     }
 
     private fun chooseVoucher(listVoucher: List<Voucher>) {
