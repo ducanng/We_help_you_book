@@ -76,7 +76,9 @@ class RestaurantInterfaceControl : AppCompatActivity() {
             override fun onClick(view: View?) {
                 val review = comment.text.toString().trim()
                 comment.setText("")
-                uploadComment(review)
+                if (review != "") {
+                    uploadComment(review)
+                }
             }
         })
 
