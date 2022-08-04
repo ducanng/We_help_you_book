@@ -41,27 +41,13 @@ class NotificationActivity() : AppCompatActivity() {
 //            sendNotify()
 //            Toast.makeText(this@NotificationActivity, "You clicked me.", Toast.LENGTH_SHORT).show()
 //        }
-        createNotificationChannel()
 
-        R.id.btn_Notify.apply {
-            sendNotify()
-        }
+
+        //R.id.btn_Notify.apply {
+        sendNotify()
+        //}
 
         //startActivity(Intent(this, MainActivity::class.java))
-    }
-    private fun createNotificationChannel() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val name = "Bug012"
-            val descriptionText = "Bug 0 and 1 and 2"
-            val importance = NotificationManager.IMPORTANCE_DEFAULT
-            val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
-                description = descriptionText
-            }
-            // Register the channel with the system
-            val notificationManager: NotificationManager =
-                getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            notificationManager.createNotificationChannel(channel)
-        }
     }
 
     private fun sendNotify(){
@@ -85,5 +71,3 @@ class NotificationActivity() : AppCompatActivity() {
     }
 
 }
-
-

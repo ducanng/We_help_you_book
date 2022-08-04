@@ -1,6 +1,5 @@
 package com.example.wehelpyoubook.feedback
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,13 +15,15 @@ class FeedbackFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentFeedbackBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-        startActivity(Intent(activity, Feedback::class.java))
 
-        return root
+        _binding = FragmentFeedbackBinding.inflate(inflater, container, false)
+
+        return binding.root
     }
 
     override fun onDestroyView() {

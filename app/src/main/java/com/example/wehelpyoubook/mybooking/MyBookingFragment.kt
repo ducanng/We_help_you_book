@@ -42,7 +42,7 @@ class MyBookingFragment : Fragment() {
 
         // Initialize data.
 
-        _binding = FragmentMyBookingBinding.inflate(inflater, container, false)
+        _binding = FragmentMyBookingBinding.inflate(layoutInflater, container, false)
         val root: View = binding.root
 
 
