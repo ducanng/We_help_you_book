@@ -84,7 +84,7 @@
     <string name="action_settings">Settings</string>
 
     <string name="menu_home">Home</string>
-    <string name="menu_user_infor">User Information</string>
+    <string name="menu_user_infor">User Info</string>
     <string name="menu_voucher">Voucher</string>
     <string name="menu_mybooking">MyBooking</string>
     <string name="menu_feedback">Feedback</string>

@@ -17,6 +17,7 @@
             android:id="@+id/nav_my_booking"
             android:icon="@drawable/ic_menu_my_booking"
             android:title="@string/menu_mybooking" />
+
         <item
             android:id="@+id/nav_feedback"
             android:icon="@drawable/ic_menu_feedback"

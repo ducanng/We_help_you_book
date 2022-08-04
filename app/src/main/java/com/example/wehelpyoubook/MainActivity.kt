@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
@@ -53,50 +52,38 @@ class MainActivity : AppCompatActivity() {
         val resDoc = com.example.wehelpyoubook.scrapingdata.db.collection("Users")
             .whereEqualTo("id",userId)
         resDoc.get().addOnSuccessListener { documentSnapshot ->
-            println(manager!!.role )
+            //println(manager!!.role )
             if (documentSnapshot.toObjects<User>().isNotEmpty()){
                 manager = documentSnapshot.toObjects<User>()[0]
                 if(manager!!.role == "manager"){
                     binding = ActivityMainBinding.inflate(layoutInflater)
                     setContentView(binding.root)
-                    val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
-                    setSupportActionBar(toolbar)
                     val drawerLayout: DrawerLayout = binding.drawerLayout
                     val navView: NavigationView = binding.navView
                     val navController = findNavController(R.id.nav_host_fragment_content_main)
                     appBarConfiguration = AppBarConfiguration(
                         setOf(
-                            R.id.nav_home, R.id.nav_my_booking
+                            R.id.nav_home,R.id.nav_user_info ,R.id.nav_my_booking,
+                            R.id.nav_edit_restaurant, R.id.nav_logout, R.id.nav_voucher
                         ), drawerLayout
                     )
                     setupActionBarWithNavController(navController, appBarConfiguration)
                     navView.setupWithNavController(navController)
-                    val header = navView.getHeaderView(0)
-                    val name = header.findViewById<TextView>(R.id.display_name_nav)
-                    val email = header.findViewById<TextView>(R.id.email_nav)
-                    name.text = auth.displayName
-                    email.text = auth.email
                 }
                 else if(manager!!.role == "customer"){
                     binding2 = ActivityCustomerBinding.inflate(layoutInflater)
                     setContentView(binding2.root)
-                    val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
-                    setSupportActionBar(toolbar)
                     val drawerLayout: DrawerLayout = binding2.drawerLayoutCustomer
                     val navView: NavigationView = binding2.navViewCustomer
                     val navController = findNavController(R.id.nav_host_fragment_content_main)
                     appBarConfiguration = AppBarConfiguration(
                         setOf(
-                            R.id.nav_home, R.id.nav_my_booking, R.id.nav_feedback,R.id.nav_logout
+                            R.id.nav_home, R.id.nav_user_info ,R.id.nav_my_booking,
+                            R.id.nav_feedback,R.id.nav_logout
                         ), drawerLayout
                     )
                     setupActionBarWithNavController(navController, appBarConfiguration)
                     navView.setupWithNavController(navController)
-                    val header = navView.getHeaderView(0)
-                    val name = header.findViewById<TextView>(R.id.display_name_nav)
-                    val email = header.findViewById<TextView>(R.id.email_nav)
-                    name.text = auth.displayName
-                    email.text = auth.email
 
                 }
             }
@@ -115,8 +102,6 @@ class MainActivity : AppCompatActivity() {
     }
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
-        println("navController")
-        println(navController)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 }

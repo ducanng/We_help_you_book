@@ -5,8 +5,7 @@
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_margin="8dp"
-    tools:context=".vouchercontroller.VoucherFragment"
-    android:theme="@style/Theme.MaterialComponents.Light">
+    tools:context=".vouchercontroller.VoucherFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
