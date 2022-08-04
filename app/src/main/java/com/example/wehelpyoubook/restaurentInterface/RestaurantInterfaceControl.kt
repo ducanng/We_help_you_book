@@ -13,6 +13,7 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -217,19 +218,19 @@ class RestaurantInterfaceControl : AppCompatActivity() {
                         if (tmpList.isEmpty()){
                             listCurrentVoucher.add((item))
                         }
+                        buttonBook = findViewById(R.id.bookingButton)
+                        buttonBook.setOnClickListener {
+                            chooseVoucher(listCurrentVoucher)
+                        }
                     }
                 }
-                println(listCurrentVoucher.size)
             }
 
-            buttonBook = findViewById(R.id.bookingButton)
-            buttonBook.setOnClickListener {
-                chooseVoucher(listCurrentVoucher)
-            }
+
 
         }
     }
-    fun showHourPicker(voucher: Voucher): String {
+    private fun showHourPicker(voucher: Voucher): String {
         val myCalender: Calendar = Calendar.getInstance()
         val hour: Int = myCalender.get(Calendar.HOUR_OF_DAY)
         val minute: Int = myCalender.get(Calendar.MINUTE)
@@ -240,7 +241,10 @@ class RestaurantInterfaceControl : AppCompatActivity() {
                     myCalender.set(Calendar.HOUR_OF_DAY, hourOfDay)
                     myCalender.set(Calendar.MINUTE, minute)
                     res = getBookingTime(myCalender.time.toString())
-                    if (voucher.percentage != null) {
+                    if (voucher.description == null) {
+                        UpOrder(res, "")
+                    }
+                    else{
                         UpOrder(res, voucher.description!!)
                         uploadUsedVouchers(voucher)
                     }
@@ -318,23 +322,21 @@ class RestaurantInterfaceControl : AppCompatActivity() {
     private fun chooseVoucher(listVoucher: List<Voucher>) {
         // setup the alert builder
         val listVoucherName = mutableListOf<String>()
+        listVoucherName.add("Không")
         for (item in listVoucher) {
             listVoucherName.add(item.description.toString())
         }
         val builder = AlertDialog.Builder(this@RestaurantInterfaceControl)
         builder.setTitle("Choose a voucher")
-        var order : Int = -1
+        var order : Int = 0
         builder.setSingleChoiceItems(listVoucherName.toTypedArray(), 0) { dialog, which ->
             order = which
         }
-
         builder.setPositiveButton("OK") { dialog, which ->
-            if (listVoucherName.size == 0){
+            println("order ne")
+            println(order)
+            if (order == 0){
                 showHourPicker(Voucher())
-            }
-            else if (order == -1){
-                order = 0
-                showHourPicker(listVoucher[order])
             }
             else{
                 showHourPicker(listVoucher[order])
@@ -345,7 +347,7 @@ class RestaurantInterfaceControl : AppCompatActivity() {
         val dialog = builder.create()
         dialog.show()
     }
-    fun uploadUsedVouchers(voucher : Voucher) {
+    private fun uploadUsedVouchers(voucher : Voucher) {
         var usedVoucher = UsedVoucher(
             voucher.description,
             voucher.imageUrl,
@@ -392,10 +394,6 @@ class RestaurantInterfaceControl : AppCompatActivity() {
             val resData = documentSnapshot.toObjects<Restaurant>()
             if (resData.isNotEmpty()) {
                 resName = findViewById(R.id.tvTitle)
-//                rating = findViewById(R.id.ratingID)
-//                rating.text = resources?.getString(R.string.rate,resData[0].rate)
-//                address = findViewById(R.id.addressID)
-//                address.text = resData[0].address
                 resName.text = resData[0].name
             }
         }

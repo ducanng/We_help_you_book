@@ -23,6 +23,8 @@ class UserInforFragment :Fragment(){
             startActivity(Intent(activity, HomeSignInActivity::class.java))
         }
 
+        //startActivity(Intent(getActivity(), HomeFragment::class.java))
+
 
         return super.onCreateView(inflater, container, savedInstanceState)
     }

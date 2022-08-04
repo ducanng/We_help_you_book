@@ -32,22 +32,9 @@ class NotificationActivity() : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.activity_notification)
-        //createNotificationChannel()
-
-//        val btn_click_me = findViewById(R.id.btn_Notify) as Button
-//
-//        btn_click_me.setOnClickListener {
-//            sendNotify()
-//            Toast.makeText(this@NotificationActivity, "You clicked me.", Toast.LENGTH_SHORT).show()
-//        }
-        createNotificationChannel()
-
         R.id.btn_Notify.apply {
             sendNotify()
         }
-
-        //startActivity(Intent(this, MainActivity::class.java))
     }
     private fun createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -63,7 +50,6 @@ class NotificationActivity() : AppCompatActivity() {
             notificationManager.createNotificationChannel(channel)
         }
     }
-
     private fun sendNotify(){
         val intent = Intent(this, NotificationActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -85,5 +71,3 @@ class NotificationActivity() : AppCompatActivity() {
     }
 
 }
-
-
