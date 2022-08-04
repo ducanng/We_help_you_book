@@ -333,12 +333,11 @@ class RestaurantInterfaceControl : AppCompatActivity() {
             order = which
         }
         builder.setPositiveButton("OK") { dialog, which ->
-            println("order ne")
-            println(order)
             if (order == 0){
                 showHourPicker(Voucher())
             }
             else{
+                order -= 1
                 showHourPicker(listVoucher[order])
             }
         }
