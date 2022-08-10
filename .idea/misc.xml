@@ -3,6 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+        <entry key="..\:/Users/HP/Desktop/Learninggit/We_help_you_book/app/src/main/res/layout/activity_change_password.xml" value="0.25833333333333336" />
+        <entry key="..\:/Users/HP/Desktop/Learninggit/We_help_you_book/app/src/main/res/layout/activity_delete_account.xml" value="0.25833333333333336" />
+        <entry key="..\:/Users/HP/Desktop/Learninggit/We_help_you_book/app/src/main/res/layout/activity_email_verification.xml" value="0.25833333333333336" />
+        <entry key="..\:/Users/HP/Desktop/Learninggit/We_help_you_book/app/src/main/res/layout/activity_re_authenticate.xml" value="0.25833333333333336" />
+        <entry key="..\:/Users/HP/Desktop/Learninggit/We_help_you_book/app/src/main/res/layout/activity_register.xml" value="0.25833333333333336" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15_PREVIEW" project-jdk-name="15" project-jdk-type="JavaSDK" />
+=======
+>>>>>>> an
         <entry key="..\:/Users/HP/Desktop/Learninggit/Clone/We_help_you_book/app/src/main/res/layout/activity_home_sign_in.xml" value="0.176" />
         <entry key="..\:/Users/HP/Desktop/Learninggit/Clone/We_help_you_book/app/src/main/res/layout/activity_input_email.xml" value="0.25833333333333336" />
         <entry key="..\:/Users/HP/Desktop/Learninggit/Clone/We_help_you_book/app/src/main/res/layout/activity_login.xml" value="0.25833333333333336" />
@@ -21,4 +36,8 @@
   <component name="ProjectType">
     <option name="id" value="Android" />
   </component>
+<<<<<<< HEAD
+=======
+>>>>>>> main
+>>>>>>> an
 </project>

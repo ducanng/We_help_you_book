@@ -30,7 +30,15 @@
 
     <!-- An -->
     <string name="full_app_name">WE HELP YOU BOOK</string>
+<<<<<<< HEAD
     <string name="sign_in_by">Đăng nhập hoặc đăng ký bằng</string>
+=======
+<<<<<<< HEAD
+    <string name="sign_in_by">Đăng nhập bằng</string>
+=======
+    <string name="sign_in_by">Đăng nhập hoặc đăng ký bằng</string>
+>>>>>>> main
+>>>>>>> an
     <string name="email">Email</string>
     <string name="next">Tiếp tục</string>
     <string name="input_password">Nhập mật khẩu</string>
@@ -53,6 +61,12 @@
     <string name="sent_verify">Gửi xác nhận</string>
     <string name="please_verify_email">Hãy xác nhận email của bạn</string>
     <string name="delete_account">Xóa tài khoản</string>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    <!-- TODO: Remove or change this placeholder text -->
+=======
+>>>>>>> an
     <string name="cancel">hủy</string>
     <string name="image_url">Image URL</string>
     <string name="rate_text">Rate</string>
@@ -64,6 +78,10 @@
     <string name="voucher_description">Mô tả voucher</string>
     <string name="sale">Khuyến mãi bao nhiêu phần trăm?</string>
 
+<<<<<<< HEAD
+=======
+>>>>>>> main
+>>>>>>> an
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="fullname">Họ tên</string>
     <string name="update">Cập nhật</string>
@@ -75,6 +93,11 @@
     <string name="cancel_goback">Hủy và trở về</string>
     <string name="are_you_sure">Bạn có chắc chắn rằng là bạn muốn xóa tài khoản?</string>
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> an
     <!-- Duy-->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -98,4 +121,8 @@
     <string name="menu_edit_restaurant">Edit Restaurant</string>
     <string name="time_ending">Time ending:  %1$s</string>
 
+<<<<<<< HEAD
+=======
+>>>>>>> main
+>>>>>>> an
 </resources>

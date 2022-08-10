@@ -1,14 +1,37 @@
 package com.example.wehelpyoubook.accountcontrol.user
 
 import android.annotation.SuppressLint
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+import android.content.Intent
+import android.os.Bundle
+=======
+>>>>>>> an
 import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+<<<<<<< HEAD
+=======
+>>>>>>> main
+>>>>>>> an
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+import com.example.wehelpyoubook.R
+import com.example.wehelpyoubook.accountcontrol.auth.EmailVerificationActivity
+import com.google.android.material.textfield.TextInputEditText
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.userProfileChangeRequest
+
+
+=======
+>>>>>>> an
 import com.example.wehelpyoubook.MainActivity
 import com.example.wehelpyoubook.R
 import com.example.wehelpyoubook.accountcontrol.auth.EmailVerificationActivity
@@ -21,6 +44,10 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 val db = Firebase.firestore
+<<<<<<< HEAD
+=======
+>>>>>>> main
+>>>>>>> an
 class RegisterActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private var btnCallRegister: Button? = null
@@ -31,7 +58,14 @@ class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+<<<<<<< HEAD
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+=======
+<<<<<<< HEAD
+=======
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+>>>>>>> main
+>>>>>>> an
 
         auth = FirebaseAuth.getInstance()
         val intent = this.intent
@@ -102,6 +136,11 @@ class RegisterActivity : AppCompatActivity() {
                             if (task.isSuccessful) {
                                 Toast.makeText(this, "Đã cập nhật tên", Toast.LENGTH_SHORT)
                                     .show()
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> an
                                 val us = User(
                                     user.uid,
                                     "https://images.foody.vn/default/s50/user-default-female.png",
@@ -123,6 +162,10 @@ class RegisterActivity : AppCompatActivity() {
                                     .addOnFailureListener { e ->
                                         Log.w(TAG, "Error adding User", e)
                                     }
+<<<<<<< HEAD
+=======
+>>>>>>> main
+>>>>>>> an
                             }
                         }
                     val intent = Intent(this, EmailVerificationActivity::class.java)
@@ -136,8 +179,17 @@ class RegisterActivity : AppCompatActivity() {
             }
         // [END create_user_with_email]
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> an
     override fun onSupportNavigateUp(): Boolean {
         startActivity(Intent(this@RegisterActivity, MainActivity::class.java))
         return super.onSupportNavigateUp()
     }
+<<<<<<< HEAD
+=======
+>>>>>>> main
+>>>>>>> an
 }

@@ -17,5 +17,7 @@ open class HomeSignInActivity : AppCompatActivity() {
         findViewById<View>(R.id.email_signin_button).setOnClickListener {
             startActivity(Intent(this, EmailActivity::class.java))
         }
+//        findViewById<View>(R.id.google).setOnClickListener {
+//        }
     }
 }

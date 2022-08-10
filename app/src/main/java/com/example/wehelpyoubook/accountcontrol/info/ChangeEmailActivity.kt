@@ -1,11 +1,25 @@
 package com.example.wehelpyoubook.accountcontrol.info
 
+<<<<<<< HEAD
 import android.content.Intent
+=======
+<<<<<<< HEAD
+=======
+import android.content.Intent
+>>>>>>> main
+>>>>>>> an
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
+<<<<<<< HEAD
 import com.example.wehelpyoubook.MainActivity
+=======
+<<<<<<< HEAD
+=======
+import com.example.wehelpyoubook.MainActivity
+>>>>>>> main
+>>>>>>> an
 import com.example.wehelpyoubook.R
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.ktx.auth
@@ -17,10 +31,22 @@ class ChangeEmailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_change_email)
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+        initChangeEmailUI()
+        val email = editEmail!!.text.toString().trim()
+        saveBtn!!.setOnClickListener {
+=======
+>>>>>>> an
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         initChangeEmailUI()
         saveBtn!!.setOnClickListener {
             val email = editEmail!!.text.toString().trim()
+<<<<<<< HEAD
+=======
+>>>>>>> main
+>>>>>>> an
             changeEmail(email)
         }
     }
@@ -38,9 +64,18 @@ class ChangeEmailActivity : AppCompatActivity() {
                                     .show()
                             }
                         }
+<<<<<<< HEAD
                     val intent = Intent(this, UserInformationActivity::class.java)
                     intent.putExtra("change", 1)
                     startActivity(intent)
+=======
+<<<<<<< HEAD
+=======
+                    val intent = Intent(this, UserInformationActivity::class.java)
+                    intent.putExtra("change", 1)
+                    startActivity(intent)
+>>>>>>> main
+>>>>>>> an
                 } else  {
                     Toast.makeText(this, "Cập nhật email thất bại", Toast.LENGTH_SHORT)
                         .show()
@@ -52,9 +87,19 @@ class ChangeEmailActivity : AppCompatActivity() {
         editEmail = findViewById(R.id.change_email_edittext)
         saveBtn = findViewById(R.id.update_email_button)
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+}
+=======
+>>>>>>> an
 
     override fun onSupportNavigateUp(): Boolean {
         startActivity(Intent(this@ChangeEmailActivity, MainActivity::class.java))
         return super.onSupportNavigateUp()
     }
 }
+<<<<<<< HEAD
+=======
+>>>>>>> main
+>>>>>>> an

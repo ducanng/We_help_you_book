@@ -1,12 +1,30 @@
 {
   "project_info": {
+<<<<<<< HEAD
     "project_number": "406200163640",
     "project_id": "we-help-you-book-d57d9",
     "storage_bucket": "we-help-you-book-d57d9.appspot.com"
+=======
+<<<<<<< HEAD
+    "project_number": "641931478982",
+    "project_id": "we-help-you-book",
+    "storage_bucket": "we-help-you-book.appspot.com"
+=======
+    "project_number": "406200163640",
+    "project_id": "we-help-you-book-d57d9",
+    "storage_bucket": "we-help-you-book-d57d9.appspot.com"
+>>>>>>> main
+>>>>>>> an
   },
   "client": [
     {
       "client_info": {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+        "mobilesdk_app_id": "1:641931478982:android:6bb966bcdabe32da8154c7",
+=======
+>>>>>>> an
         "mobilesdk_app_id": "1:406200163640:android:3c2c57c9351da6079175cd",
         "android_client_info": {
           "package_name": "com.example.nda_example"
@@ -95,12 +113,30 @@
     {
       "client_info": {
         "mobilesdk_app_id": "1:406200163640:android:398c5f826f077f809175cd",
+<<<<<<< HEAD
+=======
+>>>>>>> main
+>>>>>>> an
         "android_client_info": {
           "package_name": "com.example.wehelpyoubook"
         }
       },
       "oauth_client": [
         {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+          "client_id": "641931478982-33tc677ru0p6ft0jcc74bfi2l26tm16l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.wehelpyoubook",
+            "certificate_hash": "e838c7d5b835a76f6905cc12fde82a7a833c7a0d"
+          }
+        },
+        {
+          "client_id": "641931478982-0sougug1mcjicgfhcm37ii3qkpup4toe.apps.googleusercontent.com",
+=======
+>>>>>>> an
           "client_id": "406200163640-h46cs6coiuibes9qta5hs4cu5rsq6j77.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -131,19 +167,39 @@
       "oauth_client": [
         {
           "client_id": "406200163640-h46cs6coiuibes9qta5hs4cu5rsq6j77.apps.googleusercontent.com",
+<<<<<<< HEAD
+=======
+>>>>>>> main
+>>>>>>> an
           "client_type": 3
         }
       ],
       "api_key": [
         {
+<<<<<<< HEAD
           "current_key": "AIzaSyDgFraKEtJRkosOmK68zQe3zAuF39480zw"
+=======
+<<<<<<< HEAD
+          "current_key": "AIzaSyBOdXfjQLYhUtuj3tTZLmG0-ALNp87bv1Y"
+=======
+          "current_key": "AIzaSyDgFraKEtJRkosOmK68zQe3zAuF39480zw"
+>>>>>>> main
+>>>>>>> an
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
+<<<<<<< HEAD
               "client_id": "406200163640-h46cs6coiuibes9qta5hs4cu5rsq6j77.apps.googleusercontent.com",
+=======
+<<<<<<< HEAD
+              "client_id": "641931478982-0sougug1mcjicgfhcm37ii3qkpup4toe.apps.googleusercontent.com",
+=======
+              "client_id": "406200163640-h46cs6coiuibes9qta5hs4cu5rsq6j77.apps.googleusercontent.com",
+>>>>>>> main
+>>>>>>> an
               "client_type": 3
             }
           ]

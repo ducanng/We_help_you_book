@@ -15,6 +15,7 @@
         android:theme="@style/Theme.Wehelpyoubook">
 
         <activity
+<<<<<<< HEAD
             android:name=".notification.NotificationActivity"
             android:exported="false" />
         <activity
@@ -27,6 +28,56 @@
             android:name=".restaurentInterface.RestaurantEdit"
             android:exported="false" />
         <activity
+=======
+<<<<<<< HEAD
+            android:name=".accountcontrol.info.DeleteAccountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accountcontrol.info.ChangeEmailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accountcontrol.info.ChangePasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accountcontrol.info.ChangeNameActivity"
+            android:exported="false" /> <!-- Ducan -->
+        <activity
+            android:name=".accountcontrol.info.UserInformationActivity"
+            android:exported="false"
+            android:parentActivityName=".homescreen.HomeActivity" />
+        <activity
+            android:name=".accountcontrol.auth.EmailVerificationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accountcontrol.auth.ReAuthenticateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accountcontrol.user.RegisterActivity"
+=======
+            android:name=".notification.NotificationActivity"
+>>>>>>> main
+            android:exported="false" />
+        <activity
+            android:name=".feedback.Feedback"
+            android:exported="false" />
+        <activity
+<<<<<<< HEAD
+            android:name=".accountcontrol.user.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accountcontrol.user.EmailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Feedback"
+            android:exported="true" />
+=======
+            android:name=".update.UpdateData"
+            android:exported="false" />
+        <activity
+            android:name=".restaurentInterface.RestaurantEdit"
+            android:exported="false" />
+        <activity
+>>>>>>> an
             android:name=".vouchercontroller.VoucherEdit"
             android:exported="false" />
         <activity
@@ -41,6 +92,7 @@
         <activity
             android:name=".accountcontrol.info.ChangeNameActivity"
             android:exported="false" />
+<<<<<<< HEAD
         <activity
             android:name=".accountcontrol.info.DeleteAccountActivity"
             android:exported="false" />
@@ -54,6 +106,22 @@
             android:name=".accountcontrol.auth.EmailVerificationActivity"
             android:exported="false" />
         <activity
+=======
+        <activity
+            android:name=".accountcontrol.info.DeleteAccountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accountcontrol.info.ChangeEmailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accountcontrol.auth.ReAuthenticateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accountcontrol.auth.EmailVerificationActivity"
+            android:exported="false" />
+>>>>>>> main
+        <activity
+>>>>>>> an
             android:name=".restaurentInterface.RestaurantInterfaceControl"
             android:exported="false" />
         <activity
