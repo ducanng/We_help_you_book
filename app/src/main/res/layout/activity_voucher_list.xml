@@ -6,7 +6,14 @@
     android:layout_height="match_parent"
     android:padding="8dp"
     tools:context=".vouchercontroller.VoucherListActivity">
-
+    <Button
+        android:id="@+id/add_voucher_bt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_voucher"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+    </Button>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
@@ -14,6 +21,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:spanCount="2"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/add_voucher_bt"
         app:layout_constraintStart_toStartOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

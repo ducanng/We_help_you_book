@@ -36,7 +36,6 @@ class LoginActivity : AppCompatActivity() {
         tvForgotPass = findViewById(R.id.forgot_password_textview)
 
 
-
         val intent = this.intent
         val email = intent.getStringExtra("email")
         auth = FirebaseAuth.getInstance()

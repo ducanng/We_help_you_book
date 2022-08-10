@@ -14,7 +14,7 @@ import com.example.wehelpyoubook.model.Voucher
 class VoucherAdapter (
     private val context: Context,
     private val dataset: List<Voucher>,
-    private val listener: (Voucher) -> Unit
+    private val listener: (Voucher,String) -> Unit
 ) : RecyclerView.Adapter<VoucherAdapter.VoucherViewHolder>(){
     class VoucherViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val imageView: ImageView = view.findViewById(R.id.voucher_image)
@@ -32,10 +32,10 @@ class VoucherAdapter (
         val voucher = dataset[position]
         context.resources
         holder.buttonEdit.setOnClickListener{
-            listener(voucher)
+            listener(voucher,"Edit")
         }
         holder.buttonRemove.setOnClickListener{
-            listener(voucher)
+            listener(voucher,"Remove")
         }
         voucher.imageUrl?.let { holder.imageView.setImageResource(it) }
         holder.descTextView.text = voucher.description

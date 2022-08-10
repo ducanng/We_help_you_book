@@ -13,11 +13,21 @@
         android:roundIcon="@drawable/avatar_whybook"
         android:supportsRtl="true"
         android:theme="@style/Theme.Wehelpyoubook">
+
         <activity
-            android:name=".RestaurantEdit"
+            android:name=".notification.NotificationActivity"
             android:exported="false" />
         <activity
-            android:name=".VoucherEdit"
+            android:name=".feedback.Feedback"
+            android:exported="false" />
+        <activity
+            android:name=".update.UpdateData"
+            android:exported="false" />
+        <activity
+            android:name=".restaurentInterface.RestaurantEdit"
+            android:exported="false" />
+        <activity
+            android:name=".vouchercontroller.VoucherEdit"
             android:exported="false" />
         <activity
             android:name=".vouchercontroller.VoucherListActivity"
@@ -63,10 +73,10 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

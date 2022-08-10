@@ -106,7 +106,7 @@ class RegisterActivity : AppCompatActivity() {
                                     user.uid,
                                     "https://images.foody.vn/default/s50/user-default-female.png",
                                     user.displayName,
-                                    "",
+                                    "customer",
                                     user.email,
                                     user.email,
                                     password,

@@ -1,23 +1,30 @@
 package com.example.wehelpyoubook.restaurentInterface
 
 import android.annotation.SuppressLint
-import android.app.AlertDialog
-import android.app.TimePickerDialog
+import android.app.*
 import android.content.ContentValues.TAG
+import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.wehelpyoubook.MainActivity
 import com.example.wehelpyoubook.R
 import com.example.wehelpyoubook.adapter.FoodAdapter
 import com.example.wehelpyoubook.adapter.ReviewAdapter
+import com.example.wehelpyoubook.databinding.FragmentMyBookingBinding
 import com.example.wehelpyoubook.model.*
+import com.example.wehelpyoubook.mybooking.MyBookingAdapter
+import com.example.wehelpyoubook.notification.NotificationActivity
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.EventListener
@@ -53,6 +60,7 @@ class RestaurantInterfaceControl : AppCompatActivity() {
     private var userId = ""
     private lateinit var pd: ProgressBar
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_resto)
@@ -67,7 +75,10 @@ class RestaurantInterfaceControl : AppCompatActivity() {
         button.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View?) {
                 val review = comment.text.toString().trim()
-                uploadComment(review)
+                comment.setText("")
+                if (review != "") {
+                    uploadComment(review)
+                }
             }
         })
 
@@ -209,33 +220,19 @@ class RestaurantInterfaceControl : AppCompatActivity() {
                         if (tmpList.isEmpty()){
                             listCurrentVoucher.add((item))
                         }
+                        buttonBook = findViewById(R.id.bookingButton)
+                        buttonBook.setOnClickListener {
+                            chooseVoucher(listCurrentVoucher)
+                        }
                     }
                 }
-                println(listCurrentVoucher.size)
             }
 
-            buttonBook = findViewById(R.id.bookingButton)
-            buttonBook.setOnClickListener {
-                val view = View.inflate(this@RestaurantInterfaceControl, R.layout.booking_layout, null)
-                val builder = AlertDialog.Builder(this@RestaurantInterfaceControl)
-                builder.setView(view)
-                val dialog = builder.create()
-                dialog.show()
-                dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
-                yesBook = view.findViewById(R.id.order)
-                noBook = view.findViewById(R.id.no_order)
-                yesBook.setOnClickListener {
-                    dialog.dismiss()
-                    chooseVoucher(listCurrentVoucher)
-                }
-                noBook.setOnClickListener {
-                    dialog.dismiss()
-                }
-            }
+
 
         }
     }
-    fun showHourPicker(voucher: Voucher): String {
+    private fun showHourPicker(voucher: Voucher): String {
         val myCalender: Calendar = Calendar.getInstance()
         val hour: Int = myCalender.get(Calendar.HOUR_OF_DAY)
         val minute: Int = myCalender.get(Calendar.MINUTE)
@@ -246,7 +243,10 @@ class RestaurantInterfaceControl : AppCompatActivity() {
                     myCalender.set(Calendar.HOUR_OF_DAY, hourOfDay)
                     myCalender.set(Calendar.MINUTE, minute)
                     res = getBookingTime(myCalender.time.toString())
-                    if (voucher.percentage != null) {
+                    if (voucher.description == null) {
+                        UpOrder(res, "")
+                    }
+                    else{
                         UpOrder(res, voucher.description!!)
                         uploadUsedVouchers(voucher)
                     }
@@ -274,16 +274,21 @@ class RestaurantInterfaceControl : AppCompatActivity() {
         return res
     }
 
-    fun UpOrder(time: String,description: String) {
 
+
+    fun UpOrder(time: String,description: String) {
+        var timeEnd = calcDifTime(time)
         var order = Orders(
             userId,
             resID,
             time,
-            "",
+            timeEnd,
             "",
             description
         )
+
+        createNotificationChannel()
+        sendNotify(userId, resID,time,timeEnd,description)
         com.example.wehelpyoubook.scrapingdata.db.collection("MyOrders")
             .add(
                 order
@@ -296,28 +301,45 @@ class RestaurantInterfaceControl : AppCompatActivity() {
             }
     }
 
+    private fun calcDifTime(tmpStr: String): String {
+        if(tmpStr == ""){
+            val res = tmpStr
+            return res
+        }
+        val currentString = tmpStr
+        val separated = currentString.split(":").toMutableList()
+
+        //val content = "Time ending: "
+        if (separated[0] == "23"){
+            separated[0] = "-1"
+        }
+        val difHour = separated[0].toInt() + 1
+        val difMin = separated[1]
+        val difSec = separated[2]
+        val res = (difHour).toString() + " giờ " + difMin + " phút " + difSec + " giây"
+
+        return res
+    }
+
     private fun chooseVoucher(listVoucher: List<Voucher>) {
         // setup the alert builder
         val listVoucherName = mutableListOf<String>()
+        listVoucherName.add("Không")
         for (item in listVoucher) {
             listVoucherName.add(item.description.toString())
         }
         val builder = AlertDialog.Builder(this@RestaurantInterfaceControl)
         builder.setTitle("Choose a voucher")
-        var order : Int = -1
+        var order : Int = 0
         builder.setSingleChoiceItems(listVoucherName.toTypedArray(), 0) { dialog, which ->
             order = which
         }
-
         builder.setPositiveButton("OK") { dialog, which ->
-            if (listVoucherName.size == 0){
+            if (order == 0){
                 showHourPicker(Voucher())
             }
-            else if (order == -1){
-                order = 0
-                showHourPicker(listVoucher[order])
-            }
             else{
+                order -= 1
                 showHourPicker(listVoucher[order])
             }
         }
@@ -326,7 +348,7 @@ class RestaurantInterfaceControl : AppCompatActivity() {
         val dialog = builder.create()
         dialog.show()
     }
-    fun uploadUsedVouchers(voucher : Voucher) {
+    private fun uploadUsedVouchers(voucher : Voucher) {
         var usedVoucher = UsedVoucher(
             voucher.description,
             voucher.imageUrl,
@@ -342,6 +364,67 @@ class RestaurantInterfaceControl : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         startActivity(Intent(this@RestaurantInterfaceControl, MainActivity::class.java))
         return super.onSupportNavigateUp()
+    }
+    private val CHANNEL_ID = "1234"
+    private val notificationId = 101
+
+    private fun createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val name = "Bug012"
+            val descriptionText = "Bug 0 and 1 and 2"
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
+                description = descriptionText
+            }
+            // Register the channel with the system
+            val notificationManager: NotificationManager =
+                getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
+        }
+    }
+
+    private var orderList = listOf<Orders>()
+
+    private fun sendNotify(userId: String, resID: String,time: String,
+                           timeEnd: String,description:String){
+
+        val resDoc = com.example.wehelpyoubook.scrapingdata.db
+            .collection("Restaurants")
+            .whereEqualTo("resID", resID)
+        resDoc.get().addOnSuccessListener { documentSnapshot ->
+            val resData = documentSnapshot.toObjects<Restaurant>()
+            if (resData.isNotEmpty()) {
+                resName = findViewById(R.id.tvTitle)
+                resName.text = resData[0].name
+            }
+        }
+
+        val name: String = resName.text.toString()
+        val intent = Intent(this, NotificationActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
+
+        val pendingIntent: PendingIntent = PendingIntent
+            .getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE)
+        var builder = NotificationCompat.Builder(this, CHANNEL_ID)
+            .setSmallIcon(R.drawable.ic_baseline_notifications)
+            .setContentTitle("Booking successfully")
+            //.setContentText("Time booking: " + time + "\n" + timeEnd + "\n" + description)
+//            .setContentText(timeEnd)
+//            .setContentText(description)
+            .setStyle(NotificationCompat.BigTextStyle()
+                .bigText(name + "\n"
+                        + "Time booking: " + time + "\n"
+                        + "Time ending: "+ timeEnd + "\n"
+                        + description))
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setContentIntent(pendingIntent)
+            .setAutoCancel(true)
+
+        with(NotificationManagerCompat.from(this)) {
+            // notificationId is a unique int for each notification that you must define
+            notify(notificationId, builder.build())
+        }
     }
 }
 
