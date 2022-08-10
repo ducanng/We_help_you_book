@@ -7,23 +7,8 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-<<<<<<< HEAD
-<<<<<<< HEAD
 import com.example.wehelpyoubook.MainActivity
 import com.example.wehelpyoubook.R
-=======
-<<<<<<< HEAD
-import com.example.wehelpyoubook.R
-import com.example.wehelpyoubook.homescreen.HomeActivity
-=======
-import com.example.wehelpyoubook.MainActivity
-import com.example.wehelpyoubook.R
->>>>>>> main
->>>>>>> an
-=======
-import com.example.wehelpyoubook.MainActivity
-import com.example.wehelpyoubook.R
->>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
@@ -35,17 +20,7 @@ class EmailVerificationActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-<<<<<<< HEAD
-<<<<<<< HEAD
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-=======
-<<<<<<< HEAD
-=======
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
->>>>>>> main
->>>>>>> an
-=======
->>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
         setContentView(R.layout.activity_email_verification)
         init()
 
@@ -58,15 +33,6 @@ class EmailVerificationActivity : AppCompatActivity() {
             sendEmailVerification(user)
         }
         continueBtn!!.setOnClickListener{
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-            startActivity(Intent(this, HomeActivity::class.java))
-        }
-    }
-=======
->>>>>>> an
             startActivity(Intent(this, MainActivity::class.java))
         }
     }
@@ -74,15 +40,6 @@ class EmailVerificationActivity : AppCompatActivity() {
         startActivity(Intent(this@EmailVerificationActivity,MainActivity::class.java))
         return super.onSupportNavigateUp()
     }
-<<<<<<< HEAD
-=======
->>>>>>> main
->>>>>>> an
-=======
-            startActivity(Intent(this, MainActivity::class.java))
-        }
-    }
->>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
     private fun init() {
         verifyBtn = findViewById(R.id.verify_button)
         emailVerifyTv = findViewById(R.id.sendVerify)

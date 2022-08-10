@@ -16,10 +16,6 @@ import com.example.wehelpyoubook.mybooking.MyBookingFragment
 class Feedback : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-<<<<<<< HEAD
-=======
-
->>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
         super.onCreate(savedInstanceState)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         this.title = "Feedback"
@@ -27,7 +23,6 @@ class Feedback : AppCompatActivity() {
         val edit1 = findViewById<View>(R.id.edit1) as EditText
         val edit2 = findViewById<View>(R.id.edit2) as EditText
         val btn = findViewById<View>(R.id.button) as Button
-<<<<<<< HEAD
 
         btn.setOnClickListener {
 
@@ -56,30 +51,6 @@ class Feedback : AppCompatActivity() {
                 }
             }
         }
-=======
-        btn.setOnClickListener {
-            val i = Intent(Intent.ACTION_SEND)
-            i.type = "message/html"
-            i.putExtra(Intent.EXTRA_EMAIL, "datnguyen180502@gmail.com")
-            i.putExtra(Intent.EXTRA_EMAIL, arrayOf("datnguyen180502@gmail.com"))
-            i.putExtra(Intent.EXTRA_SUBJECT, "Feedback From App")
-            i.putExtra(
-                Intent.EXTRA_TEXT, """Name:${edit1.text}
- Message:${edit2.text}"""
-            )
-            try {
-                startActivity(Intent.createChooser(i, "Please select Email"))
-            } catch (ex: ActivityNotFoundException) {
-                Toast.makeText(
-                    this@Feedback,
-                    "There are no Email Clients",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-
-        }
-
->>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
     }
 
     override fun onSupportNavigateUp(): Boolean {

@@ -13,30 +13,6 @@
         android:orientation="vertical"
         tools:ignore="UselessParent">
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
-=======
-        <TextView
-            android:id="@+id/login_set_textview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/settv"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textSize="20sp"/>
-
->>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            app:passwordToggleEnabled="true">
-
-<<<<<<< HEAD
-=======
         <TextView
             android:id="@+id/login_set_textview"
             android:layout_width="match_parent"
@@ -52,12 +28,6 @@
             android:layout_marginTop="30dp"
             app:passwordToggleEnabled="true">
 
-<<<<<<< HEAD
-=======
->>>>>>> main
->>>>>>> an
-=======
->>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/login_password_edittext"
                 android:layout_width="match_parent"
@@ -70,31 +40,6 @@
                 tools:ignore="TextContrastCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
-        <LinearLayout
-            android:layout_width="411dp"
-            android:layout_height="40dp"
-            android:gravity="end"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/forgot_password_textview"
-                android:layout_width="125dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="30dp"
-                android:gravity="end"
-                android:text="@string/forgot_password"
-                android:textSize="15sp" />
-        </LinearLayout>
-<<<<<<< HEAD
-=======
->>>>>>> an
         <TextView
             android:id="@+id/forgot_password_textview"
             android:layout_width="125dp"
@@ -104,12 +49,6 @@
             android:layout_marginEnd="30dp"
             android:text="@string/forgot_password"
             android:textSize="15sp" />
-<<<<<<< HEAD
-=======
->>>>>>> main
->>>>>>> an
-=======
->>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
 
         <Button
             android:id="@+id/login_button"

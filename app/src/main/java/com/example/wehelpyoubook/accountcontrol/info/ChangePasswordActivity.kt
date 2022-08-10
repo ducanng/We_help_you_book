@@ -5,17 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-<<<<<<< HEAD
-<<<<<<< HEAD
 import com.example.wehelpyoubook.MainActivity
-=======
-<<<<<<< HEAD
-=======
-import com.example.wehelpyoubook.MainActivity
->>>>>>> main
->>>>>>> an
-=======
->>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
 import com.example.wehelpyoubook.R
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.ktx.auth
@@ -34,17 +24,7 @@ class ChangePasswordActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-<<<<<<< HEAD
-<<<<<<< HEAD
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-=======
-<<<<<<< HEAD
-=======
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
->>>>>>> main
->>>>>>> an
-=======
->>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
         setContentView(R.layout.activity_change_password)
         initUIChangePassword()
 
@@ -91,23 +71,9 @@ class ChangePasswordActivity : AppCompatActivity() {
             }
 
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-
-=======
->>>>>>> an
     override fun onSupportNavigateUp(): Boolean {
         startActivity(Intent(this@ChangePasswordActivity, MainActivity::class.java))
         return super.onSupportNavigateUp()
     }
-<<<<<<< HEAD
-=======
->>>>>>> main
->>>>>>> an
-=======
-
->>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
 
 }

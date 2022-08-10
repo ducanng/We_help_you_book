@@ -6,27 +6,5 @@
         android:title=""
         app:showAsAction="always">
         <!-- "file" submenu -->
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
-        <menu>
-            <item android:id="@+id/menu_home_login_item"
-                android:title="Đăng nhập" />
-            <item android:id="@+id/menu_home_userinfo_item"
-                android:title="Thông tin người dùng" />
-            <item android:id="@+id/menu_home_voucher_item"
-                android:title="Voucher" />
-            <item android:id="@+id/menu_home_logout_item"
-                android:title="Đăng xuất" />
-        </menu>
-<<<<<<< HEAD
-=======
->>>>>>> main
->>>>>>> an
-=======
->>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
     </item>
 </menu>

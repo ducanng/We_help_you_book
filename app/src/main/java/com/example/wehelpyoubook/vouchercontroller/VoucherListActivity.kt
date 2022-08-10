@@ -1,6 +1,5 @@
 package com.example.wehelpyoubook.vouchercontroller
 
-<<<<<<< HEAD
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -20,24 +19,11 @@ class VoucherListActivity : AppCompatActivity() {
     private var userId = ""
     private var manager : User = User()
     private var voucherDescription : String = ""
-=======
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import com.example.wehelpyoubook.adapter.VoucherAdapter
-import com.example.wehelpyoubook.databinding.ActivityVoucherListBinding
-import com.example.wehelpyoubook.model.Voucher
-import com.google.firebase.firestore.ktx.toObjects
-
-
-class VoucherListActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityVoucherListBinding
->>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
     var voucherList = listOf<Voucher>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityVoucherListBinding.inflate(layoutInflater)
         setContentView(binding.root)
-<<<<<<< HEAD
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         //Get voucher list data from firestore
@@ -62,15 +48,10 @@ class VoucherListActivity : AppCompatActivity() {
     }
     private fun fetchVoucherList(){
         val resDoc = db.collection("Vouchers").whereEqualTo("resId",manager.restaurantManager)
-=======
-        //Get voucher list data from firestore
-        val resDoc = com.example.wehelpyoubook.scrapingdata.db.collection("Vouchers")
->>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
         resDoc.get().addOnSuccessListener { documentSnapshot ->
             voucherList = documentSnapshot.toObjects()
             binding.recyclerView.adapter =
                 VoucherAdapter(this@VoucherListActivity, voucherList) {
-<<<<<<< HEAD
                         voucher,type ->  when (type) {
                     "Edit" -> {
                         var intent = Intent(this@VoucherListActivity, VoucherEdit::class.java)
@@ -105,13 +86,5 @@ class VoucherListActivity : AppCompatActivity() {
             intent.putExtra("actionType", "add")
             startActivity(intent)
         }
-=======
-                        voucher -> println(voucher.description)
-                }
-        }
-        binding.recyclerView.setHasFixedSize(true)
-
-
->>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
     }
 }

@@ -1,57 +1,19 @@
 package com.example.wehelpyoubook.accountcontrol.user
 
 import android.annotation.SuppressLint
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-import android.content.Intent
-import android.os.Bundle
-=======
->>>>>>> an
-=======
->>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
 import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> main
->>>>>>> an
-=======
->>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-import com.example.wehelpyoubook.R
-import com.example.wehelpyoubook.accountcontrol.auth.EmailVerificationActivity
-import com.google.android.material.textfield.TextInputEditText
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.userProfileChangeRequest
-
-
-=======
->>>>>>> an
 import com.example.wehelpyoubook.MainActivity
 import com.example.wehelpyoubook.R
 import com.example.wehelpyoubook.accountcontrol.auth.EmailVerificationActivity
 import com.example.wehelpyoubook.model.User
 import com.example.wehelpyoubook.vouchercontroller.VoucherDatasource
-<<<<<<< HEAD
-=======
-import com.example.wehelpyoubook.R
-import com.example.wehelpyoubook.accountcontrol.auth.EmailVerificationActivity
-import com.example.wehelpyoubook.model.User
->>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
-=======
->>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.userProfileChangeRequest
@@ -59,13 +21,6 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 val db = Firebase.firestore
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> main
->>>>>>> an
-=======
->>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
 class RegisterActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private var btnCallRegister: Button? = null
@@ -76,17 +31,7 @@ class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
-<<<<<<< HEAD
-<<<<<<< HEAD
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-=======
-<<<<<<< HEAD
-=======
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
->>>>>>> main
->>>>>>> an
-=======
->>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
 
         auth = FirebaseAuth.getInstance()
         val intent = this.intent
@@ -157,32 +102,16 @@ class RegisterActivity : AppCompatActivity() {
                             if (task.isSuccessful) {
                                 Toast.makeText(this, "Đã cập nhật tên", Toast.LENGTH_SHORT)
                                     .show()
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> an
-=======
->>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
                                 val us = User(
                                     user.uid,
                                     "https://images.foody.vn/default/s50/user-default-female.png",
                                     user.displayName,
-<<<<<<< HEAD
                                     "customer",
                                     user.email,
                                     user.email,
                                     password,
                                     "",
                                     ""
-=======
-                                    "",
-                                    user.email,
-                                    user.email,
-                                    password,
-                                    null
->>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
                                 )
                                 db.collection("Users")
                                     .add(
@@ -194,17 +123,6 @@ class RegisterActivity : AppCompatActivity() {
                                     .addOnFailureListener { e ->
                                         Log.w(TAG, "Error adding User", e)
                                     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> main
->>>>>>> an
-=======
->>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
-=======
-                                VoucherDatasource().UpVoucherData(user.uid)
->>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
                             }
                         }
                     val intent = Intent(this, EmailVerificationActivity::class.java)
@@ -218,20 +136,8 @@ class RegisterActivity : AppCompatActivity() {
             }
         // [END create_user_with_email]
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> an
     override fun onSupportNavigateUp(): Boolean {
         startActivity(Intent(this@RegisterActivity, MainActivity::class.java))
         return super.onSupportNavigateUp()
     }
-<<<<<<< HEAD
-=======
->>>>>>> main
->>>>>>> an
-=======
->>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
 }

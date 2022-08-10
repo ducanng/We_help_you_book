@@ -1,15 +1,7 @@
 plugins {
     id 'com.android.application'
-<<<<<<< HEAD
-<<<<<<< HEAD
     id 'org.jetbrains.kotlin.android'
     id 'com.google.gms.google-services'
-=======
->>>>>>> 87fa3f6c1624095320e2c0fee7eb6617695afe5a
-=======
-    id 'org.jetbrains.kotlin.android'
-    id 'com.google.gms.google-services'
->>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
 }
 
 android {
@@ -21,15 +13,7 @@ android {
         targetSdk 32
         versionCode 1
         versionName "1.0"
-<<<<<<< HEAD
-<<<<<<< HEAD
-        multiDexEnabled true
-=======
 
->>>>>>> 87fa3f6c1624095320e2c0fee7eb6617695afe5a
-=======
-
->>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -43,10 +27,6 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
     kotlinOptions {
         jvmTarget = '1.8'
     }
@@ -56,37 +36,16 @@ android {
     buildFeatures {
         viewBinding = true
     }
-<<<<<<< HEAD
-=======
->>>>>>> 87fa3f6c1624095320e2c0fee7eb6617695afe5a
-=======
->>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
 }
 
 dependencies {
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
-=======
-
->>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'net.sourceforge.jtds:jtds:1.3.1'
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> an
-=======
->>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
     // lifecycle
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0'
@@ -95,15 +54,8 @@ dependencies {
     // Navigation
     implementation 'androidx.navigation:navigation-fragment-ktx:2.5.0'
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.0'
-    implementation 'com.google.firebase:firebase-database-ktx:20.0.5'
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> main
->>>>>>> an
-=======
->>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
+
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
@@ -125,39 +77,10 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.13.2'
 
     //Firebase
-<<<<<<< HEAD
-<<<<<<< HEAD
-    implementation 'com.google.firebase:firebase-analytics-ktx:21.1.0'
-    implementation 'com.google.firebase:firebase-firestore-ktx:24.2.1'
-    implementation 'com.google.firebase:firebase-auth-ktx:21.0.6'
-=======
-<<<<<<< HEAD
-    implementation platform('com.google.firebase:firebase-bom:30.1.0')
-    implementation 'com.google.firebase:firebase-auth-ktx:21.0.6'
-    implementation 'com.google.android.gms:play-services-auth:20.2.0'
-=======
-    implementation 'com.google.firebase:firebase-analytics-ktx:21.1.0'
-    implementation 'com.google.firebase:firebase-firestore-ktx:24.2.1'
-    implementation 'com.google.firebase:firebase-auth-ktx:21.0.6'
->>>>>>> main
->>>>>>> an
-
-    //Circle ImageView
-    implementation 'de.hdodenhof:circleimageview:3.1.0'
-=======
-    implementation 'androidx.appcompat:appcompat:1.4.2'
-    implementation 'com.google.android.material:material:1.6.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
->>>>>>> 87fa3f6c1624095320e2c0fee7eb6617695afe5a
-=======
     implementation 'com.google.firebase:firebase-analytics-ktx:21.1.0'
     implementation 'com.google.firebase:firebase-firestore-ktx:24.2.1'
     implementation 'com.google.firebase:firebase-auth-ktx:21.0.6'
 
     //Circle ImageView
     implementation 'de.hdodenhof:circleimageview:3.1.0'
->>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
 }

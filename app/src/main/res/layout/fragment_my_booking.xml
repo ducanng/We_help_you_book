@@ -5,12 +5,8 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="16dp"
-<<<<<<< HEAD
     tools:context=".mybooking.MyBookingFragment"
     android:theme="@style/Theme.MaterialComponents.Light">
-=======
-    tools:context=".mybooking.MyBookingFragment">
->>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
@@ -48,25 +44,13 @@
             app:layout_constraintStart_toStartOf="@id/time_booking"/>
 
         <TextView
-<<<<<<< HEAD
-<<<<<<< HEAD
             android:id="@+id/voucher"
-=======
-            android:id="@+id/order"
->>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
-=======
-            android:id="@+id/voucher"
->>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor = "#B000"
             app:layout_constraintTop_toBottomOf="@id/time_end"
             app:layout_constraintStart_toStartOf="@id/time_end"/>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
         <TextView
             android:id="@+id/order"
             android:layout_width="wrap_content"
@@ -75,11 +59,6 @@
             app:layout_constraintTop_toBottomOf="@id/voucher"
             app:layout_constraintStart_toStartOf="@id/voucher"/>
 
-<<<<<<< HEAD
-=======
->>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
-=======
->>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
             android:layout_width="wrap_content"

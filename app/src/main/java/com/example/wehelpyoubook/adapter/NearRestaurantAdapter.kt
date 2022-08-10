@@ -21,10 +21,7 @@ class NearRestaurantAdapter (
         val imageView: ImageView = view.findViewById(R.id.restaurant_image)
         val nameTextView: TextView = view.findViewById(R.id.restaurant_name)
         val rateTextView: TextView = view.findViewById((R.id.restaurant_rate))
-<<<<<<< HEAD
         val addressTv : TextView = view.findViewById(R.id.restaurant_address_tx)
-=======
->>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NearRestaurantViewHolder {
@@ -41,10 +38,7 @@ class NearRestaurantAdapter (
             listener(res)
         }
         holder.nameTextView.text = res.name
-<<<<<<< HEAD
         holder.addressTv.text = res.address
-=======
->>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
         holder.rateTextView.text = resources?.getString(R.string.rate,res.rate)
     }
     override fun getItemCount(): Int {

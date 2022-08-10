@@ -68,64 +68,10 @@
             android:text="@string/email"
             tools:ignore="RtlHardcoded" />
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
-        <TextView
-            android:layout_width="151dp"
-            android:layout_height="0dp"
-            android:layout_marginBottom="10dp"
-            android:layout_weight="1"
-            android:text="@string/continue_with"
-            android:textAlignment="center"
-            android:textColor="#0B0A0A" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="63dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/google"
-                android:layout_width="70dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="120dp"
-                android:layout_marginEnd="10dp"
-                app:srcCompat="@drawable/google_icon"
-                android:contentDescription="@string/todo" />
-
-            <ImageView
-                android:id="@+id/facebook"
-                android:layout_width="70dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="0dp"
-                app:srcCompat="@drawable/facebook_icon"
-                android:contentDescription="@string/todo" />
-
-        </LinearLayout>
-<<<<<<< HEAD
-=======
->>>>>>> an
         <LinearLayout
             android:layout_width="419dp"
             android:layout_height="66dp"
             android:orientation="horizontal" />
-<<<<<<< HEAD
-=======
->>>>>>> main
->>>>>>> an
-=======
->>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
-=======
-        <LinearLayout
-            android:layout_width="419dp"
-            android:layout_height="66dp"
-            android:orientation="horizontal" />
->>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
 
     </LinearLayout>
 

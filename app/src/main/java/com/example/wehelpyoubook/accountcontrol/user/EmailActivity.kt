@@ -7,17 +7,7 @@ import android.util.Patterns
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-<<<<<<< HEAD
-<<<<<<< HEAD
 import com.example.wehelpyoubook.MainActivity
-=======
-<<<<<<< HEAD
-=======
-import com.example.wehelpyoubook.MainActivity
->>>>>>> main
->>>>>>> an
-=======
->>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
 import com.example.wehelpyoubook.R
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
@@ -32,17 +22,7 @@ class EmailActivity : AppCompatActivity() {
     @SuppressLint("ShowToast", "SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-<<<<<<< HEAD
-<<<<<<< HEAD
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-=======
-<<<<<<< HEAD
-=======
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
->>>>>>> main
->>>>>>> an
-=======
->>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
         setContentView(R.layout.activity_input_email)
         auth = FirebaseAuth.getInstance()
         editEmail = findViewById(R.id.email_edittext)
@@ -82,20 +62,8 @@ class EmailActivity : AppCompatActivity() {
         val pattern: Pattern = Patterns.EMAIL_ADDRESS
         return pattern.matcher(email).matches()
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> an
     override fun onSupportNavigateUp(): Boolean {
         startActivity(Intent(this@EmailActivity, MainActivity::class.java))
         return super.onSupportNavigateUp()
     }
-<<<<<<< HEAD
-=======
->>>>>>> main
->>>>>>> an
-=======
->>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
 }
