@@ -6,6 +6,7 @@
         android:title=""
         app:showAsAction="always">
         <!-- "file" submenu -->
+<<<<<<< HEAD
         <menu>
             <item android:id="@+id/menu_home_login_item"
                 android:title="Đăng nhập" />
@@ -16,5 +17,7 @@
             <item android:id="@+id/menu_home_logout_item"
                 android:title="Đăng xuất" />
         </menu>
+=======
+>>>>>>> main
     </item>
 </menu>

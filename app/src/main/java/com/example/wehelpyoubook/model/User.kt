@@ -1,30 +1,13 @@
 package com.example.wehelpyoubook.model
 
-import com.example.wehelpyoubook.interfacecontrol.DataCenter
-
-class User (
-    private val Id : String,
-    val name : String,
-    val role : String,
-    val email : String,
-    val account : String,
-    val password : String,
-    val dayOfBirth : String,
-    val listBookedRestaurant : MutableSet<Restaurant> = mutableSetOf<Restaurant>(),
-    val listVoucher: MutableSet<Voucher> = mutableSetOf<Voucher>()
-) : DataCenter
-{
-    @Override
-    override fun getData() : User {
-        return this
-    }
-    override fun insertData() : Boolean{
-        return true
-    }
-    override fun deleteData() : Boolean{
-        return true
-    }
-    override fun updateData() : Boolean{
-        return true
-    }
-}
+data class User (
+    val Id : String? = null,
+    val avatarUrl: String? = null,
+    val name : String? = null,
+    val role : String? = null,
+    val email : String? = null,
+    val account : String? = null,
+    val password : String? = null,
+    val dayOfBirth : String? = null,
+    val restaurantManager: String? = null
+)

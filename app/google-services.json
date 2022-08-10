@@ -1,19 +1,117 @@
 {
   "project_info": {
+<<<<<<< HEAD
     "project_number": "641931478982",
     "project_id": "we-help-you-book",
     "storage_bucket": "we-help-you-book.appspot.com"
+=======
+    "project_number": "406200163640",
+    "project_id": "we-help-you-book-d57d9",
+    "storage_bucket": "we-help-you-book-d57d9.appspot.com"
+>>>>>>> main
   },
   "client": [
     {
       "client_info": {
+<<<<<<< HEAD
         "mobilesdk_app_id": "1:641931478982:android:6bb966bcdabe32da8154c7",
+=======
+        "mobilesdk_app_id": "1:406200163640:android:3c2c57c9351da6079175cd",
+        "android_client_info": {
+          "package_name": "com.example.nda_example"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "406200163640-h46cs6coiuibes9qta5hs4cu5rsq6j77.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgFraKEtJRkosOmK68zQe3zAuF39480zw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "406200163640-h46cs6coiuibes9qta5hs4cu5rsq6j77.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:406200163640:android:13b5cfabfd5a7ad19175cd",
+        "android_client_info": {
+          "package_name": "com.example.scrapingdatakotlin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "406200163640-h46cs6coiuibes9qta5hs4cu5rsq6j77.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgFraKEtJRkosOmK68zQe3zAuF39480zw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "406200163640-h46cs6coiuibes9qta5hs4cu5rsq6j77.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:406200163640:android:3c7bfcab431e39499175cd",
+        "android_client_info": {
+          "package_name": "com.example.tipwithrgb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "406200163640-h46cs6coiuibes9qta5hs4cu5rsq6j77.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgFraKEtJRkosOmK68zQe3zAuF39480zw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "406200163640-h46cs6coiuibes9qta5hs4cu5rsq6j77.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:406200163640:android:398c5f826f077f809175cd",
+>>>>>>> main
         "android_client_info": {
           "package_name": "com.example.wehelpyoubook"
         }
       },
       "oauth_client": [
         {
+<<<<<<< HEAD
           "client_id": "641931478982-33tc677ru0p6ft0jcc74bfi2l26tm16l.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -23,19 +121,59 @@
         },
         {
           "client_id": "641931478982-0sougug1mcjicgfhcm37ii3qkpup4toe.apps.googleusercontent.com",
+=======
+          "client_id": "406200163640-h46cs6coiuibes9qta5hs4cu5rsq6j77.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBOdXfjQLYhUtuj3tTZLmG0-ALNp87bv1Y"
+          "current_key": "AIzaSyDgFraKEtJRkosOmK68zQe3zAuF39480zw"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
+              "client_id": "406200163640-h46cs6coiuibes9qta5hs4cu5rsq6j77.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:406200163640:android:55b29f90b6cfbc119175cd",
+        "android_client_info": {
+          "package_name": "com.example.wehelpyoubookver2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "406200163640-h46cs6coiuibes9qta5hs4cu5rsq6j77.apps.googleusercontent.com",
+>>>>>>> main
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+<<<<<<< HEAD
+          "current_key": "AIzaSyBOdXfjQLYhUtuj3tTZLmG0-ALNp87bv1Y"
+=======
+          "current_key": "AIzaSyDgFraKEtJRkosOmK68zQe3zAuF39480zw"
+>>>>>>> main
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+<<<<<<< HEAD
               "client_id": "641931478982-0sougug1mcjicgfhcm37ii3qkpup4toe.apps.googleusercontent.com",
+=======
+              "client_id": "406200163640-h46cs6coiuibes9qta5hs4cu5rsq6j77.apps.googleusercontent.com",
+>>>>>>> main
               "client_type": 3
             }
           ]

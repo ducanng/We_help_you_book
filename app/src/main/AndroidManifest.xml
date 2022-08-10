@@ -13,7 +13,9 @@
         android:roundIcon="@drawable/avatar_whybook"
         android:supportsRtl="true"
         android:theme="@style/Theme.Wehelpyoubook">
+
         <activity
+<<<<<<< HEAD
             android:name=".accountcontrol.info.DeleteAccountActivity"
             android:exported="false" />
         <activity
@@ -37,6 +39,65 @@
             android:exported="false" />
         <activity
             android:name=".accountcontrol.user.RegisterActivity"
+=======
+            android:name=".notification.NotificationActivity"
+>>>>>>> main
+            android:exported="false" />
+        <activity
+            android:name=".feedback.Feedback"
+            android:exported="false" />
+        <activity
+<<<<<<< HEAD
+            android:name=".accountcontrol.user.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accountcontrol.user.EmailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Feedback"
+            android:exported="true" />
+=======
+            android:name=".update.UpdateData"
+            android:exported="false" />
+        <activity
+            android:name=".restaurentInterface.RestaurantEdit"
+            android:exported="false" />
+        <activity
+            android:name=".vouchercontroller.VoucherEdit"
+            android:exported="false" />
+        <activity
+            android:name=".vouchercontroller.VoucherListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accountcontrol.info.UserInformationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accountcontrol.info.ChangePasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accountcontrol.info.ChangeNameActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accountcontrol.info.DeleteAccountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accountcontrol.info.ChangeEmailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accountcontrol.auth.ReAuthenticateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accountcontrol.auth.EmailVerificationActivity"
+            android:exported="false" />
+>>>>>>> main
+        <activity
+            android:name=".restaurentInterface.RestaurantInterfaceControl"
+            android:exported="false" />
+        <activity
+            android:name=".restaurentInterface.ListRestaurantActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accountcontrol.user.RegisterActivity"
             android:exported="false" />
         <activity
             android:name=".accountcontrol.HomeSignInActivity"
@@ -48,32 +109,13 @@
             android:name=".accountcontrol.user.EmailActivity"
             android:exported="false" />
         <activity
-            android:name=".Feedback"
-            android:exported="true" />
-        <activity
-            android:name=".homescreen.HomeActivity"
-            android:exported="true">
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".TestActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".homescreen.HomeActivity" />
-        </activity>
-        <activity
-            android:name=".homescreen.SearchableHomeActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.SEARCH" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.app.searchableHome"
-                android:resource="@xml/searchable" />
         </activity>
 
         <meta-data

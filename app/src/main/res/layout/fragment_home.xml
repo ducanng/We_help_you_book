@@ -1,0 +1,46 @@
+<?xml version="1.0"  encoding="utf-8" ?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/SecondaryVariant"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/restaurant_searchbox_searchview"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="12dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:defaultQueryHint="Input restaurant">
+        </androidx.appcompat.widget.SearchView>
+
+        <TextView
+            android:id="@+id/restaurant_near_you_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="@string/restaurant_near_you"
+            app:layout_constraintTop_toBottomOf="@id/restaurant_searchbox_searchview"
+            app:layout_constraintStart_toStartOf="@id/restaurant_searchbox_searchview"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:spanCount="2"
+            app:layout_constraintTop_toBottomOf="@id/restaurant_near_you_textview"
+            app:layout_constraintStart_toStartOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

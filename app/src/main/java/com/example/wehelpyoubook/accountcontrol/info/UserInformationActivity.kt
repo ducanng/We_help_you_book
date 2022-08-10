@@ -2,14 +2,24 @@ package com.example.wehelpyoubook.accountcontrol.info
 
 import android.content.Intent
 import android.os.Bundle
+<<<<<<< HEAD
+=======
+import android.view.MenuItem
+>>>>>>> main
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+<<<<<<< HEAD
 import com.example.wehelpyoubook.R
 import com.example.wehelpyoubook.accountcontrol.auth.ReAuthenticateActivity
 import com.example.wehelpyoubook.homescreen.HomeActivity
+=======
+import com.example.wehelpyoubook.MainActivity
+import com.example.wehelpyoubook.R
+import com.example.wehelpyoubook.accountcontrol.auth.ReAuthenticateActivity
+>>>>>>> main
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
@@ -42,8 +52,20 @@ class UserInformationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_information)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+<<<<<<< HEAD
         initUIUserInfo()
         setInfoUser()
+=======
+
+        initUIUserInfo()
+        val it = this.intent
+        val change = it.getIntExtra("change", 0)
+        if (change == 1) {
+            setInfoUserAfterChange()
+        } else {
+            setInfoUser()
+        }
+>>>>>>> main
         checkEmailVerification()
         changeNameImg!!.setOnClickListener {
             val intent = Intent(this, ChangeNameActivity::class.java)
@@ -72,19 +94,42 @@ class UserInformationActivity : AppCompatActivity() {
         }
         logout!!.setOnClickListener {
             Firebase.auth.signOut()
+<<<<<<< HEAD
             startActivity(Intent(this, HomeActivity::class.java))
+=======
+            startActivity(Intent(this, MainActivity::class.java))
+>>>>>>> main
             finish()
         }
     }
 
+<<<<<<< HEAD
     fun setInfoUser() {
+=======
+    override fun onSupportNavigateUp(): Boolean {
+        startActivity(Intent(this@UserInformationActivity,MainActivity::class.java))
+        return super.onSupportNavigateUp()
+    }
+
+    private fun setInfoUser() {
         val user = Firebase.auth.currentUser ?: return
         name!!.text = user.displayName
         println(name)
         println(user.displayName)
         email!!.text = user.email
     }
+    private fun setInfoUserAfterChange() {
+>>>>>>> main
+        val user = Firebase.auth.currentUser ?: return
+        name!!.text = user.displayName
+        println(name)
+        println(user.displayName)
+        email!!.text = user.email
+    }
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
     private fun checkEmailVerification() {
         val user = Firebase.auth.currentUser ?: return
         if (user.isEmailVerified) {
@@ -93,4 +138,8 @@ class UserInformationActivity : AppCompatActivity() {
             verifyEmail!!.visibility = View.GONE
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> main

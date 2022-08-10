@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/customer_navigation"
+    app:startDestination="@id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.wehelpyoubook.home.HomeFragment"
+        android:label="@string/menu_home"
+         />
+    <fragment
+        android:id="@+id/nav_user_info"
+        android:name="com.example.wehelpyoubook.userinfor.UserInforFragment"
+        android:label="@string/menu_user_infor"/>
+
+    <fragment
+        android:id="@+id/nav_my_booking"
+        android:name="com.example.wehelpyoubook.mybooking.MyBookingFragment"
+        android:label="@string/menu_mybooking"
+        />
+
+    <fragment
+        android:id="@+id/nav_feedback"
+        android:name="com.example.wehelpyoubook.feedback.FeedbackFragment"
+        android:label="@string/menu_feedback"
+        />
+
+    <fragment
+        android:id="@+id/nav_logout"
+        android:name="com.example.wehelpyoubook.logout.LogoutFragment"
+        android:label="@string/menu_logout"/>
+
+</navigation>

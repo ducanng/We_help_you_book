@@ -8,16 +8,33 @@
     <string name="user_information">Thông tin người dùng</string>
     <string name="feed_back">Phản hồi ứng dụng</string>
     <string name="restaurant_near_you">Nhà hàng gần bạn</string>
+    <string name="searching_restaurant">Tìm kiếm nhà hàng</string>
 
     <!-- Duong -->
     <string name="primary_color">Primary color</string>
     <string name="button">Button</string>
     <string name="secondary_color">Secondary color</string>
     <string name="email_icon">email icon</string>
+    <string name="telephone">Telephone</string>
+    <string name="Enter_your_comment">Enter your comment</string>
+    <string name="phi_duong">phi duong</string>
+    <string name="review">Review restaurant :</string>
+    <string name="Information">Information</string>
+    <string name="address">Address</string>
+    <string name="jam">Rating</string>
+    <string name="rute">Booking</string>
+    <string name="website">Website</string>
+    <string name="description">Miêu tả</string>
+    <string name="price">Price</string>
+
 
     <!-- An -->
     <string name="full_app_name">WE HELP YOU BOOK</string>
+<<<<<<< HEAD
     <string name="sign_in_by">Đăng nhập bằng</string>
+=======
+    <string name="sign_in_by">Đăng nhập hoặc đăng ký bằng</string>
+>>>>>>> main
     <string name="email">Email</string>
     <string name="next">Tiếp tục</string>
     <string name="input_password">Nhập mật khẩu</string>
@@ -40,7 +57,21 @@
     <string name="sent_verify">Gửi xác nhận</string>
     <string name="please_verify_email">Hãy xác nhận email của bạn</string>
     <string name="delete_account">Xóa tài khoản</string>
+<<<<<<< HEAD
     <!-- TODO: Remove or change this placeholder text -->
+=======
+    <string name="cancel">hủy</string>
+    <string name="image_url">Image URL</string>
+    <string name="rate_text">Rate</string>
+    <string name="change_voucher">Thông tin voucher</string>
+    <string name="voucher_name">Tên voucher</string>
+    <string name="change_info_restaurant">Thông tin nhà hàng</string>
+    <string name="restaurant_name">Tên nhà hàng</string>
+    <string name="restaurant_address">Địa chỉ nhà hàng</string>
+    <string name="voucher_description">Mô tả voucher</string>
+    <string name="sale">Khuyến mãi bao nhiêu phần trăm?</string>
+
+>>>>>>> main
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="fullname">Họ tên</string>
     <string name="update">Cập nhật</string>
@@ -52,4 +83,30 @@
     <string name="cancel_goback">Hủy và trở về</string>
     <string name="are_you_sure">Bạn có chắc chắn rằng là bạn muốn xóa tài khoản?</string>
 
+<<<<<<< HEAD
+=======
+    <!-- Duy-->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_user_infor">User Information</string>
+    <string name="menu_voucher">Voucher</string>
+    <string name="menu_mybooking">MyBooking</string>
+    <string name="menu_feedback">Feedback</string>
+    <string name="menu_logout">Logout</string>
+    <string name="input_email">Nhập email</string>
+    <string name="edit_voucher">Edit</string>
+    <string name="remove_voucher">Remove</string>
+    <string name="add_voucher">Thêm voucher</string>
+    <string name="time_booking">Time booking:  %1$s</string>
+    <string name="order">Order #%1$s</string>
+    <string name="menu_edit_restaurant">Edit Restaurant</string>
+    <string name="time_ending">Time ending:  %1$s</string>
+
+>>>>>>> main
 </resources>

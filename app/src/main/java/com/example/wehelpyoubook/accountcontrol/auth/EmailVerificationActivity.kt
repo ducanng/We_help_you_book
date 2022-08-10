@@ -7,8 +7,13 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+<<<<<<< HEAD
 import com.example.wehelpyoubook.R
 import com.example.wehelpyoubook.homescreen.HomeActivity
+=======
+import com.example.wehelpyoubook.MainActivity
+import com.example.wehelpyoubook.R
+>>>>>>> main
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
@@ -20,6 +25,10 @@ class EmailVerificationActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+<<<<<<< HEAD
+=======
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+>>>>>>> main
         setContentView(R.layout.activity_email_verification)
         init()
 
@@ -32,9 +41,19 @@ class EmailVerificationActivity : AppCompatActivity() {
             sendEmailVerification(user)
         }
         continueBtn!!.setOnClickListener{
+<<<<<<< HEAD
             startActivity(Intent(this, HomeActivity::class.java))
         }
     }
+=======
+            startActivity(Intent(this, MainActivity::class.java))
+        }
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        startActivity(Intent(this@EmailVerificationActivity,MainActivity::class.java))
+        return super.onSupportNavigateUp()
+    }
+>>>>>>> main
     private fun init() {
         verifyBtn = findViewById(R.id.verify_button)
         emailVerifyTv = findViewById(R.id.sendVerify)

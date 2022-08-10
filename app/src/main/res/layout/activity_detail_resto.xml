@@ -1,28 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@color/Primary"
     android:fitsSystemWindows="true">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="25dp"
-        android:theme="@style/AppTheme.AppBarOverlay"
-        app:navigationIcon="@drawable/ic_back">
+        android:layout_marginBottom="25dp">
+        <!--        android:theme="@style/AppTheme.AppBarOverlay"-->
+        <!--        app:navigationIcon="@drawable/ic_back">-->
 
         <TextView
             android:id="@+id/tvTitle"
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:ellipsize="marquee"
             android:marqueeRepeatLimit="marquee_forever"
             android:singleLine="true"
-            android:text="@string/app_name"
+            android:text=""
             android:textColor="@color/colorWhite"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -34,6 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/toolbar"
+        android:layout_marginTop="-28dp"
         android:background="@drawable/bg_rounded"
         android:backgroundTint="@color/colorWhite">
 
@@ -48,38 +51,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp">
 
-                <RatingBar
-                    android:id="@+id/ratingRestaurant"
-                    style="@style/Widget.AppCompat.RatingBar.Small"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_centerInParent="true"
-                    android:progressTint="@color/colorRating" />
-
                 <TextView
                     android:id="@+id/tvRating"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/ratingRestaurant"
-
-                    android:text="@string/app_name"
                     android:textColor="@color/colorBlack"
                     android:textSize="14sp" />
 
             </RelativeLayout>
 
-            <TextView
-                android:id="@+id/tvRestaurantName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginTop="15dp"
-
-                android:text="@string/app_name"
-                android:textColor="@color/colorBlack"
-                android:textSize="18sp"
-                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -87,24 +67,6 @@
                 android:layout_marginTop="10dp"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/tvEstablishment"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:text="Establishment"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/tvLocalityVerbose"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-
-                    android:text="Locality Verbose"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/tvAverageCost"
@@ -112,19 +74,18 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
 
-                    android:text="Average Cost For Two"
-                    android:textColor="@color/colorGreen"
-                    android:textSize="14sp"
+                    android:text="@string/Information"
+                    android:textColor="#43A047"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </LinearLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvHighlights"
+            <ImageView
+                android:id="@+id/urlRes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:nestedScrollingEnabled="false" />
+                tools:srcCompat="@tools:sample/avatars" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -133,50 +94,51 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/addressID"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
-                    android:text="Time active"
+                    android:text=""
                     android:textColor="@color/colorBlack"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/tvAddress"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-
-                    android:text="alamat"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="12sp" />
 
                 <TextView
+                    android:id="@+id/ratingID"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
 
-                    android:text="Time open"
+                    android:text=""
                     android:textColor="@color/colorBlack"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/tvOpenTime"
-                    android:layout_width="wrap_content"
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_FoodList"
+                    android:layout_width="392dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-
-                    android:text="jam"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="12sp" />
-
+                    android:layout_marginStart="4dp"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:spanCount="1" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:baselineAligned="false"
                 android:gravity="center"
                 android:orientation="horizontal">
 
@@ -189,10 +151,12 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <ImageView
+                    <ImageButton
+                        android:id="@+id/bookingButton"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:background="@drawable/bg_rounded"
+                        android:contentDescription="TODO"
                         android:padding="10dp"
                         android:src="@drawable/ic_rute" />
 
@@ -200,8 +164,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-
-                        android:text="Rute"
+                        android:text="@string/rute"
                         android:textAllCaps="true"
                         android:textColor="@color/colorPrimary"
                         android:textSize="12sp" />
@@ -221,6 +184,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:background="@drawable/bg_rounded"
+                        android:contentDescription="TODO"
                         android:padding="10dp"
                         android:src="@drawable/ic_call" />
 
@@ -229,7 +193,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
 
-                        android:text="Telepon"
+                        android:text="@string/telephone"
                         android:textAllCaps="true"
                         android:textColor="@color/colorPrimary"
                         android:textSize="12sp" />
@@ -237,7 +201,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/llWebsite"
+                    android:id="@+id/Website"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -249,6 +213,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:background="@drawable/bg_rounded"
+                        android:contentDescription="TODO"
                         android:padding="10dp"
                         android:src="@drawable/ic_website" />
 
@@ -257,7 +222,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
 
-                        android:text="Website"
+                        android:text="@string/website"
                         android:textAllCaps="true"
                         android:textColor="@color/colorPrimary"
                         android:textSize="12sp" />
@@ -272,17 +237,56 @@
                 android:layout_gravity="start"
                 android:layout_marginTop="10dp"
 
-                android:text="Review Terbaru :"
+                android:text="Review"
                 android:textColor="@color/colorBlack"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvReviewRestaurant"
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/comment"
+                    android:layout_width="323dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:completionThreshold="1"
+                    android:ems="20"
+                    android:hint="@string/Enter_your_comment"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:maxLength="1000"
+                    android:minHeight="48dp"
+                    android:textSize="18sp"
+                    app:counterMaxLength="50" />
+
+                <ImageButton
+                    android:id="@+id/sendButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:minHeight="48dp"
+                    android:src="@drawable/ic_baseline_send_24"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+            </RelativeLayout>
+
+
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
-                android:nestedScrollingEnabled="false" />
+                android:layout_height="match_parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvReviewRestaurant"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:nestedScrollingEnabled="false" />
+            </ScrollView>
+
 
         </LinearLayout>
 

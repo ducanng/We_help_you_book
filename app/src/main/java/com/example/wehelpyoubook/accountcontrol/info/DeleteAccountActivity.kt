@@ -5,8 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
+<<<<<<< HEAD
 import com.example.wehelpyoubook.R
 import com.example.wehelpyoubook.homescreen.HomeActivity
+=======
+import com.example.wehelpyoubook.MainActivity
+import com.example.wehelpyoubook.R
+>>>>>>> main
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
@@ -15,6 +20,10 @@ class DeleteAccountActivity : AppCompatActivity() {
     private var deleteBtn: Button? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+<<<<<<< HEAD
+=======
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+>>>>>>> main
         setContentView(R.layout.activity_delete_account)
         initDeleteAccountUI()
         cancelBtn!!.setOnClickListener {
@@ -32,7 +41,11 @@ class DeleteAccountActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     Toast.makeText(this, "Xóa tài khoản thành công", Toast.LENGTH_SHORT)
                         .show()
+<<<<<<< HEAD
                     startActivity(Intent(this, HomeActivity::class.java))
+=======
+                    startActivity(Intent(this, MainActivity::class.java))
+>>>>>>> main
                 }
             }
     }
@@ -41,4 +54,11 @@ class DeleteAccountActivity : AppCompatActivity() {
         cancelBtn = findViewById(R.id.cancel_and_back_button)
         deleteBtn = findViewById(R.id.delete_account_button)
     }
+<<<<<<< HEAD
+=======
+    override fun onSupportNavigateUp(): Boolean {
+        startActivity(Intent(this@DeleteAccountActivity, MainActivity::class.java))
+        return super.onSupportNavigateUp()
+    }
+>>>>>>> main
 }
