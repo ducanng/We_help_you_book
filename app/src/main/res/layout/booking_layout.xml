@@ -16,6 +16,9 @@
         android:textColor="@color/black"
         android:textSize="16sp" />
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
 
     <EditText
         android:id="@+id/timeStart_EditText"
@@ -26,8 +29,11 @@
         android:inputType="textPersonName"
         android:text="" />
 
+<<<<<<< HEAD
 =======
 >>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
+=======
+>>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -67,8 +67,12 @@ dependencies {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
+=======
+
+>>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'com.google.android.material:material:1.6.1'
@@ -91,7 +95,7 @@ dependencies {
     // Navigation
     implementation 'androidx.navigation:navigation-fragment-ktx:2.5.0'
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.0'
-
+    implementation 'com.google.firebase:firebase-database-ktx:20.0.5'
 
 <<<<<<< HEAD
 <<<<<<< HEAD

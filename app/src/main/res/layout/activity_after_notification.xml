@@ -4,7 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     tools:context=".notification.afterNotification">
+=======
+    tools:context=".afterNotification">
+>>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
 
     <TextView
         android:id="@+id/textView"

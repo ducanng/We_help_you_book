@@ -27,11 +27,14 @@
       "client_info": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
         "mobilesdk_app_id": "1:641931478982:android:6bb966bcdabe32da8154c7",
 =======
 >>>>>>> an
+=======
+>>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
         "mobilesdk_app_id": "1:406200163640:android:3c2c57c9351da6079175cd",
         "android_client_info": {
           "package_name": "com.example.nda_example"
@@ -61,8 +64,11 @@
     },
     {
       "client_info": {
+<<<<<<< HEAD
 =======
 >>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
+=======
+>>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
         "mobilesdk_app_id": "1:406200163640:android:13b5cfabfd5a7ad19175cd",
         "android_client_info": {
           "package_name": "com.example.scrapingdatakotlin"

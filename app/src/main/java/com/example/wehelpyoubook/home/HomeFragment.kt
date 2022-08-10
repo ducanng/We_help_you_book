@@ -19,9 +19,11 @@ import com.example.wehelpyoubook.databinding.FragmentHomeBinding
 import com.example.wehelpyoubook.model.Restaurant
 import com.example.wehelpyoubook.restaurentInterface.ListRestaurantActivity
 import com.example.wehelpyoubook.restaurentInterface.RestaurantInterfaceControl
+import com.example.wehelpyoubook.scrapingdata.ScrapingData
 import com.example.wehelpyoubook.scrapingdata.db
 <<<<<<< HEAD
 import com.google.firebase.firestore.ktx.toObjects
+<<<<<<< HEAD
 
 =======
 import com.example.wehelpyoubook.vouchercontroller.VoucherListActivity
@@ -33,6 +35,12 @@ import com.google.firebase.ktx.Firebase
 val db = Firebase.firestore
 private const val linkServer = "https://www.foody.vn/ho-chi-minh/food/dia-diem?q=nha+hang&ss=header_search_form&page="
 >>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
+=======
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.launch
+private const val linkServer = "https://www.foody.vn/ho-chi-minh/food/dia-diem?q=nha+hang&ss=header_search_form&page="
+>>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null

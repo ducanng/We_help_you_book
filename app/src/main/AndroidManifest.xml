@@ -89,6 +89,15 @@
             android:name=".vouchercontroller.VoucherListActivity"
 =======
         <activity
+            android:name=".update.UpdateData"
+            android:exported="false" />
+        <activity
+            android:name=".notification.NotificationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".feedback.Feedback"
+            android:exported="false" />
+        <activity
             android:name=".vouchercontroller.VoucherListActivity"
             android:exported="false" />
         <activity

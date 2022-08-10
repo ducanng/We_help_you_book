@@ -12,6 +12,11 @@ import com.example.wehelpyoubook.model.Orders
 import com.example.wehelpyoubook.mybooking.MyBookingFragment
 import com.example.wehelpyoubook.mybooking.db
 import com.google.firebase.auth.ktx.auth
+<<<<<<< HEAD
+=======
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+>>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
 import com.google.firebase.firestore.ktx.toObjects
 import com.google.firebase.ktx.Firebase
 
@@ -34,7 +39,11 @@ class UpdateData : AppCompatActivity() {
         binding.updateBtn.setOnClickListener {
 
             updateData()
+<<<<<<< HEAD
             startActivity(Intent(this,MainActivity::class.java))
+=======
+            startActivity(Intent(this,MyBookingFragment::class.java))
+>>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
         }
 
         binding.cancelBtn.setOnClickListener {

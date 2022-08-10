@@ -14,6 +14,10 @@
     <string name="restaurant_near_you">Nhà hàng gần bạn</string>
     <string name="searching_restaurant">Tìm kiếm nhà hàng</string>
 
+    <!-- Duy -->
+    <string name="time_booking">Time booking:  %1$s</string>
+    <string name="order">Order #%1$s</string>
+
     <!-- Duong -->
     <string name="primary_color">Primary color</string>
     <string name="button">Button</string>
@@ -31,12 +35,16 @@
 <<<<<<< HEAD
     <string name="description">Miêu tả</string>
     <string name="price">Price</string>
+<<<<<<< HEAD
 =======
 >>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
+=======
+>>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
 
 
     <!-- An -->
     <string name="full_app_name">WE HELP YOU BOOK</string>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     <string name="sign_in_by">Đăng nhập hoặc đăng ký bằng</string>
@@ -50,6 +58,9 @@
 =======
     <string name="sign_in_by">Đăng nhập bằng</string>
 >>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
+=======
+    <string name="sign_in_by">Đăng nhập hoặc đăng ký bằng</string>
+>>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
     <string name="email">Email</string>
     <string name="next">Tiếp tục</string>
     <string name="input_password">Nhập mật khẩu</string>
@@ -98,7 +109,7 @@
     <!-- TODO: Remove or change this placeholder text -->
 >>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="fullname">Họ tên</string>
+    <string name="fullname">Họ tên</string> 
     <string name="update">Cập nhật</string>
     <string name="new_password">Mật khẩu mới</string>
     <string name="confirm_new_password">Xác nhận mật khẩu mới</string>
@@ -133,6 +144,7 @@
     <string name="menu_feedback">Feedback</string>
     <string name="menu_logout">Logout</string>
     <string name="input_email">Nhập email</string>
+<<<<<<< HEAD
     <string name="edit_voucher">Edit</string>
     <string name="remove_voucher">Remove</string>
     <string name="add_voucher">Thêm voucher</string>
@@ -155,4 +167,7 @@
     <string name="price">Price</string>
 
 >>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
+=======
+
+>>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
 </resources>

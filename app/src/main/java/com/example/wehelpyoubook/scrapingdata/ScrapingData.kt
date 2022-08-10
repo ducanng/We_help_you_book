@@ -3,9 +3,13 @@ package com.example.wehelpyoubook.scrapingdata
 import android.util.Log
 import com.example.wehelpyoubook.model.*
 <<<<<<< HEAD
+<<<<<<< HEAD
 import com.example.wehelpyoubook.vouchercontroller.VoucherDatasource
 =======
 >>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
+=======
+import com.example.wehelpyoubook.vouchercontroller.VoucherDatasource
+>>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.async
@@ -14,10 +18,14 @@ import org.jsoup.Jsoup
 import java.io.IOException
 val db = Firebase.firestore
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 private const val linkServer = "https://www.foody.vn/ho-chi-minh/food/dia-diem?q=nha+hang&ss=header_search_form&page="
 =======
 >>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
+=======
+private const val linkServer = "https://www.foody.vn/ho-chi-minh/food/dia-diem?q=nha+hang&ss=header_search_form&page="
+>>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
 private  const val mainUrl : String = "https://www.foody.vn/"
 private const val TAG = "MyActivity"
 class ScrapingData {
@@ -35,20 +43,28 @@ class ScrapingData {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     suspend fun restaurantScraping() =
 =======
     suspend fun restaurantScraping(url: String) =
 >>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
+=======
+    suspend fun restaurantScraping() =
+>>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
         runBlocking {
             async {
                 for (page: Int in 1..5) {
                     try {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                         val tmpUrl = linkServer + page.toString()
 =======
                         val tmpUrl = url + page.toString()
 >>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
+=======
+                        val tmpUrl = linkServer + page.toString()
+>>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
                         val doc = Jsoup.connect(tmpUrl)
                         val event = doc.get().getElementsByClass("row-item filter-result-item")
 
@@ -98,20 +114,28 @@ class ScrapingData {
         }.await()
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     suspend fun reviewScraping() =
 =======
     suspend fun reviewScraping(url: String) =
 >>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
+=======
+    suspend fun reviewScraping() =
+>>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
         runBlocking {
 
             async {
                 for (page: Int in 1..5) {
                     try {
 <<<<<<< HEAD
+<<<<<<< HEAD
                         val tmpUrl = linkServer + page.toString()
 =======
                         val tmpUrl = url + page.toString()
 >>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
+=======
+                        val tmpUrl = linkServer + page.toString()
+>>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
                         val doc = Jsoup.connect(tmpUrl)
                         val resEvents = doc.get().getElementsByClass("row-item filter-result-item")
 
@@ -163,6 +187,7 @@ class ScrapingData {
                                         .addOnFailureListener { e ->
                                             Log.w(TAG, "Error adding review", e)
                                         }
+                                    VoucherDatasource().UpVoucherData(userID)
                                 }
                             }
                         }
@@ -173,20 +198,28 @@ class ScrapingData {
             }
         }.await()
 <<<<<<< HEAD
+<<<<<<< HEAD
     suspend fun foodScraping() =
 =======
     suspend fun foodScraping(url: String) =
 >>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
+=======
+    suspend fun foodScraping() =
+>>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
         runBlocking {
             async {
                 for (page: Int in 1..5) {
                     try {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                         val tmpUrl = linkServer + page.toString()
 =======
                         val tmpUrl = url + page.toString()
 >>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
+=======
+                        val tmpUrl = linkServer + page.toString()
+>>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
                         val doc = Jsoup.connect(tmpUrl)
                         val event = doc.get().getElementsByClass("row-item filter-result-item")
 

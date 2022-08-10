@@ -63,6 +63,7 @@ class MainActivity : AppCompatActivity() {
         if (user == null) {
             startActivity(Intent(this, HomeSignInActivity::class.java))
             finish()
+<<<<<<< HEAD
         }
         val auth = Firebase.auth.currentUser
         userId = auth!!.uid
@@ -117,6 +118,8 @@ class MainActivity : AppCompatActivity() {
 
                 }
             }
+=======
+>>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
         }
 
         // Passing each menu ID as a set of Ids because each

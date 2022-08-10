@@ -65,6 +65,7 @@
                 android:layout_marginTop="10dp">
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 <RatingBar
                     android:id="@+id/ratingRestaurant"
@@ -76,14 +77,19 @@
                     android:progressTint="@color/colorRating" />
 
 >>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
+=======
+>>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
                 <TextView
                     android:id="@+id/tvRating"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                     android:layout_toEndOf="@id/ratingRestaurant"
 >>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
+=======
+>>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
                     android:textColor="@color/colorBlack"
                     android:textSize="14sp" />
 
@@ -124,17 +130,23 @@
 
                 <TextView
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
                     android:id="@+id/addressID"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
                     android:text=""
+<<<<<<< HEAD
 =======
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
                     android:text="@string/address"
 >>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
+=======
+>>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
                     android:textColor="@color/colorBlack"
                     android:textSize="14sp"
                     android:textStyle="bold" />
@@ -142,18 +154,26 @@
 
                 <TextView
 <<<<<<< HEAD
+<<<<<<< HEAD
                     android:id="@+id/ratingID"
 =======
 >>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
+=======
+                    android:id="@+id/ratingID"
+>>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                     android:text=""
 =======
                     android:text="@string/jam"
 >>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
+=======
+                    android:text=""
+>>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
                     android:textColor="@color/colorBlack"
                     android:textSize="14sp"
                     android:textStyle="bold" />
@@ -175,9 +195,12 @@
                     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                     app:layout_constraintStart_toStartOf="parent"
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                     app:layout_constraintTop_toBottomOf="@id/ratingRestaurant"
 >>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
+=======
+>>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
                     app:spanCount="1" />
             </LinearLayout>
 

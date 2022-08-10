@@ -1,9 +1,13 @@
 package com.example.wehelpyoubook.restaurentInterface
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import android.content.Intent
 =======
 >>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
+=======
+import android.content.Intent
+>>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
@@ -25,6 +29,9 @@ class ListRestaurantActivity : AppCompatActivity() {
 
         // Get restaurant data from firestore
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
         val resDoc = com.example.wehelpyoubook.scrapingdata.db.collection("Restaurants")
         resDoc.get().addOnSuccessListener { documentSnapshot ->
             resList = documentSnapshot.toObjects()
@@ -36,6 +43,7 @@ class ListRestaurantActivity : AppCompatActivity() {
                 }
         }
         binding.recyclerView.setHasFixedSize(true)
+<<<<<<< HEAD
 =======
 //        val resDoc = com.example.wehelpyoubook.scrapingdata.db.collection("Restaurants")
 //        resDoc.get().addOnSuccessListener { documentSnapshot ->
@@ -47,6 +55,8 @@ class ListRestaurantActivity : AppCompatActivity() {
 //        }
 //        binding.recyclerView.setHasFixedSize(true)
 >>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
+=======
+>>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
 
         val searchView = binding.restaurantSearchboxSearchview
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {

@@ -37,6 +37,7 @@ import com.example.wehelpyoubook.homescreen.HomeActivity
 import com.example.wehelpyoubook.MainActivity
 import com.example.wehelpyoubook.R
 import com.example.wehelpyoubook.accountcontrol.auth.EmailVerificationActivity
+<<<<<<< HEAD
 import com.example.wehelpyoubook.model.User
 import com.example.wehelpyoubook.vouchercontroller.VoucherDatasource
 <<<<<<< HEAD
@@ -48,12 +49,16 @@ import com.example.wehelpyoubook.MainActivity
 import com.example.wehelpyoubook.R
 import com.example.wehelpyoubook.accountcontrol.auth.EmailVerificationActivity
 >>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
+=======
+import com.example.wehelpyoubook.vouchercontroller.VoucherDatasource
+>>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 class LoginActivity : AppCompatActivity() {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     private var setTv: TextView? = null
@@ -65,6 +70,9 @@ class LoginActivity : AppCompatActivity() {
 >>>>>>> an
 =======
 >>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
+=======
+    private var setTv: TextView? = null
+>>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
     private var editPass: TextInputEditText? = null
     private var btnCallLogin: Button? = null
     private var tvForgotPass: TextView? = null
@@ -80,12 +88,14 @@ class LoginActivity : AppCompatActivity() {
 >>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
         setContentView(R.layout.activity_login)
         editPass = findViewById(R.id.login_password_edittext)
+        setTv = findViewById(R.id.login_set_textview)
         btnCallLogin = findViewById<View>(R.id.login_button) as Button
         tvForgotPass = findViewById(R.id.forgot_password_textview)
 
         val intent = this.intent
         val email = intent.getStringExtra("email")
         auth = FirebaseAuth.getInstance()
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 =======
@@ -108,6 +118,9 @@ class LoginActivity : AppCompatActivity() {
 >>>>>>> an
 =======
 >>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
+=======
+        setTv!!.text = "Đăng nhập với $email"
+>>>>>>> dbd45e2a8c65157d53125cb85dcf374f0a3e40d7
         tvForgotPass!!.setOnClickListener {
             forgotPassword(email)
         }
