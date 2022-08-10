@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".accountcontrol.auth.EmailVerificationActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="-4dp">
+
+        <TextView
+            android:id="@+id/sendVerify"
+            android:layout_width="319dp"
+            android:layout_height="76dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginBottom="30dp"
+            android:text="@string/settv"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:drawableLeftCompat="@drawable/mail_icon" />
+
+        <Button
+            android:id="@+id/verify_button"
+            android:layout_width="275dp"
+            android:layout_height="58dp"
+            android:layout_marginTop="230dp"
+            android:text="@string/email_sent_vetification"
+            android:textColor="#6D4C41"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/continue_button"
+            android:layout_width="275dp"
+            android:layout_height="58dp"
+            android:text="@string/next"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
