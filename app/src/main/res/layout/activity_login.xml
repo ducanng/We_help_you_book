@@ -14,12 +14,16 @@
         tools:ignore="UselessParent">
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:passwordToggleEnabled="true"
             android:layout_marginTop="30dp">
 
+<<<<<<< HEAD
 =======
         <TextView
             android:id="@+id/login_set_textview"
@@ -40,6 +44,8 @@
 =======
 >>>>>>> main
 >>>>>>> an
+=======
+>>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/login_password_edittext"
                 android:layout_width="match_parent"
@@ -53,8 +59,11 @@
         </com.google.android.material.textfield.TextInputLayout>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
         <LinearLayout
             android:layout_width="411dp"
             android:layout_height="40dp"
@@ -71,6 +80,7 @@
                 android:text="@string/forgot_password"
                 android:textSize="15sp" />
         </LinearLayout>
+<<<<<<< HEAD
 =======
 >>>>>>> an
         <TextView
@@ -86,6 +96,8 @@
 =======
 >>>>>>> main
 >>>>>>> an
+=======
+>>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
 
         <Button
             android:id="@+id/login_button"

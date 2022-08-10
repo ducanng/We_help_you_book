@@ -1,6 +1,9 @@
 package com.example.wehelpyoubook.restaurentInterface
 
+<<<<<<< HEAD
 import android.content.Intent
+=======
+>>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
@@ -21,6 +24,7 @@ class ListRestaurantActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Get restaurant data from firestore
+<<<<<<< HEAD
         val resDoc = com.example.wehelpyoubook.scrapingdata.db.collection("Restaurants")
         resDoc.get().addOnSuccessListener { documentSnapshot ->
             resList = documentSnapshot.toObjects()
@@ -32,6 +36,17 @@ class ListRestaurantActivity : AppCompatActivity() {
                 }
         }
         binding.recyclerView.setHasFixedSize(true)
+=======
+//        val resDoc = com.example.wehelpyoubook.scrapingdata.db.collection("Restaurants")
+//        resDoc.get().addOnSuccessListener { documentSnapshot ->
+//            resList = documentSnapshot.toObjects()
+//            binding.recyclerView.adapter =
+//                NearRestaurantAdapter(this@ListRestaurantActivity, resList) {
+//                        res -> println(res.name)
+//                }
+//        }
+//        binding.recyclerView.setHasFixedSize(true)
+>>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
 
         val searchView = binding.restaurantSearchboxSearchview
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
@@ -47,9 +62,13 @@ class ListRestaurantActivity : AppCompatActivity() {
                 }
                 binding.recyclerView.adapter =
                     NearRestaurantAdapter(this@ListRestaurantActivity, results) {
+<<<<<<< HEAD
                             res -> val myIntent = Intent(this@ListRestaurantActivity, RestaurantInterfaceControl::class.java)
                             myIntent.putExtra("resKey",res.resID)
                             startActivity(myIntent)
+=======
+                            res -> println(res.name)
+>>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
                     }
                 return false
             }

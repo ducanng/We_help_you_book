@@ -6,7 +6,11 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/app_bar_main">
+<<<<<<< HEAD
     // manager
+=======
+
+>>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
     <fragment
         android:id="@+id/nav_host_fragment_content_main"
         android:name="androidx.navigation.fragment.NavHostFragment"

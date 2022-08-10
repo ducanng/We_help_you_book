@@ -24,6 +24,11 @@ class FoodAdapter(
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val food: Food = foodList[position]
+<<<<<<< HEAD
+=======
+        println(food.urlImage)
+        println("lll")
+>>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
         Glide.with(context).load(food.urlImage).into(holder.foodImageView)
     }
 

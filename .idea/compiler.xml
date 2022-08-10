@@ -3,6 +3,7 @@
   <component name="CompilerConfiguration">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <bytecodeTargetLevel target="11" />
 =======
 <<<<<<< HEAD
@@ -14,5 +15,8 @@
 =======
     <bytecodeTargetLevel target="11" />
 >>>>>>> 87fa3f6c1624095320e2c0fee7eb6617695afe5a
+=======
+    <bytecodeTargetLevel target="11" />
+>>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
   </component>
 </project>

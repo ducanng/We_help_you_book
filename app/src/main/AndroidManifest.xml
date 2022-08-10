@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
     package="com.example.wehelpyoubook">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -14,6 +17,7 @@
         android:roundIcon="@drawable/avatar_whybook"
         android:supportsRtl="true"
         android:theme="@style/Theme.Wehelpyoubook">
+<<<<<<< HEAD
 
         <activity
 <<<<<<< HEAD
@@ -83,6 +87,13 @@
             android:exported="false" />
         <activity
             android:name=".vouchercontroller.VoucherListActivity"
+=======
+        <activity
+            android:name=".vouchercontroller.VoucherListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MyBooking"
+>>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
             android:exported="false" />
         <activity
             android:name=".accountcontrol.info.UserInformationActivity"
@@ -93,6 +104,7 @@
         <activity
             android:name=".accountcontrol.info.ChangeNameActivity"
             android:exported="false" />
+<<<<<<< HEAD
 <<<<<<< HEAD
         <activity
             android:name=".accountcontrol.info.DeleteAccountActivity"
@@ -108,6 +120,8 @@
             android:exported="false" />
         <activity
 =======
+=======
+>>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
         <activity
             android:name=".accountcontrol.info.DeleteAccountActivity"
             android:exported="false" />
@@ -120,9 +134,13 @@
         <activity
             android:name=".accountcontrol.auth.EmailVerificationActivity"
             android:exported="false" />
+<<<<<<< HEAD
 >>>>>>> main
         <activity
 >>>>>>> an
+=======
+        <activity
+>>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
             android:name=".restaurentInterface.RestaurantInterfaceControl"
             android:exported="false" />
         <activity
@@ -142,10 +160,17 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
+<<<<<<< HEAD
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+=======
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+>>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -153,6 +178,7 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+<<<<<<< HEAD
 =======
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.wehelpyoubook">
@@ -183,6 +209,8 @@
             </intent-filter>
         </activity>
 >>>>>>> 87fa3f6c1624095320e2c0fee7eb6617695afe5a
+=======
+>>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
     </application>
 
 </manifest>

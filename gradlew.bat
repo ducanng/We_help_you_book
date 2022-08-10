@@ -1,7 +1,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 87fa3f6c1624095320e2c0fee7eb6617695afe5a
+=======
+>>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
 @rem
 @rem Copyright 2015 the original author or authors.
 @rem
@@ -91,6 +94,7 @@ exit /b 1
 if "%OS%"=="Windows_NT" endlocal
 
 :omega
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 @rem
@@ -185,3 +189,5 @@ if "%OS%"=="Windows_NT" endlocal
 >>>>>>> 2355cd98febd38ddc635250217b3e14a968fca44
 =======
 >>>>>>> 87fa3f6c1624095320e2c0fee7eb6617695afe5a
+=======
+>>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544

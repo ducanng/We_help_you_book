@@ -1,12 +1,16 @@
 package com.example.wehelpyoubook.mybooking
 
+<<<<<<< HEAD
 import android.annotation.SuppressLint
 import android.content.Intent
+=======
+>>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+<<<<<<< HEAD
 import com.example.wehelpyoubook.adapter.NearRestaurantAdapter
 import com.example.wehelpyoubook.databinding.FragmentMyBookingBinding
 import com.example.wehelpyoubook.model.Orders
@@ -15,10 +19,17 @@ import com.example.wehelpyoubook.restaurentInterface.ListRestaurantActivity
 import com.example.wehelpyoubook.restaurentInterface.RestaurantInterfaceControl
 import com.example.wehelpyoubook.update.UpdateData
 import com.google.firebase.auth.ktx.auth
+=======
+import androidx.lifecycle.ViewModelProvider
+import com.example.wehelpyoubook.databinding.FragmentMyBookingBinding
+import com.example.wehelpyoubook.feedback.FeedbackViewModel
+import com.example.wehelpyoubook.model.Orders
+>>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObjects
 import com.google.firebase.ktx.Firebase
 
+<<<<<<< HEAD
 
 @SuppressLint("StaticFieldLeak")
 val db = Firebase.firestore
@@ -28,6 +39,12 @@ class MyBookingFragment : Fragment() {
     private var _binding: FragmentMyBookingBinding? = null
     private var userId = ""
     private var manager : User = User()
+=======
+val db = Firebase.firestore
+class MyBookingFragment : Fragment() {
+    private var orderList = listOf<Orders>()
+    private var _binding: FragmentMyBookingBinding? = null
+>>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -38,7 +55,11 @@ class MyBookingFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+<<<<<<< HEAD
         //ViewModelProvider(this).get(FeedbackViewModel::class.java)
+=======
+        ViewModelProvider(this).get(FeedbackViewModel::class.java)
+>>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
 
         // Initialize data.
 
@@ -46,6 +67,7 @@ class MyBookingFragment : Fragment() {
         val root: View = binding.root
 
 
+<<<<<<< HEAD
         //binding.recyclerView.setHasFixedSize(true)
 
         getManagerRestaurantId()
@@ -105,6 +127,19 @@ class MyBookingFragment : Fragment() {
     }
 
 
+=======
+        val resDoc = db.collection("MyOrders")
+        resDoc.get().addOnSuccessListener { documentSnapshot ->
+            orderList = documentSnapshot.toObjects()
+            println(orderList.size)
+            binding.recyclerView.adapter = MyBookingAdapter(this, orderList){
+                    res-> println("hello")
+            }
+        }
+
+        return root
+    }
+>>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
 
     override fun onDestroyView() {
         super.onDestroyView()

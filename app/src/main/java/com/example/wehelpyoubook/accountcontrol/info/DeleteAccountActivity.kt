@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 <<<<<<< HEAD
+<<<<<<< HEAD
 import com.example.wehelpyoubook.MainActivity
 import com.example.wehelpyoubook.R
 =======
@@ -17,6 +18,10 @@ import com.example.wehelpyoubook.MainActivity
 import com.example.wehelpyoubook.R
 >>>>>>> main
 >>>>>>> an
+=======
+import com.example.wehelpyoubook.MainActivity
+import com.example.wehelpyoubook.R
+>>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
@@ -26,6 +31,7 @@ class DeleteAccountActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 <<<<<<< HEAD
+<<<<<<< HEAD
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 =======
 <<<<<<< HEAD
@@ -33,6 +39,8 @@ class DeleteAccountActivity : AppCompatActivity() {
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 >>>>>>> main
 >>>>>>> an
+=======
+>>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
         setContentView(R.layout.activity_delete_account)
         initDeleteAccountUI()
         cancelBtn!!.setOnClickListener {
@@ -51,6 +59,7 @@ class DeleteAccountActivity : AppCompatActivity() {
                     Toast.makeText(this, "Xóa tài khoản thành công", Toast.LENGTH_SHORT)
                         .show()
 <<<<<<< HEAD
+<<<<<<< HEAD
                     startActivity(Intent(this, MainActivity::class.java))
 =======
 <<<<<<< HEAD
@@ -59,6 +68,9 @@ class DeleteAccountActivity : AppCompatActivity() {
                     startActivity(Intent(this, MainActivity::class.java))
 >>>>>>> main
 >>>>>>> an
+=======
+                    startActivity(Intent(this, MainActivity::class.java))
+>>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
                 }
             }
     }
@@ -67,6 +79,7 @@ class DeleteAccountActivity : AppCompatActivity() {
         cancelBtn = findViewById(R.id.cancel_and_back_button)
         deleteBtn = findViewById(R.id.delete_account_button)
     }
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
@@ -80,4 +93,6 @@ class DeleteAccountActivity : AppCompatActivity() {
 =======
 >>>>>>> main
 >>>>>>> an
+=======
+>>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
 }

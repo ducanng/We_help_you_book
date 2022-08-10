@@ -4,23 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     android:background="@color/Primary"
+=======
+    android:background="@color/colorPrimary"
+>>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
     android:fitsSystemWindows="true">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:layout_marginBottom="25dp">
         <!--        android:theme="@style/AppTheme.AppBarOverlay"-->
         <!--        app:navigationIcon="@drawable/ic_back">-->
+=======
+        android:layout_marginBottom="25dp"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:navigationIcon="@drawable/ic_back">
+>>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
 
         <TextView
             android:id="@+id/tvTitle"
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:layout_gravity="center"
+=======
+>>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
             android:ellipsize="marquee"
             android:marqueeRepeatLimit="marquee_forever"
             android:singleLine="true"
@@ -51,10 +64,26 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp">
 
+<<<<<<< HEAD
+=======
+                <RatingBar
+                    android:id="@+id/ratingRestaurant"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerInParent="true"
+                    android:progressTint="@color/colorRating" />
+
+>>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
                 <TextView
                     android:id="@+id/tvRating"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+<<<<<<< HEAD
+=======
+                    android:layout_toEndOf="@id/ratingRestaurant"
+>>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
                     android:textColor="@color/colorBlack"
                     android:textSize="14sp" />
 
@@ -94,23 +123,37 @@
                 android:orientation="vertical">
 
                 <TextView
+<<<<<<< HEAD
                     android:id="@+id/addressID"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
                     android:text=""
+=======
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/address"
+>>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
                     android:textColor="@color/colorBlack"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
 
                 <TextView
+<<<<<<< HEAD
                     android:id="@+id/ratingID"
+=======
+>>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
 
+<<<<<<< HEAD
                     android:text=""
+=======
+                    android:text="@string/jam"
+>>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
                     android:textColor="@color/colorBlack"
                     android:textSize="14sp"
                     android:textStyle="bold" />
@@ -131,6 +174,10 @@
                     android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                     app:layout_constraintStart_toStartOf="parent"
+<<<<<<< HEAD
+=======
+                    app:layout_constraintTop_toBottomOf="@id/ratingRestaurant"
+>>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
                     app:spanCount="1" />
             </LinearLayout>
 

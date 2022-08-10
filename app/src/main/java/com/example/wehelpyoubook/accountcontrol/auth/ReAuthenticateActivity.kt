@@ -8,6 +8,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 <<<<<<< HEAD
+<<<<<<< HEAD
 import com.example.wehelpyoubook.MainActivity
 =======
 <<<<<<< HEAD
@@ -15,6 +16,8 @@ import com.example.wehelpyoubook.MainActivity
 import com.example.wehelpyoubook.MainActivity
 >>>>>>> main
 >>>>>>> an
+=======
+>>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
 import com.example.wehelpyoubook.accountcontrol.info.DeleteAccountActivity
 import com.example.wehelpyoubook.R
 import com.example.wehelpyoubook.accountcontrol.info.ChangeEmailActivity
@@ -36,6 +39,7 @@ class ReAuthenticateActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_re_authenticate)
 <<<<<<< HEAD
+<<<<<<< HEAD
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 =======
 <<<<<<< HEAD
@@ -43,6 +47,8 @@ class ReAuthenticateActivity : AppCompatActivity() {
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 >>>>>>> main
 >>>>>>> an
+=======
+>>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
         initReAuthenticateUI()
         val intent = this.intent
         val change = intent.getStringExtra("choose")!!.toString()
@@ -96,6 +102,7 @@ class ReAuthenticateActivity : AppCompatActivity() {
             }
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 =======
@@ -108,4 +115,6 @@ class ReAuthenticateActivity : AppCompatActivity() {
 =======
 >>>>>>> main
 >>>>>>> an
+=======
+>>>>>>> d3a1e2e87bf0def9abbbaba35558de4ed77c9544
 }
