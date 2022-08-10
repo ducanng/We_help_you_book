@@ -1,4 +1,5 @@
 <resources>
+<<<<<<< HEAD
     <!-- Hoang -->
     <string name="app_name">WhyBook?</string>
     <string name="rate">Rate: %1$s</string>
@@ -125,4 +126,7 @@
 =======
 >>>>>>> main
 >>>>>>> an
+=======
+    <string name="app_name">WeHelpYouBook</string>
+>>>>>>> 87fa3f6c1624095320e2c0fee7eb6617695afe5a
 </resources>

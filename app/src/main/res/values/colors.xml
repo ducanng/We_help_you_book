@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<<<<<<< HEAD
     <color name="Primary">#a5d6a7</color>  <!-- Theme-->
     <color name="PrimaryVariant">#d7ffd9</color>
     <color name="OnPrimary" >#FFFFFF</color> <!-- Text,button -->
@@ -8,6 +9,8 @@
     <color name="SecondaryVariant">#FFFFFF</color> <!-- BK -->
     <color name="OnSecondary">#FFFFFF</color>
 
+=======
+>>>>>>> 87fa3f6c1624095320e2c0fee7eb6617695afe5a
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
@@ -15,6 +18,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+<<<<<<< HEAD
 
     <color name="green">#1B5E20</color>
     <color name="green_dark">#003300</color>
@@ -29,4 +33,6 @@
     <color name="colorGreen">#66bb6a</color>
     <color name="colorWhite">#ffffff</color>
     <color name="colorRating">#FBC02D</color>
+=======
+>>>>>>> 87fa3f6c1624095320e2c0fee7eb6617695afe5a
 </resources>

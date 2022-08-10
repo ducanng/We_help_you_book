@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
         <entry key="..\:/Users/HP/Desktop/Learninggit/We_help_you_book/app/src/main/res/layout/activity_change_password.xml" value="0.25833333333333336" />
@@ -27,6 +28,14 @@
         <entry key="..\:/Users/HP/Desktop/Learninggit/We_help_you_book/app/src/main/res/layout/content_main.xml" value="0.25833333333333336" />
         <entry key="..\:/Users/HP/Desktop/Learninggit/We_help_you_book/app/src/main/res/layout/nav_header_main.xml" value="0.25833333333333336" />
         <entry key="..\:/Users/HP/Desktop/Learninggit/We_help_you_book/app/src/main/res/layout/near_restaurant_gird_list.xml" value="0.136" />
+=======
+        <entry key="..\:/WeHelpYouBook2/app/src/main/res/layout/activity_list_restaurent.xml" value="0.2210144927536232" />
+        <entry key="..\:/WeHelpYouBook2/app/src/main/res/layout/activity_list_voucher.xml" value="0.2210144927536232" />
+        <entry key="..\:/WeHelpYouBook2/app/src/main/res/layout/activity_main.xml" value="0.2210144927536232" />
+        <entry key="..\:/WeHelpYouBook2/app/src/main/res/layout/my_list_item.xml" value="0.2210144927536232" />
+        <entry key="..\:/WeHelpYouBook2/app/src/main/res/menu/my_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/We_help_you_book/app/src/main/res/layout/my_list_item.xml" value="0.12360688956433637" />
+>>>>>>> 87fa3f6c1624095320e2c0fee7eb6617695afe5a
       </map>
     </option>
   </component>
@@ -37,7 +46,10 @@
     <option name="id" value="Android" />
   </component>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> main
 >>>>>>> an
+=======
+>>>>>>> 87fa3f6c1624095320e2c0fee7eb6617695afe5a
 </project>

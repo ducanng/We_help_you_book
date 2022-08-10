@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 buildscript {
     dependencies {
         classpath 'com.google.gms:google-services:4.3.13'
@@ -7,6 +8,12 @@ plugins {
     id 'com.android.application' version '7.2.1' apply false
     id 'com.android.library' version '7.2.1' apply false
     id 'org.jetbrains.kotlin.android' version '1.7.10' apply false
+=======
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+plugins {
+    id 'com.android.application' version '7.2.0' apply false
+    id 'com.android.library' version '7.2.0' apply false
+>>>>>>> 87fa3f6c1624095320e2c0fee7eb6617695afe5a
 }
 
 task clean(type: Delete) {
