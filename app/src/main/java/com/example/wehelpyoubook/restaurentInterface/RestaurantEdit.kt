@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
 import com.example.wehelpyoubook.MainActivity
 import com.example.wehelpyoubook.databinding.ActivityRestaurantEditBinding
-import com.example.wehelpyoubook.home.HomeFragment
 import com.example.wehelpyoubook.model.Restaurant
 import com.example.wehelpyoubook.model.User
 import com.google.firebase.auth.ktx.auth
@@ -17,10 +16,6 @@ import com.google.firebase.ktx.Firebase
 class RestaurantEdit : AppCompatActivity() {
     private lateinit var binding : ActivityRestaurantEditBinding
     private var res : Restaurant = Restaurant()
-    private var resName : String = ""
-    private var restAddress : String = ""
-    private var resImage : String = ""
-    private var resRate : String = ""
     private  var manager : User = User()
     private var documentID : String = ""
 
@@ -59,7 +54,7 @@ class RestaurantEdit : AppCompatActivity() {
 
             startActivity(Intent(this@RestaurantEdit, RestaurantEdit::class.java))
         }
-        binding.restaurantEditCancelButton.setOnClickListener(){
+        binding.restaurantEditCancelButton.setOnClickListener {
             startActivity(Intent(this@RestaurantEdit, MainActivity::class.java))
         }
     }
@@ -82,7 +77,7 @@ class RestaurantEdit : AppCompatActivity() {
     }
     private fun getMangedRestaurantId() {
         val auth = Firebase.auth.currentUser
-        var userId = auth!!.uid
+        val userId = auth!!.uid
 
         val resDoc = db.collection("Users").whereEqualTo("id",userId)
         resDoc.get().addOnSuccessListener { documentSnapshot ->

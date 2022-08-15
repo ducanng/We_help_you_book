@@ -8,22 +8,17 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.wehelpyoubook.MainActivity
 import com.example.wehelpyoubook.R
 import com.example.wehelpyoubook.adapter.FoodAdapter
 import com.example.wehelpyoubook.adapter.ReviewAdapter
-import com.example.wehelpyoubook.databinding.FragmentMyBookingBinding
 import com.example.wehelpyoubook.model.*
-import com.example.wehelpyoubook.mybooking.MyBookingAdapter
 import com.example.wehelpyoubook.notification.NotificationActivity
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.DocumentChange
@@ -48,8 +43,6 @@ class RestaurantInterfaceControl : AppCompatActivity() {
     private lateinit var foodRecyclerView: RecyclerView
     private lateinit var foodAdapter: FoodAdapter
     private lateinit var foodArrayList: ArrayList<Food>
-    private lateinit var yesBook: Button
-    private lateinit var noBook: Button
     private lateinit var rating: TextView
     private lateinit var address: TextView
 
@@ -72,15 +65,13 @@ class RestaurantInterfaceControl : AppCompatActivity() {
 
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
-        button.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(view: View?) {
-                val review = comment.text.toString().trim()
-                comment.setText("")
-                if (review != "") {
-                    uploadComment(review)
-                }
+        button.setOnClickListener {
+            val review = comment.text.toString().trim()
+            comment.setText("")
+            if (review != "") {
+                uploadComment(review)
             }
-        })
+        }
 
         val auth = Firebase.auth.currentUser
         userId = auth!!.uid
@@ -127,7 +118,7 @@ class RestaurantInterfaceControl : AppCompatActivity() {
         userId = auth!!.uid
         val review = Review(
             resID,
-            auth!!.uid,
+            auth.uid,
             review
         )
         com.example.wehelpyoubook.accountcontrol.user.db.collection("Reviews")
@@ -197,18 +188,18 @@ class RestaurantInterfaceControl : AppCompatActivity() {
 
     }
 
-    fun getBookingTime(time: String): String {
+    private fun getBookingTime(time: String): String {
         return time.split(" ")[3]
     }
 
-    fun bookingDialogAction(){
+    private fun bookingDialogAction(){
 
         val doc = com.example.wehelpyoubook.scrapingdata.db
             .collection("Vouchers")
             .whereEqualTo("resId", resID)
         doc.get().addOnSuccessListener { documentSnapshot ->
             val tmpData = documentSnapshot.toObjects<Voucher>()
-            var listCurrentVoucher = mutableListOf<Voucher>()
+            val listCurrentVoucher = mutableListOf<Voucher>()
 
             if (tmpData.isNotEmpty()) {
                 for (item in tmpData){
@@ -236,7 +227,7 @@ class RestaurantInterfaceControl : AppCompatActivity() {
         val myCalender: Calendar = Calendar.getInstance()
         val hour: Int = myCalender.get(Calendar.HOUR_OF_DAY)
         val minute: Int = myCalender.get(Calendar.MINUTE)
-        var res: String = ""
+        var res = ""
         val myTimeListener =
             TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute ->
                 if (view.isShown) {
@@ -247,7 +238,7 @@ class RestaurantInterfaceControl : AppCompatActivity() {
                         UpOrder(res, "")
                     }
                     else{
-                        UpOrder(res, voucher.description!!)
+                        UpOrder(res, voucher.description)
                         uploadUsedVouchers(voucher)
                     }
                     Toast.makeText(
@@ -276,9 +267,9 @@ class RestaurantInterfaceControl : AppCompatActivity() {
 
 
 
-    fun UpOrder(time: String,description: String) {
-        var timeEnd = calcDifTime(time)
-        var order = Orders(
+    private fun UpOrder(time: String, description: String) {
+        val timeEnd = calcDifTime(time)
+        val order = Orders(
             userId,
             resID,
             time,
@@ -302,23 +293,20 @@ class RestaurantInterfaceControl : AppCompatActivity() {
     }
 
     private fun calcDifTime(tmpStr: String): String {
-        if(tmpStr == ""){
-            val res = tmpStr
-            return res
+        if (tmpStr == "") {
+            return tmpStr
         }
-        val currentString = tmpStr
-        val separated = currentString.split(":").toMutableList()
+        val separated = tmpStr.split(":").toMutableList()
 
         //val content = "Time ending: "
-        if (separated[0] == "23"){
+        if (separated[0] == "23") {
             separated[0] = "-1"
         }
         val difHour = separated[0].toInt() + 1
         val difMin = separated[1]
         val difSec = separated[2]
-        val res = (difHour).toString() + " giờ " + difMin + " phút " + difSec + " giây"
 
-        return res
+        return (difHour).toString() + " giờ " + difMin + " phút " + difSec + " giây"
     }
 
     private fun chooseVoucher(listVoucher: List<Voucher>) {
@@ -330,7 +318,7 @@ class RestaurantInterfaceControl : AppCompatActivity() {
         }
         val builder = AlertDialog.Builder(this@RestaurantInterfaceControl)
         builder.setTitle("Choose a voucher")
-        var order : Int = 0
+        var order = 0
         builder.setSingleChoiceItems(listVoucherName.toTypedArray(), 0) { dialog, which ->
             order = which
         }
@@ -349,7 +337,7 @@ class RestaurantInterfaceControl : AppCompatActivity() {
         dialog.show()
     }
     private fun uploadUsedVouchers(voucher : Voucher) {
-        var usedVoucher = UsedVoucher(
+        val usedVoucher = UsedVoucher(
             voucher.description,
             voucher.imageUrl,
             voucher.percentage,
@@ -383,8 +371,6 @@ class RestaurantInterfaceControl : AppCompatActivity() {
         }
     }
 
-    private var orderList = listOf<Orders>()
-
     private fun sendNotify(userId: String, resID: String,time: String,
                            timeEnd: String,description:String){
 
@@ -406,7 +392,7 @@ class RestaurantInterfaceControl : AppCompatActivity() {
 
         val pendingIntent: PendingIntent = PendingIntent
             .getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE)
-        var builder = NotificationCompat.Builder(this, CHANNEL_ID)
+        val builder = NotificationCompat.Builder(this, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_baseline_notifications)
             .setContentTitle("Booking successfully")
             //.setContentText("Time booking: " + time + "\n" + timeEnd + "\n" + description)

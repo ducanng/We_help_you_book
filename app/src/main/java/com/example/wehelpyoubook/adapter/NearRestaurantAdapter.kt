@@ -8,7 +8,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.target.Target.SIZE_ORIGINAL
 import com.example.wehelpyoubook.R
 import com.example.wehelpyoubook.model.Restaurant
 
@@ -34,7 +33,7 @@ class NearRestaurantAdapter (
 
         val resources = context.resources
         Glide.with(context).load(res.imageUrl).into(holder.imageView)
-        holder.imageView.setOnClickListener(){
+        holder.imageView.setOnClickListener {
             listener(res)
         }
         holder.nameTextView.text = res.name

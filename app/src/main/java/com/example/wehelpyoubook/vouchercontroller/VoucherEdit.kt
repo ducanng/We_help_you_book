@@ -73,7 +73,7 @@ class VoucherEdit : AppCompatActivity() {
 
             startActivity(Intent(this@VoucherEdit,VoucherListActivity::class.java))
         }
-        binding.voucherEditCancelButton.setOnClickListener(){
+        binding.voucherEditCancelButton.setOnClickListener {
             startActivity(Intent(this@VoucherEdit,VoucherListActivity::class.java))
         }
     }

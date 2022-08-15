@@ -1,10 +1,6 @@
 package com.example.wehelpyoubook.firestorecontrol
 
-import android.content.Context
-import androidx.navigation.NavDestination
-import com.example.wehelpyoubook.model.*
 import com.example.wehelpyoubook.scrapingdata.db
-import com.google.firebase.firestore.ktx.toObjects
 
 class FirestoreApi {
     fun removeReview(){

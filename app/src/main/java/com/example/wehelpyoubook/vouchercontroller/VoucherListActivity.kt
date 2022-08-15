@@ -18,8 +18,7 @@ class VoucherListActivity : AppCompatActivity() {
     private lateinit var binding: ActivityVoucherListBinding
     private var userId = ""
     private var manager : User = User()
-    private var voucherDescription : String = ""
-    var voucherList = listOf<Voucher>()
+    private var voucherList = listOf<Voucher>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityVoucherListBinding.inflate(layoutInflater)
@@ -54,7 +53,7 @@ class VoucherListActivity : AppCompatActivity() {
                 VoucherAdapter(this@VoucherListActivity, voucherList) {
                         voucher,type ->  when (type) {
                     "Edit" -> {
-                        var intent = Intent(this@VoucherListActivity, VoucherEdit::class.java)
+                        val intent = Intent(this@VoucherListActivity, VoucherEdit::class.java)
                         intent.putExtra("resKey", manager.restaurantManager)
                         intent.putExtra("voucherDescription", voucher.description)
                         startActivity(intent)
@@ -66,7 +65,7 @@ class VoucherListActivity : AppCompatActivity() {
                             .whereEqualTo("description", voucher.description)
                         resDoc.get().addOnSuccessListener { documentSnapshot ->
                             if (documentSnapshot.documents.isNotEmpty()) {
-                                var documentRemoveId = documentSnapshot.documents[0].id
+                                val documentRemoveId = documentSnapshot.documents[0].id
                                 db.collection("Vouchers").document(documentRemoveId).delete()
                             }
                             fetchVoucherList()
@@ -80,8 +79,8 @@ class VoucherListActivity : AppCompatActivity() {
         binding.recyclerView.setHasFixedSize(true)
     }
     private fun addNewVoucher(){
-        binding.addVoucherBt.setOnClickListener(){
-            var intent = Intent(this@VoucherListActivity, VoucherEdit::class.java)
+        binding.addVoucherBt.setOnClickListener {
+            val intent = Intent(this@VoucherListActivity, VoucherEdit::class.java)
             intent.putExtra("resKey", manager.restaurantManager)
             intent.putExtra("actionType", "add")
             startActivity(intent)

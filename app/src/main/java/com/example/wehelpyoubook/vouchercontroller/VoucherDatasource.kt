@@ -8,8 +8,8 @@ import com.example.wehelpyoubook.scrapingdata.db
 
 class VoucherDatasource {
 
-    fun getData(userId: String,resId : String) : List<Voucher>{
-        var voucherList = mutableListOf<Voucher>()
+    private fun getData(userId: String, resId : String) : List<Voucher>{
+        val voucherList = mutableListOf<Voucher>()
         voucherList.add(Voucher("Voucher giảm 5%", R.drawable.avatar_whybook, 5,userId,resId))
         voucherList.add(Voucher("Voucher giảm 10%", R.drawable.avatar_whybook, 10,userId,resId))
         voucherList.add(Voucher("Voucher giảm 15%", R.drawable.avatar_whybook, 15,userId,resId))
@@ -17,12 +17,11 @@ class VoucherDatasource {
         return voucherList
     }
     fun UpVoucherData(userId : String,resId : String){
-        var voucherList = getData(userId,resId)
+        val voucherList = getData(userId,resId)
         for (v in voucherList) {
-            var voucher = v
             db.collection("Vouchers")
                 .add(
-                    voucher
+                    v
                 )
                 .addOnSuccessListener { documentReference ->
                     Log.d(ContentValues.TAG, "Voucher added with ID: ${documentReference.id}")

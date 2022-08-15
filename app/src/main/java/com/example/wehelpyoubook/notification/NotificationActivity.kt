@@ -7,29 +7,14 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.ViewGroup
-import android.widget.Button
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-import com.example.wehelpyoubook.MainActivity
 import com.example.wehelpyoubook.R
-import com.example.wehelpyoubook.accountcontrol.HomeSignInActivity
-import com.example.wehelpyoubook.databinding.ActivityMainBinding
-import com.example.wehelpyoubook.databinding.ActivityNotificationBinding
-import com.example.wehelpyoubook.databinding.ActivityUpdateDataBinding
-import com.example.wehelpyoubook.model.Orders
-import com.example.wehelpyoubook.mybooking.db
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.ktx.toObjects
-import com.google.firebase.ktx.Firebase
 
-class NotificationActivity() : AppCompatActivity() {
+class NotificationActivity : AppCompatActivity() {
     private val CHANNEL_ID = "1234"
     private val notificationId = 101
-    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         R.id.btn_Notify.apply {
@@ -56,7 +41,7 @@ class NotificationActivity() : AppCompatActivity() {
         }
         val pendingIntent: PendingIntent = PendingIntent
             .getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE)
-        var builder = NotificationCompat.Builder(this, CHANNEL_ID)
+        val builder = NotificationCompat.Builder(this, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_launcher_background)
             .setContentTitle("My notification")
             .setContentText("Booking successfully")

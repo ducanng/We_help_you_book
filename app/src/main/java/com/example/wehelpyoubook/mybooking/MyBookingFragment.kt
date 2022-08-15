@@ -50,7 +50,7 @@ class MyBookingFragment : Fragment() {
         return root
     }
     private fun getUserRestaurantId() {
-        var customer = Firebase.auth.currentUser
+        val customer = Firebase.auth.currentUser
         val resDoc = db.collection("MyOrders")
         resDoc.whereEqualTo("userId",customer!!.uid).get().addOnSuccessListener { documentSnapshot ->
             orderList = documentSnapshot.toObjects()
@@ -77,7 +77,7 @@ class MyBookingFragment : Fragment() {
         resDoc.get().addOnSuccessListener { documentSnapshot ->
             if (documentSnapshot.toObjects<User>().isNotEmpty()){
                 manager = documentSnapshot.toObjects<User>()[0]
-                if(manager!!.role == "customer"){
+                if(manager.role == "customer"){
                     getUserRestaurantId()
 
                 }

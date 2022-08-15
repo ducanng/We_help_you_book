@@ -10,8 +10,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.wehelpyoubook.MainActivity
 import com.example.wehelpyoubook.R
-import com.example.wehelpyoubook.home.HomeFragment
-import com.example.wehelpyoubook.mybooking.MyBookingFragment
 
 class Feedback : AppCompatActivity() {
 

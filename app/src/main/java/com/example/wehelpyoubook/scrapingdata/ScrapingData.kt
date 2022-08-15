@@ -15,10 +15,7 @@ private const val linkServer = "https://www.foody.vn/ho-chi-minh/food/dia-diem?q
 private  const val mainUrl : String = "https://www.foody.vn/"
 private const val TAG = "MyActivity"
 class ScrapingData {
-    var resList = ArrayList<Restaurant>()
-    var reviewList = ArrayList<Review>()
-    var userList = ArrayList<User>()
-    var foodList = ArrayList<Food>()
+    private var resList = ArrayList<Restaurant>()
     private fun getID(src : String) :String{
         val id  = src.split("/")
         return id[5]
@@ -154,7 +151,7 @@ class ScrapingData {
 
                             val resUrl = mainUrl + i.getElementsByTag("a").attr("href")
                             // Get data of food
-                            val focusFoodUrl = resUrl + "/album-mon-an"
+                            val focusFoodUrl = "$resUrl/album-mon-an"
                             val foodDoc = Jsoup.connect(focusFoodUrl)
 
                             val foodEvent = foodDoc.get().getElementsByClass("thumb-image")
