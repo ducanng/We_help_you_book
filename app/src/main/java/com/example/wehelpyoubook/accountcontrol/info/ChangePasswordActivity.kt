@@ -7,8 +7,11 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.wehelpyoubook.MainActivity
 import com.example.wehelpyoubook.R
+import com.example.wehelpyoubook.model.User
+import com.example.wehelpyoubook.mybooking.db
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.toObjects
 import com.google.firebase.ktx.Firebase
 
 class ChangePasswordActivity : AppCompatActivity() {
@@ -58,7 +61,31 @@ class ChangePasswordActivity : AppCompatActivity() {
     }
     private fun changePassword(newPass: String) {
         val user = Firebase.auth.currentUser
-        user!!.updatePassword(newPass)
+        db.collection("Users")
+            .whereEqualTo("id", user!!.uid)
+            .get()
+            .addOnSuccessListener { documentSnap ->
+                if(documentSnap.documents.isNotEmpty()) {
+                    val curUser = documentSnap.toObjects<User>()[0]
+
+                    val documentRemoveId = documentSnap.documents[0].id
+                    db.collection("Users").document(documentRemoveId).delete()
+                    db.collection("Users").add(
+                        User(
+                            curUser.Id,
+                            "https://images.foody.vn/default/s50/user-default-female.png",
+                            curUser.name,
+                            curUser.role,
+                            curUser.email,
+                            curUser.email,
+                            newPass,
+                            "",
+                            curUser.role
+                        )
+                    )
+                }
+            }
+        user.updatePassword(newPass)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     startActivity(Intent(this, UserInformationActivity::class.java))

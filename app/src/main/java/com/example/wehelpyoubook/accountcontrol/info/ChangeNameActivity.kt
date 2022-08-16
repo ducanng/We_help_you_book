@@ -8,8 +8,11 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.wehelpyoubook.MainActivity
 import com.example.wehelpyoubook.R
+import com.example.wehelpyoubook.model.User
+import com.example.wehelpyoubook.mybooking.db
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.auth.ktx.userProfileChangeRequest
+import com.google.firebase.firestore.ktx.toObjects
 import com.google.firebase.ktx.Firebase
 
 class ChangeNameActivity : AppCompatActivity() {
@@ -27,10 +30,33 @@ class ChangeNameActivity : AppCompatActivity() {
     }
     private fun saveDisplayName() {
         val user = Firebase.auth.currentUser ?: return
+        val name = nameEdit!!.text.toString()
+        db.collection("Users")
+            .whereEqualTo("id", user.uid)
+            .get()
+            .addOnSuccessListener { documentSnap ->
+                if(documentSnap.documents.isNotEmpty()) {
+                    val curUser = documentSnap.toObjects<User>()[0]
+
+                    val documentRemoveId = documentSnap.documents[0].id
+                    db.collection("Users").document(documentRemoveId).delete()
+                    db.collection("Users").add(
+                        User(
+                            curUser.Id,
+                            "https://images.foody.vn/default/s50/user-default-female.png",
+                            name,
+                            curUser.role,
+                            curUser.email,
+                            curUser.email,
+                            curUser.password,
+                            "",
+                            curUser.role
+                        )
+                    )
+                }
+            }
         val profileUpdates = userProfileChangeRequest {
-            displayName = nameEdit!!.text.toString()
-            println("Tên " + nameEdit!!.text.toString())
-            println(displayName)
+            displayName = name
         }
         user.updateProfile(profileUpdates)
             .addOnCompleteListener { task ->
